@@ -1,0 +1,199 @@
+<br/>
+<div class="searchResultList">
+  <table width="100%" border="0">
+    <tr>
+      <td width="9%" rowspan="2" style="padding: 9px"><img ng-src="{{app_info.icon}}" width="72" height="72" class="sImg" alt="img"></td>
+      <td width="77%">
+        <span class="sRTitle c3"> <a href="../../index.html#/app_content/{{app_info.app_id}}" target="_blank"> {{app_info.name}}</a></span>
+        <span class="db sRBtn"> {{app_info.ori_classes}}
+         App ID:<a href="{{app_info.download_url}}" target="_blank">{{app_info.app_id}}</a></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+
+<div class="clearfix">
+  <ul class="nav nav-tabs c-font-uppercase c-font-bold">
+    <li class="active">
+      <a href="#solution/{{app_info.app_id}}" data-toggle="tab">方案</a>
+    </li>
+    <li>
+      <a href="#word/{{app_info.app_id}}" data-toggle="tab">选词</a>
+    </li>
+    <li>
+      <a href="#watch/{{app_info.app_id}}" data-toggle="tab">监控</a>
+    </li>
+  </ul>
+</div>
+
+<br/>
+
+<div class="row" id="form_area">
+  <div class="col-lg-12">
+    <form role="form" class="form-inline" name="append_user_keyword" ng-submit="add_word(word)">
+      <div class="input-group col-sm-10">
+        <input type="text" class="form-control" placeholder="输入一个或多个关键词,用英文逗号分开..." ng-model="word">
+      </div>
+      <button type="submit"  class="btn btn-primary pull-right">添加关键词</button>
+    </form>
+  </div>
+</div>
+<!-- /#from_area -->
+<br/>
+
+<div  ui-grid="word_grid" ui-grid-auto-resize ui-grid-exporter></div>
+<!--<img ng-show="aso_solution_show_wait" src="http://cdn.appbk.com/images/wait1.gif">-->
+<div class="sk-circle" ng-show='aso_solution_show_wait'>
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>
+
+<br>
+
+
+<div class="pull-right">
+  <button id="refresh_button" type="button" ng-click="update_search_result()" class="btn btn-primary popover-hide" data-container="body" data-toggle="popover" data-placement="left"
+            data-content="已提交更新，预计3分钟后排名会有变化" title="" aria-describedby="refresh_button">
+      刷新APP排名
+    </button>
+
+</div>
+
+<br>
+
+
+
+<br/>
+本次计划任务
+  [ <input type="text" name="name" size="12" class="aso_input" ng-model="period" value="{{period}}" ng-change="change_value()"> ]个周期({{6*period}}天),
+每个CPSA单价[<input type="text" name="name" size="12" class="aso_input" ng-model="cpsa_cost" value="{{cpsa_cost}}" ng-change="change_value()"> ]元,
+
+总计[{{200*high_pos_word+period*total_amount}}]个CPSA,共计 [ {{(200*high_pos_word+period*total_amount)*cpsa_cost}} ]元。</p>
+
+
+<p ng-show="show_pre_job">
+  前置任务：冲排名关键词中,有[{{high_pos_word}}]个排名在50以外,本次任务已多增加[{{200*high_pos_word}}]个CPSA，用于提前一天提升排名到50以内。
+  <a href="" title="" data-container="body" data-toggle="popover"
+     data-content="如果不需要可在“具体方案”中删除" id="tips1">
+    <i class="fa fa-question-circle fa-lg fa-fw"></i></a>
+  <!--（如果不需要可在"具体方案"中删除）-->
+</p>
+
+
+
+<br/>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-target="#collapseOne" style="cursor:pointer">
+        具体方案(点击查看详情↓↓↓)
+      </a>
+    </h4>
+  </div>
+  <div id="collapseOne" class="panel-collapse collapse">
+    <div class="panel-body">
+      <p>常规任务：预计冲排名3天共需要[<input type="text" name="name" size="12" class="aso_input" ng-model="top_amount" value="{{top_amount}}" ng-change="change_value()">]个CPSA,
+        维持排名3天共需要[<input type="text" name="name" size="12" class="aso_input"  ng-model="hold_amount" value="{{hold_amount}}" ng-change="change_value()">]个CPSA,
+        一个周期6天共需要[{{total_amount}}]个CPSA</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次计划任务周期
+        [ <input type="text" name="name" size="12" class="aso_input" ng-model="period" value="{{period}}" ng-change="change_value()"> ]个({{6*period}}天),共{{period*total_amount}}个CPSA。</p>
+
+      <p ng-show="show_pre_job">
+        前置任务：冲排名关键词中,有[{{high_pos_word}}]个排名在50以外,本次任务已多增加[{{200*high_pos_word}}]个CPSA，用于提前一天提升排名到50以内。
+      </p>
+
+      <p>总价计算：总计[{{200*high_pos_word+period*total_amount}}]个CPSA，每个CPSA单价[<input type="text" name="name" size="12" class="aso_input" ng-model="cpsa_cost" value="{{cpsa_cost}}" ng-change="change_value()"> ]元，
+        共计 [<input type="text" name="name" size="12" class="aso_input"  value="{{(200*high_pos_word+period*total_amount)*cpsa_cost}}">]元。</p>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-target="#collapseTwo" style="cursor:pointer">
+        正式方案文本供复制用(点击查看详情↓↓↓)
+      </a>
+    </h4>
+  </div>
+  <div id="collapseTwo" class="panel-collapse collapse">
+    <div class="panel-body">
+      <p>常规任务：预计冲排名3天共需要[ {{top_amount}} ]个CPSA,
+        维持排名3天共需要[ {{hold_amount}} ]个CPSA,
+        一个周期6天共需要[ {{total_amount}} ]个CPSA</p>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次计划任务周期
+        [ {{period}} ]个({{6*period}}天),共 {{period*total_amount}} 个CPSA。</p>
+
+      <p ng-show="show_pre_job">
+        前置任务：冲排名关键词中,有[{{high_pos_word}}]个排名在50以外,本次任务已多增加[{{200*high_pos_word}}]个CPSA，用于提前一天提升排名到50以内。
+      </p>
+
+      <p>总价计算：总计[ {{200*high_pos_word+period*total_amount}} ]个CPSA，每个CPSA单价[ {{cpsa_cost}} ]元，
+        共计 [ {{(200*high_pos_word+period*total_amount)*cpsa_cost}} ]元。</p>
+
+    </div>
+  </div>
+</div>
+
+<div>
+<h3>方案说明</h3>
+<li><span class="glyphicon glyphicon-hand-right mr1"></span>冲榜和维榜量方案根据关键词热度和App排名个性化计算；</li>
+<li><span class="glyphicon glyphicon-hand-right mr1"></span>任务周期为6天，主要是苹果大概3天更新一次，冲排名维持3天，维持排名3天共计6天；</li>
+<li><span class="glyphicon glyphicon-hand-right mr1"></span>如有需要，可以手动调整下列周期、量级、单价等数字。</li>
+<li><span class="glyphicon glyphicon-hand-right mr1"></span>如果热度大于8000,真人量可能较难维持,可能需要机器量。</li>
+</div>
+
+<!--
+正式方案文本：
+<p><b>常规任务</b>：预计冲排名需要[{{top_amount}}]个CPSA，
+  维持排名需要[{{hold_amount}}]个CPSA，
+  一个周期共需要[{{total_amount}}]个CPSA</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次计划任务周期
+  [{{period}}]个( {{3*period}}天),共{{period*total_amount}}个CPSA</p>
+
+<p ng-show="show_pre_job">
+  <b>前置任务</b>：冲榜词中，有个[{{high_pos_word}}]个排名小于50,故需要预先执行200*[{{high_pos_word}}] = [{{200*high_pos_word}}]个CPSA.
+</p>
+
+<p><b>总价计算</b>：总计[{{200*high_pos_word+period*total_amount}}]个CPSA，
+  每个CPSA单价[{{cpsa_cost}}]元，
+  共计 [{{(200*high_pos_word+period*total_amount)*cpsa_cost}}]元。</p>
+
+<br/>
+-->
+
+
+
+
+
+
+<!--<p>常规任务：预计冲排名3天共需要[<input type="text" name="name" size="12" class="aso_input" ng-model="top_amount" value="{{top_amount}}" ng-change="change_value()">]个CPSA,-->
+  <!--维持排名3天共需要[<input type="text" name="name" size="12" class="aso_input"  ng-model="hold_amount" value="{{hold_amount}}" ng-change="change_value()">]个CPSA,-->
+  <!--一个周期6天共需要[{{total_amount}}]个CPSA</p>-->
+<!--<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本次计划任务周期-->
+  <!--[ <input type="text" name="name" size="12" class="aso_input" ng-model="period" value="{{period}}" ng-change="change_value()"> ]个( {{6*period}}天),共{{period*total_amount}}个CPSA。</p>-->
+
+<!--<p ng-show="show_pre_job">-->
+  <!--前置任务：冲榜词中,有个[{{high_pos_word}}]个排名在前50名以外,故需要预先执行200*[{{high_pos_word}}] = [{{200*high_pos_word}}]个CPSA。-->
+<!--</p>-->
+
+<!--<p>总价计算：总计[{{200*high_pos_word+period*total_amount}}]个CPSA，每个CPSA单价[<input type="text" name="name" size="12" class="aso_input" ng-model="cpsa_cost" value="{{cpsa_cost}}" ng-change="change_value()"> ]元，-->
+  <!--共计 [<input type="text" name="name" size="12" class="aso_input"  value="{{(200*high_pos_word+period*total_amount)*cpsa_cost}}">]元。</p>-->
+

@@ -1,0 +1,217 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>App运营助手_ASO优化_App Store应用商店数据平台_iOS排名优化与查询工具</title>
+  <meta name="description" content="专业的应用市场大数据分析平台，提供应用市场搜索优化等多项服务，基础业务完全免费">
+  <meta name="keywords" content="应用市场优化，应用市场分析，aso，app搜索优化，应用市场搜索优化，app宝库">
+  <meta property="wb:webmaster" content="449348d7098e7a8d" />
+  <meta name="baidu-site-verification" content="wG7bFzLcnl" />
+
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <link href="http://cdn.appbk.com/bower_components/jango/css/plugins.css" rel="stylesheet" type="text/css">
+  <link href="http://cdn.appbk.com/bower_components/jango/plugins/bootstrap-social/bootstrap-social.css" rel="stylesheet" type="text/css"/>
+   <link href="http://cdn.appbk.com/bower_components/jango/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+   <link href="http://cdn.appbk.com/bower_components/jango/plugins/animate/animate.min.css" rel="stylesheet" type="text/css"/>  
+
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/metisMenu/dist/metisMenu.min.css" />
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/font-awesome/css/font-awesome.min.css" />
+  <!--<link rel="stylesheet" href="bower_components/sb-admin-2/css/sb-admin-2.css" />-->
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/ui-grid/ui-grid.css" />
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/angular-ui-select/dist/select.min.css" />
+  <!--<link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css" />-->
+  <link href="http://cdn.appbk.com/bower_components/bootstrap-additions/dist/bootstrap-additions.min.css" rel="stylesheet" type="text/css">
+
+   <link href="http://cdn.appbk.com/bower_components/jango/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+   <link href="http://cdn.appbk.com/bower_components/jango/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/ui-grid/ui-grid.min.css" />
+   <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/angular-ui-select/dist/select.min.css" />
+   <!-- END GLOBAL MANDATORY STYLES -->  
+
+  <!-- BEGIN THEME STYLES --> 
+  <link href="http://cdn.appbk.com/bower_components/jango/css/plugins.css" rel="stylesheet" type="text/css"/> 
+  <link href="http://cdn.appbk.com/bower_components/jango/css/themes/red1.css" rel="stylesheet" id="style_theme" type="text/css"/> 
+  <link href="http://cdn.appbk.com/bower_components/jango/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+
+
+  <link href="styles/style.css?v=2016062301" rel="stylesheet" type="text/css" />
+  <link href="styles/normalize.css?v=2016062301" rel="stylesheet" type="text/css" />
+  <link href="styles/spinkit.css?v=2016062301" rel="stylesheet" type="text/css" />
+  <link href="styles/8-circle.css?v=2016062301" rel="stylesheet" type="text/css" />
+  <!-- END THEME STYLES -->
+
+</head>
+<body class="c-layout-header-fixed c-layout-header-mobile-fixed" ng-app="aso" ng-controller="aso_controller">
+<!-- 加这个div主要是让header不浮动 -->
+<div class="c-layout-header-fixed c-layout-header-mobile-fixed ng-scope c-page-on-scroll">
+  <!-- BEGIN: HEADER -->
+  <header class="c-layout-header c-layout-header-4 c-layout-header-default-mobile" data-minimize-offset="80">
+    <div class="c-navbar">
+      <div class="container">
+        <!-- BEGIN: BRAND -->
+        <div class="c-navbar-wrapper clearfix">
+          <div class="c-brand c-pull-left">
+            <a href="/" class="c-logo">
+              <img src="images/logo-3.png" alt="APPBK" class="c-desktop-logo">
+              <img src="images/logo-3.png" alt="APPBK" class="c-desktop-logo-inverse">
+              <img src="images/logo-3.png" alt="APPBK" class="c-mobile-logo"> </a>
+
+            <!--主要用在移动上，展示菜单等内容-->
+            <button class="c-hor-nav-toggler" type="button" data-target=".c-mega-menu">
+              <span class="c-line"></span>
+              <span class="c-line"></span>
+              <span class="c-line"></span>
+            </button>
+            <button class="c-topbar-toggler" type="button">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+            <button class="c-search-toggler" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+
+          </div>
+
+          <!-- Dropdown menu toggle on mobile: c-toggler class can be applied to the link arrow or link itself depending on toggle mode -->
+          <nav class="c-mega-menu c-pull-left c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold">
+            <ul class="nav navbar-nav c-theme-nav">
+              <li class="c-menu-type-classic">
+                <!--<p>VIP专用</p>-->
+                <p class="c-link" style="color: red;margin-top: 10px">(VIP合作伙伴专用)</p>
+
+              </li>
+              <li class="c-menu-type-classic">
+                <a href="#/" class="c-link">App管理</a>
+
+              </li>
+
+
+            </ul>
+          </nav>
+
+          <nav class="c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold">
+            <ul class="nav navbar-nav c-theme-nav">
+
+
+              <li class="c-menu-type-classic" ng-show="user_login_show">
+                <a href="javascript:;" class="c-link dropdown-toggle">{{user_info.nickname}}
+                  <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu c-menu-type-classic c-pull-left app_menu">
+                  <li>
+                    <a href=""  ng-click="logout()">退出</a>
+                  </li>
+                </ul>
+              </li>
+
+
+            </ul>
+
+          </nav>
+
+          <!-- END: HOR NAV -->
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END: HEADER -->
+
+  <!-- BEGIN: PAGE CONTAINER -->
+  <div class="c-layout-page" style="margin-top: 0;">
+    <div class="c-content-box c-size-md c-bg-grey-1">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12" style="margin-top: 60px">
+            <ng-view></ng-view>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- END: PAGE CONTAINER -->
+
+
+  <!-- BEGIN: LAYOUT/FOOTERS/FOOTER-6 -->
+  <footer class="c-layout-footer c-layout-footer-6 c-bg-grey-1">
+    <div class="c-postfooter c-bg-dark-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-12 c-col">
+            <p class="c-copyright c-font-grey">2016 &copy; APPBK
+              <span class="c-font-grey-3">版权所有. 　沪ICP备12031794号 </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- END: LAYOUT/FOOTERS/FOOTER-6 -->
+
+</div>
+</body>
+
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+<script src="http://cdn.appbk.com/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/jango/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<!-- END: CORE PLUGINS -->
+
+<script src="http://cdn.appbk.com/bower_components/angular/angular.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-route/angular-route.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/ngStorage/ngStorage.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/ui-grid/ui-grid.min.js?v=2016062301"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-ui-select/dist/select.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/hightcharts/highcharts.js"></script>
+<script src="http://cdn.appbk.com/bower_components/jango/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js" type="text/javascript"></script>
+<script src="http://cdn.appbk.com/bower_components/jango/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
+<script src="http://cdn.appbk.com/bower_components/jango/plugins/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+
+
+<!-- BEGIN: app SCRIPTS -->
+
+<script src="scripts/app.js?v=2016062301"></script>
+<script src="scripts/aso.js?v=2016062301"></script>
+<script src="scripts/services/services.js?v=2016062301"></script>
+<script src="scripts/directives/directives.js?v=2016062301"></script>
+<script src="scripts/controllers/aso_controllers.js?v=2016062301"></script>
+
+
+<!-- END: app SCRIPTS -->
+<!-- BEGIN: THEME SCRIPTS -->
+<script src="http://cdn.appbk.com/bower_components/jango/js/components.js" type="text/javascript"></script>
+<script src="http://cdn.appbk.com/bower_components/jango/js/app.js" type="text/javascript"></script>
+<script>
+  $(document).ready(function() {
+    App.init(); // init core
+  });
+</script>
+
+<!--Google 统计-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74973814-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</html>

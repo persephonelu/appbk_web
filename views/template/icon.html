@@ -1,0 +1,15 @@
+
+<div class='ui-grid-cell-contents'>
+  <a href=''  data-container="body" data-toggle="popover" data-content="查看历史排名趋势">
+    <i class='fa fa-line-chart fa-fw' style="cursor:pointer;"></i></a>
+
+  <a  ng-show="row.entity.top_amount!=0" href=''  data-container="body" data-toggle="popover" data-content="取消关注">
+  <i class='fa fa-times fa-fw'></i></a>
+
+  <a  ng-show="row.entity.top_amount==0" href=''  data-container="body" data-toggle="popover" data-content="添加关注">
+  <i class='fa fa-plus fa-fw'></i></a>
+</div>
+
+<script>
+$("[data-toggle='popover']").popover({trigger:'click| hover',placement:'top',html:true});
+</script>

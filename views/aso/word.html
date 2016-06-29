@@ -1,0 +1,145 @@
+<div class="searchResultList" style="margin-top: 30px">
+  <table width="100%" border="0">
+    <tr>
+      <td width="9%" rowspan="2" style="padding: 9px"><img ng-src="{{app_info.icon}}" width="72" height="72" class="sImg app_info_icon" alt="img"></td>
+      <td width="77%">
+        <span class="sRTitle c3"> <a href="../../user_main.html#/app_content/{{app_info.app_id}}" target="_blank"> {{app_info.name}}</a></span>
+        <span class="db sRBtn"> {{app_info.ori_classes}}
+         App ID:<a href="{{app_info.download_url}}" target="_blank">{{app_info.app_id}}</a></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<div class="clearfix">
+  <ul class="nav nav-tabs c-font-uppercase c-font-bold">
+    <li>
+      <a href="#solution/{{app_info.app_id}}" data-toggle="tab" data-target="#">方案</a>
+    </li>
+    <li class="active">
+      <a href="#word/{{app_info.app_id}}" data-toggle="tab" data-target="#">选词</a>
+    </li>
+    <li>
+      <a href="#watch/{{app_info.app_id}}" data-toggle="tab" data-target="#">监控</a>
+    </li>
+  </ul>
+</div>
+
+<br/>
+
+
+<h5>覆盖搜索词总数：<b>{{total_items}}</b> (表格只显示有热度的关键词，搜索结果在Top 10的有 <b>{{top_num}}</b> 个，Top 3的有 <b>{{top3_num}}</b> 个)
+                    <span class="pull-right">
+                    <!--<button class="btn btn-primary" ng-click="filter_table()">{{filter_button}}</button>-->
+                      <span class="btn btn-default white-button" type="manage" ng-click="filter_table()">{{filter_button}}</span>
+                    <a href="" title="核心词" data-container="body" data-toggle="popover"
+                       data-content="<b class='text-primary'>核心词</b>主要指热度大于4000，排名100名以内的词，这些词才可能有曝光">
+                      <i class="fa fa-question-circle fa-lg fa-fw"></i></a>
+                      </span>
+
+  <span style=" float: right; margin-right: 10px" class="btn btn-default white-button appbk-mobile-hide" type="manage" ng-click="export_excel()">导出</span>
+
+</h5>
+<br/>
+<div class="row" style="margin-top: 20px">
+  <!--<div>-->
+    <!--<span>-->
+        <form role="form" method="get" class="form-inline pull-right date-select-style-font">
+          搜索:
+          <div class="input-group" >
+            <input style="border-radius: 4px; height: 30px" type="text" class="form-control" name="q" placeholder=""  value="" ng-model="search_keyword"  ng-change="search_word()">
+          </div>
+        </form>
+    <!--</span>-->
+
+  <!--</div>-->
+</div>
+
+
+<!-- 表格部分 -->
+<div class="row">
+  <div class="">
+
+    <div class="sk-circle" ng-show='loading_show' style="margin-top: 30px">
+      <div class="sk-circle1 sk-child"></div>
+      <div class="sk-circle2 sk-child"></div>
+      <div class="sk-circle3 sk-child"></div>
+      <div class="sk-circle4 sk-child"></div>
+      <div class="sk-circle5 sk-child"></div>
+      <div class="sk-circle6 sk-child"></div>
+      <div class="sk-circle7 sk-child"></div>
+      <div class="sk-circle8 sk-child"></div>
+      <div class="sk-circle9 sk-child"></div>
+      <div class="sk-circle10 sk-child"></div>
+      <div class="sk-circle11 sk-child"></div>
+      <div class="sk-circle12 sk-child"></div>
+    </div>
+
+    <div ng-hide='loading_show' style="text-align: center; margin-top: 30px" ui-grid="word_grid" ui-grid-auto-resize ui-grid-exporter ui-grid-selection ui-grid-pagination>
+    </div>
+    <multi-message user="keywords_user"></multi-message>
+
+  </div>
+</div>
+
+<!-- 翻页设置 -->
+<div>
+  <pagination total-items="total_items" items-per-page="items_per_page" ng-model="current_page"
+              max-size="5" ng-change="page_changed()"
+              class="pagination-sm" boundary-links="true" rotate="false"
+              first-text="首页" last-text="尾页" previous-text="上一页" next-text="下一页">
+  </pagination>
+</div>
+
+<!--<div  ui-grid="word_grid" ui-grid-auto-resize ui-grid-exporter ui-grid-selection style="margin-top: 30px"></div>-->
+
+<!--<div class="sk-circle" ng-show='aso_word_show_wait'>-->
+  <!--<div class="sk-circle1 sk-child"></div>-->
+  <!--<div class="sk-circle2 sk-child"></div>-->
+  <!--<div class="sk-circle3 sk-child"></div>-->
+  <!--<div class="sk-circle4 sk-child"></div>-->
+  <!--<div class="sk-circle5 sk-child"></div>-->
+  <!--<div class="sk-circle6 sk-child"></div>-->
+  <!--<div class="sk-circle7 sk-child"></div>-->
+  <!--<div class="sk-circle8 sk-child"></div>-->
+  <!--<div class="sk-circle9 sk-child"></div>-->
+  <!--<div class="sk-circle10 sk-child"></div>-->
+  <!--<div class="sk-circle11 sk-child"></div>-->
+  <!--<div class="sk-circle12 sk-child"></div>-->
+<!--</div>-->
+
+<!--<multi-message user="keywords_user"></multi-message>-->
+<!--<div>-->
+  <!--<br/>-->
+
+  <!--<button ng-show="turn_page" class="btn btn-primary" ng-click="load_more(current_page)">加载更多...({{current_page}}/{{max_page_num}})</button>-->
+
+<!--</div>-->
+
+
+
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 100px;overflow:hidden">
+  <div class="modal-dialog" style="overflow:hidden">
+    <div class="modal-content" style="overflow:hidden">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+                aria-hidden="true">×
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          关键词趋势图
+        </h4>
+      </div>
+      <div class="modal-body" style="overflow:hidden">
+        <!-- /.highcharts   -->
+        <div id="key_world_trend" style="width:568px;height: 400px; margin: 0 auto;overflow:hidden"></div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

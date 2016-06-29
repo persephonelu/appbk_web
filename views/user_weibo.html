@@ -1,0 +1,44 @@
+<br/>
+<div class="searchResultList">
+  <table width="100%" border="0">
+    <tr>
+      <td width="9%" rowspan="2" style="padding: 9px"><img ng-src="{{app_info.icon}}" width="72" height="72" class="sImg" alt="img"></td>
+      <td width="77%">
+        <span class="sRTitle c3"> <a href="/#/app_content/{{app_info.app_id}}" target="_blank"> {{app_info.name}}</a></span>
+        <span class="db sRBtn"> {{app_info.ori_classes}}
+         App ID:<a href="{{app_info.download_url}}" target="_blank">{{app_info.app_id}}</a></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h3 class="page-header">用户兴趣标签 <span class="h5"> (根据你的app及竞品确定，如果没有数据，请添加一些热门竞品, 兴趣标签可以作为投放广点通、粉丝通的等社区广告的参考)</span></h3>
+<table  class="table table-striped table-bordered">
+  <tr>
+    <th width="9%">序号</th>
+    <th>兴趣标签</th>
+    <th title="搜索指数反映每天搜索
+的次数多少">覆盖用户数</span></th>
+    <th>推荐度</th>
+  </tr>
+  <tr ng-repeat="tag in tags">
+    <td>{{$index+1}}</td>
+    <td> {{tag.tag}} </td>
+    <td> {{tag.weight_max}} </td>
+    <td> {{tag.score}}</td>
+  </tr>
+</table>
+<div class="sk-circle" ng-show='tags_show_wait'>
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>

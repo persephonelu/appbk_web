@@ -1,0 +1,41 @@
+
+<div class="c-body" style="padding: 0px">
+  <div class="c-content-tab-1 c-theme c-margin-t-30">
+    <div class="clearfix">
+      <ul class="nav nav-tabs c-font-uppercase  nav-justified c-font-bold">
+        <li>
+          <a href="#user_app_compete/{{app_id}}" data-toggle="tab" data-target="#">竞品管理</a>
+        </li>
+        <li  class="active">
+          <a href="#user_app_compete_keyword/{{app_id}}" data-toggle="tab" data-target="#">竞品关键词</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="appbk-ui-select appbk-mobile-hide" style="margin-top: 15px; margin-bottom: 20px"> 
+  <ul class="nav navbar-nav" style="float: right;"> 
+    <span class="btn btn-default" style="" type="manage" ng-click="export_excel()">导出</span>
+  </ul>
+</div>
+
+<div ui-grid="word_grid"  ui-grid-auto-resize  ui-grid-exporter ng-show="!word_grid_loading_show"></div>
+
+<div class="sk-circle" ng-show='word_grid_loading_show'>
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>
+
+
+<keyword_manage_user></keyword_manage_user>

@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+<div class="col-md-12">
+
+  <h3 class="page-header"><span class="text-primary">{{category_selected}} </span>App Store热门用户标签 </h3>
+  <div class="row" id="form_area">
+    <div class="">
+
+      <div class="appbk-ui-select">
+        <ul class="nav navbar-nav mobile-horizontal-margin-zero">
+
+          <li class="dropdown">
+            <span class="navbar-brand">类别选择</span>
+            <a href="" class="dropdown-toggle device appbk-width-auto" data-toggle="dropdown" role="button" aria-expanded="false">
+              <span class="">{{category_selected}}</span> <span class="caret"></span></a>
+
+            <ul class="dropdown-menu category-select tag-rank-category-dropdown" role="menu" data-paramname="device">
+              <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+              <li class="dropdown-submenu appbk-mobile-hide">
+                <a tabindex="-1" href="javascript:;" ng-click="get_category_tag_rank('游戏')">游戏</a> 
+                <ul class="dropdown-menu cascade-menu" style="height: 478px;"> 
+                  <!--<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>-->
+                  <div style="margin-top: -22px">
+
+                  <li ng-repeat="game_category in game_categories">
+                    <a href="" ng-click="get_category_tag_rank(game_category.ori_classes)">
+                      {{game_category.ori_classes}} </a></li> 
+                    </div>
+                </ul> 
+              </li>
+
+              <li class="" ng-repeat="category in categories">
+                <a href="" ng-if="category.ori_classes != '游戏'" ng-click="get_category_tag_rank(category.ori_classes)">
+                  {{category.ori_classes}}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+
+
+    </div>
+    <!-- /.col-lg-4 -->
+  </div>
+  <!-- /#form_area -->
+
+  </br>
+  <table class="table table-border-gray table-bg" >
+    <tr class="table-header-bg">
+      <th width="9%" class="table-middle-style">序号</th>
+      <th class="table-middle-style">兴趣标签</th>
+      <th class="table-middle-style">所有微博用户数估计</th>
+      <th class="table-middle-style">采样数据中用户数</th>
+    </tr>
+    <tr ng-repeat="tag in tag_rank">
+      <td class="table-middle-style">{{$index+1}}</td>
+      <td class="table-middle-style">{{tag.tag}}</td>
+      <td class="table-middle-style">{{tag.weight}}</td>
+      <td class="table-middle-style">{{tag.freq}}</td>
+    </tr>
+  </table>
+  <div class="sk-circle" ng-show='loading_show'>
+    <div class="sk-circle1 sk-child"></div>
+    <div class="sk-circle2 sk-child"></div>
+    <div class="sk-circle3 sk-child"></div>
+    <div class="sk-circle4 sk-child"></div>
+    <div class="sk-circle5 sk-child"></div>
+    <div class="sk-circle6 sk-child"></div>
+    <div class="sk-circle7 sk-child"></div>
+    <div class="sk-circle8 sk-child"></div>
+    <div class="sk-circle9 sk-child"></div>
+    <div class="sk-circle10 sk-child"></div>
+    <div class="sk-circle11 sk-child"></div>
+    <div class="sk-circle12 sk-child"></div>
+  </div>
+</div>
+
+  </div>
+</div>

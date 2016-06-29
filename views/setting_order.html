@@ -1,0 +1,152 @@
+<div class="container user-setting-container">
+  <div class="row" >
+    <div class="col-md-2 setting-guid horizon-padding-zero appbk-mobile-hide ">
+      <ul class="nav nav-pills nav-stacked">
+        <li class=""><a href="#setting_account">账号设置</a></li>
+        <!--<li class=""><a href="#setting_wechat">微信订阅</a></li>-->
+
+        <li class=""><a href="#setting_vip">VIP 特权</a></li>
+        <!--<li class=""><a href="#setting_integral">积分兑换</a></li>-->
+        <li class="active"><a href="#setting_order">订购记录</a></li>
+        <!--<li class=""><a href="#setting_passwd">修改密码</a></li>-->
+      </ul>
+    </div>
+
+    <div class="col-md-8 col-md-offset-1 " style="min-height: 500px">
+      <h4 class="user-app-line-title">
+        <span></span>
+        订购记录
+      </h4>
+
+
+      <p ng-if="typeof(charge_info) == 'undefined' && !setting_order_show_wait">暂无订购记录</p>
+
+
+      <div class="sk-circle" style="margin-top: 80px" ng-show='setting_order_show_wait'>
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+      </div>
+
+      <table class="table table-border-gray table-bg" ng-if="typeof(charge_info) != 'undefined' && !setting_order_show_wait">
+        <!--<tr class="table-header-bg">-->
+          <!--<th class="table-middle-style">订单名称</th>-->
+          <!--<th class="table-middle-style">订单编号</th>-->
+          <!--<th class="table-middle-style">订单时间</th>-->
+          <!--<th class="table-middle-style">订单总价</th>-->
+          <!--<th class="table-middle-style">是否支付成功</th>-->
+        <!--</tr>-->
+        <tr  ng-repeat="charge in charge_info">
+          <td style="margin: 10px">
+            <span style="">
+              <div>
+              <span>{{charge.order_title}}</span>
+              <span style="margin-left: 50px">订单编号：<span style="color: #0070cc">{{charge.order_id}}</span></span>
+                <span style="float: right;text-align: center;width: 90px;" ng-switch on="charge.paid">
+               <span ng-switch-when="0" style="color: #f44">未成功</span>
+               <span ng-switch-when="1" style="color: limegreen">成功</span>
+             </span>
+
+              </div>
+                <div>订单时间：<span style="color:  #0070cc">{{charge.order_time}}</span>
+
+
+              </div>
+              <div>
+                <span>总价：<span style="color: #f44">{{charge.amount * 0.01}}</span>元</span>
+
+
+                <!--<button class="btn btn-default" style="padding: 5px; float: right;margin-right: 15px; margin-top: -12px">申请发票 </button>-->
+              </div>
+            </span>
+          </td>
+
+        </tr>
+      </table>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+  <!--<div class="modal-dialog user-app-add-popup" >-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+
+        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size: 35px;margin-top: -5px;">×</button>-->
+
+        <!--<h4 class="user-app-line-title">-->
+          <!--<span></span>-->
+          <!--发票信息-->
+        <!--</h4>-->
+      <!--</div>-->
+
+
+      <!--<div class="modal-body vip-pay" style="margin: 0 50px 50px 50px">-->
+
+        <!--<alert ng-show="alert" type="{{alert.type}}" style="padding: 5px; text-align: center">{{alert.msg}}</alert>-->
+
+        <!--<form class="form-horizontal">-->
+          <!--<div class="sign-msg"></div>-->
+          <!--<div class="form-group">-->
+            <!--<label class="control-label">用户名</label>-->
+            <!--<div class="col-xs-9 input">-->
+              <!--<input ng-model="nickname" type="text" name="username" class="form-control" placeholder="用户名" disabled>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label class="control-label">邮箱</label>-->
+            <!--<div class="col-xs-9 input">-->
+              <!--<input ng-model="email" type="mail" name="email" class="form-control" placeholder="邮箱" disabled>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label class="control-label">公司名称</label>-->
+            <!--<div class="col-xs-9 input">-->
+              <!--<input ng-model="company" type="text" name="company" class="form-control" placeholder="公司名称">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label class="control-label">应用名称</label>-->
+            <!--<div class="col-xs-9 input">-->
+              <!--<input ng-model="appname" type="text" name="appname" class="form-control" placeholder="应用名称">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label class="control-label">手机</label>-->
+            <!--<div class="col-xs-9 input">-->
+              <!--<input  ng-model="phone_num"  type="text" name="phone_num" class="form-control" placeholder="手机号码">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="form-group">-->
+            <!--<label class="control-label">&nbsp;</label>-->
+            <!--<div class="col-xs-9 input">-->
+              <!--<button id="submit" ng-click="update_user_info()" class="btn btn-default">保存</button>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</form>-->
+
+
+        <!--<button class="btn btn-default" data-dismiss="modal" aria-hidden="true" ng-click="commit_payment()">-->
+          <!--提交-->
+        <!--</button>-->
+      <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+
+
+    <!--</div>&lt;!&ndash; /.modal &ndash;&gt;-->
+  <!--</div>-->
+<!--</div>-->

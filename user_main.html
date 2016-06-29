@@ -1,0 +1,643 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>AppBK运营助手_ASO优化工具_应用商店App Store数据优化_iOS排名优化与查询工具</title>
+  <meta name="keywords" content="AppBK,App Store,应用市场分析优化,ASO,ASO优化,ASO工具,冲榜,刷榜,微信墙,积分墙,机刷,应用宝库,应用宝,百度手机助手,360手机助手,小米应用商店,豌豆荚,安卓,安智,91">
+  <meta name="description" content="AppBK,最专业的App Store ASO关键词搜索优化平台、ASO优化工具,总榜分类榜排名提升,关键字挖掘与数据分析">
+
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+  <meta name="format-detection" content="telephone=no" />
+
+  <meta name="format-detection" content="email=no" />
+
+  <link href="http://cdn.appbk.com/bower_components/jango/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+
+  <link href="http://cdn.appbk.com/bower_components/jango/plugins/bootstrap-social/bootstrap-social.css" rel="stylesheet" type="text/css">
+  <link href="http://cdn.appbk.com/bower_components/jango/plugins/socicon/socicon.css" rel="stylesheet" type="text/css">
+  <link href="http://cdn.appbk.com/bower_components/jango/css/plugins.css" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/metisMenu/dist/metisMenu.min.css" />
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/ui-grid/ui-grid.css" />
+  <link rel="stylesheet" href="http://cdn.appbk.com/bower_components/angular-ui-select/dist/select.min.css" />
+  <link href="http://cdn.appbk.com/bower_components/bootstrap-additions/dist/bootstrap-additions.min.css" rel="stylesheet" type="text/css">
+
+  <link href="styles/style.css?v=2016062301" rel="stylesheet" type="text/css" />
+  <link href="styles/normalize.css?v=2016062301" rel="stylesheet" type="text/css" />
+  <link href="styles/spinkit.css?v=2016062301" rel="stylesheet" type="text/css" />
+  <link href="styles/8-circle.css?v=2016062301" rel="stylesheet" type="text/css" />
+
+  <link href="http://cdn.appbk.com/bower_components/bootstrap-daterangepicker-master/daterangepicker.css" media="all" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+<body class="c-layout-header-fixed c-layout-header-mobile-fixed" ng-app="user_app" ng-controller="user_app_controller">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<!-- 加这个div主要是让header不浮动 -->
+<div class="c-layout-header-fixed c-layout-header-mobile-fixed ng-scope c-page-on-scroll navbar_style" role="navigation">
+  <!-- BEGIN: HEADER -->
+  <header class="c-layout-header c-layout-header-4 c-layout-header-default-mobile " data-minimize-offset="80">
+    <div class="c-navbar navbar_style ">
+      <div class="container">
+        <!-- BEGIN: BRAND -->
+        <div class="c-navbar-wrapper navbar_style navbar-width-static">
+          <div class="c-brand c-pull-left">
+            <a href="/" class="c-logo">
+              <img src="images/logo_white.png" alt="APPBK" class="c-desktop-logo">
+              <img src="images/logo_white.png" alt="APPBK" class="c-desktop-logo-inverse">
+              <img src="images/logo_white.png" alt="APPBK" class="c-mobile-logo"> </a>
+
+
+            <!--主要用在移动上，展示菜单等内容-->
+            <button class="c-hor-nav-toggler navbar-toggle" type="button" data-target=".navbar-collapse-mobil" data-toggle="collapse">
+              <span class="c-line"></span>
+              <span class="c-line"></span>
+              <span class="c-line"></span>
+            </button>
+            <button class="c-topbar-toggler" type="button">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+            <button class="c-search-toggler" type="button">
+              <i class="glyphicon glyphicon-search" style="font-size: 20px; margin-right: 20px;color:white"></i>
+            </button>
+
+          </div>
+          <form class="c-quick-search" ng-submit="app_search()">
+            <input type="text" ng-model="n" placeholder="输入app名称或者APP ID..." class="form-control" autocomplete="off">
+            <span class="btn btn-default" style="font-size: 15px; margin-top: 5px"> 取消 </span>
+
+          </form>
+
+          <!--</form>-->
+          <!-- END: QUICK SEARCH -->
+          <!-- BEGIN: HOR NAV -->
+
+          <!-- Dropdown menu toggle on mobile: c-toggler class can be applied to the link arrow or link itself depending on toggle mode -->
+          <nav class=" navbar-collapse-mobil c-mega-menu c-pull-left c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold navbar_title" >
+            <ul class="nav navbar-nav c-theme-nav navbar_title">
+
+              <li class="c-menu-type-classic collapse navbar-collapse ">
+                <a href="javascript:;" class="c-link dropdown-toggle ">APP排行
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu c-menu-type-classic c-pull-left app_menu navbar_dropdowm_menu">
+                  <li>
+                    <a href="/#/app_rank" ng-click="collapse_nav()">实时排行</a>
+                  </li>
+                  <li>
+                    <a href="/#/app_rank_up" ng-click="collapse_nav()">上升最快</a>
+                  </li>
+                  <li>
+                    <a href="/#/app_rank_down" ng-click="collapse_nav()">下降最快</a>
+                  </li>
+                  <li>
+                    <a href="/#/app_rank_offline" ng-click="collapse_nav()">下架应用监控</a>
+                  </li>
+                  <li>
+                    <a href="/#/app_rank_release" ng-click="collapse_nav()">上线应用监控</a>
+                  </li>
+                  <li>
+                    <a href="/#/app_tools_search" ng-click="collapse_nav()">实时热搜</a>
+                  </li>
+
+                  <!--<li>-->
+                    <!--<a href="/#/word_rank">关键词排行</a>-->
+                  <!--</li>-->
+                  <li>
+                    <a href="/#/word_cover_rank" ng-click="collapse_nav()">关键词覆盖排行</a>
+                  </li>
+                  <li>
+                    <a href="/#/word_rank" ng-click="collapse_nav()">关键词热度排行</a>
+                  </li>
+
+                  <!--<li>-->
+                    <!--<a href="/#/tag_rank">用户标签排行</a>-->
+                  <!--</li>-->
+                  <li>
+                    <a href="/#/app_tools_rank_update" ng-click="collapse_nav()">榜单更新预测</a>
+                  </li>
+                  <li>
+                    <a href="/#/app_tools_search_update" ng-click="collapse_nav()">搜索更新预测</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="c-menu-type-classic collapse navbar-collapse">
+                <a href="javascript:;" class="c-link dropdown-toggle">aso工具
+                  <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu c-menu-type-classic c-pull-left app_menu">
+                  <!--<li class="">-->
+                    <!--<a href="/#/app_tools_check">一键检测</a>-->
+                  <!--</li>-->
+                  <li>
+                    <a href="/#/keyword_extand" ng-click="collapse_nav()">关键词扩展</a>
+                  </li>
+                  <li>
+                    <a href="/#/app_tools_word_cover" ng-click="collapse_nav()">搜索词覆盖</a>
+                  </li>
+                  <li>
+                    <a href="/#/app_tools_aso" ng-click="collapse_nav()">aso检测</a>
+                  </li>
+
+                  <li>
+                    <a href="/#/app_tools_seg" ng-click="collapse_nav()">分词工具</a>
+                  </li>
+                  <li>
+                    <a href="/#/app_tools_combine" ng-click="collapse_nav()">组词工具</a>
+                  </li>
+                  <li class="appbk-mobile-hide">
+                    <a href="/#/app_tools_rank_equal" ng-click="collapse_nav()">榜单排名对应</a>
+                  </li>
+                  <li>
+                    <a href="/#/word_rank_trend/微信" ng-click="collapse_nav()">热度趋势</a>
+                  </li>
+                  <li>
+                    <a href="/#/word_search_inter/qq" ng-click="collapse_nav()">实时热度</a>
+                  </li>
+                  <li class="appbk-mobile-hide">
+                    <a href="/#/app_tools_test" ng-click="collapse_nav()">Testin测试</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="c-menu-type-classic collapse navbar-collapse ">
+
+                <a href="/#/app_tools_check" class="c-link dropdown-toggle" ng-click="collapse_nav()">一键检测</a>
+              </li>
+              <li class="c-menu-type-classic collapse navbar-collapse ">
+                <a href="http://blog.appbk.com/?page_id=223" class="c-link dropdown-toggle" ng-click="collapse_nav()">ASO专家服务
+                </a>
+              </li>
+            </ul>
+
+
+
+            <ul class="nav navbar-nav c-theme-nav appbk-mobile-show">
+
+              <li ng-show="user_not_login_show" class="c-menu-type-classic">
+                <a href="/#/index_login" class="c-link" ng-click="collapse_nav()">登录</a>
+              </li>
+              <li ng-show="user_not_login_show" class="c-menu-type-classic">
+                <a href="/#/index_register" class="c-link" ng-click="collapse_nav()">注册</a>
+              </li>
+
+              <li class="c-menu-type-classic collapse navbar-collapse" ng-show="user_login_show">
+                <a href="/#/user_apps" class="c-link dropdown-toggle" ng-show="user_login_show" ng-click="collapse_nav()">我的应用
+                  <i class="fa fa-caret-down appbk-mobile-hide" ng-show="user_login_show"></i>
+                </a>
+
+                <ul class="dropdown-menu c-menu-type-classic c-pull-left app-menu appbk-mobile-hide" ng-show="user_login_show">
+                  <li ng-repeat="app in apps |limitTo: 10">
+                    <a href="" ng-click="select_app(app.app_id)">
+                      <span class="c2" ng-cloak  style="width: 140px">{{app.name}}</span></a>
+                  </li>
+                  <li class="divider appbk-mobile-hide"></li>
+                  <li class="appbk-mobile-hide">
+                    <a href="/#/user_apps" style="color: #0e90d2" ng-click="collapse_nav()">管理我的应用</a>
+                  </li>
+
+                </ul>
+              </li>
+
+              <li class="c-menu-type-classic collapse navbar-collapse" ng-show="user_login_show">
+                <a href="javascript:;" ng-cloak  class="c-link dropdown-toggle">{{user_info.nickname}}
+                  <i class="fa fa-user fa-fw" ng-show="user_login_show"></i><i class="fa fa-caret-down" ng-show="user_login_show"></i>
+                </a>
+                <ul class="dropdown-menu c-menu-type-classic c-pull-left app_menu" ng-show="user_login_show">
+                  <li>
+                    <a href="/#/setting_account" ng-click="collapse_nav()">账号设置</a>
+                  </li>
+                  <!--<li>-->
+                    <!--<a href="/#/setting_wechat" ng-click="collapse_nav()">微信订阅</a>-->
+                  <!--</li>-->
+                  <li>
+                  <a href="/#/setting_vip" ng-click="collapse_nav()">VIP特权</a>
+                  </li>
+
+                  <!--<li>-->
+                  <!--<a href="/#/setting_integral" ng-click="collapse_nav()">积分兑换</a>-->
+                  <!--</li>-->
+
+                  <li>
+                  <a href="/#/setting_order" ng-click="collapse_nav()">订购记录</a>
+                  </li>
+                  <!--<li>-->
+                  <!--<a href="/#/setting_passwd">修改密码</a>-->
+                  <!--</li>-->
+                  <li class="divider"></li>
+
+                  <li>
+                    <a href="/"  ng-click="logout()" ng-click="collapse_nav()">退出</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+          </nav>
+
+          <nav class="c-mega-menu c-pull-left c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold ">
+            <form class="navbar-form navbar-left navbar_input" ng-submit="app_search()" style="padding: 0;width: 200px;padding-top: 3px">
+              <div class="input-group">
+                <input type="text" ng-model="n"  class="form-control" placeholder="应用名称或者APP ID" autocomplete="off">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </span>
+              </div>
+            </form>
+          </nav>
+
+          <nav class=" c-mega-menu c-pull-right c-mega-menu-dark  c-fonts-uppercase c-fonts-bold navbar_title" style="margin-right: -110px">
+            <ul class="nav navbar-nav ">
+
+              <li ng-show="user_not_login_show" class="c-menu-type-classic">
+                <a href="/#/index_login" class="c-link">登录</a>
+              </li>
+              <li ng-show="user_not_login_show" class="c-menu-type-classic">
+                <a href="/#/index_register" class="c-link">注册</a>
+              </li>
+
+              <li class="c-menu-type-classic" ng-show="user_login_show">
+                <a href="/#/user_apps" class="c-link dropdown-toggle">我的应用
+                  <i class="fa fa-caret-down"></i>
+                </a>
+
+                <ul class="dropdown-menu c-menu-type-classic c-pull-left app_menu">
+                  <li ng-repeat="app in apps |limitTo: 10">
+                    <a href="" ng-click="select_app(app.app_id)">
+                      <span class="c2" ng-cloak  style="width: 140px">{{app.name}}</span></a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="/#/user_apps" style="color: #0e90d2">管理我的应用</a>
+                  </li>
+
+                </ul>
+              </li>
+
+              <li class="c-menu-type-classic collapse navbar-collapse" ng-show="user_login_show">
+                <a style="cursor: pointer" class="c-link dropdown-toggle">{{user_info.nickname | limitTo: 10}}
+                  <i class="fa fa-user fa-fw" ng-show="user_login_show"></i><i class="fa fa-caret-down" ng-show="user_login_show"></i>
+                </a>
+                <ul class="dropdown-menu c-menu-type-classic c-pull-left app_menu" ng-show="user_login_show">
+                  <li>
+                    <a href="/#/setting_account">账号设置</a>
+                  </li>
+                  <!--<li>-->
+                    <!--<a href="/#/setting_wechat">微信订阅</a>-->
+                  <!--</li>-->
+                  <li>
+                  <a href="/#/setting_vip">VIP特权</a>
+                  </li>
+
+                  <!--<li>-->
+                  <!--<a href="/#/setting_integral">积分兑换</a>-->
+                  <!--</li>-->
+
+                  <li>
+                  <a href="/#/setting_order">订购记录</a>
+                  </li>
+                  <!--<li>-->
+                  <!--<a href="/#/setting_passwd">修改密码</a>-->
+                  <!--</li>-->
+                  <li class="divider"></li>
+
+                  <li>
+                    <a href="/"  ng-click="logout()">退出</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+          </nav>
+
+          <!-- END: HOR NAV -->
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- END: HEADER -->
+  <!-- /#wrapper -->
+</div>
+
+
+
+<div class=" paddint-top " >
+  <div class="container user-main-container" style="margin-top:60px;" >
+      <div class="row" >
+        <div class="col-md-12 col-sm-12 user-main-body">
+        <div class="col-md-3 col-sm-3 left-nav-content appbk-mobile-sm-hide " style="padding: 0;">
+          <ul id="main-nav" class="nav nav-tabs nav-stacked" style="border: 0">
+
+            <li style="text-align:center;margin-bottom: 30px;">
+              <br/>
+              <img ng-src="{{app_info.icon}}" ng-if="app_info.download_level == -1"  class="sImg app_info_icon" alt="img" style="-webkit-filter: grayscale(100%)">
+              <img ng-src="{{app_info.icon}}" ng-if="app_info.download_level != -1" class="sImg app_info_icon" alt="img" >
+
+                <div ng-cloak  class="app_name_left app-info-left">{{app_info.name}}</div>
+            </li>
+
+
+            <li id="menu_user_app_info" >
+              <a  href="#/user_app_info/{{app_id}}">
+                <i class="glyphicon glyphicon-th-large"></i>
+                应用信息
+              </a>
+            </li>
+
+            <li id="menu_app_content_trend">
+              <a href="#/app_content/{{app_id}}">
+                <i class="glyphicon glyphicon-credit-card"></i>
+                榜单排名
+              </a>
+            </li>
+
+
+            <li id="menu_app_content_keyword">
+              <a href="#/app_content_keyword/{{app_id}}">
+                <i class="glyphicon glyphicon-globe"></i>
+                关键词/ASO
+              </a>
+            </li>
+
+            <li id="menu_app_content_compete">
+              <a href="#/app_content_compete/{{app_id}}">
+                <i class="glyphicon glyphicon-credit-card"></i>
+                竞品对比
+              </a>
+            </li>
+
+            <li id="menu_comment_nav" class="user-app-left-nav-collapse">
+              <a href="#commentSetting" target="_self" class="nav-header collapsed" data-toggle="collapse">
+                <i class="glyphicon glyphicon-calendar"></i>
+                用户评论
+                <i class="pull-right glyphicon glyphicon-chevron-down"></i>
+              </a>
+              <ul id="commentSetting" class="nav nav-list collapse secondmenu" aria-expanded="{{coment_menu_expanded}}">
+                <li id="menu_app_content_comment">
+                  <a href="#/app_content_comment/{{app_id}}"><i class="glyphicon glyphicon-user"></i> 评分统计</a></li>
+                <li id="menu_app_content_comment_detail">
+                  <a href="#/app_content_comment_detail/{{app_id}}"><i class="glyphicon glyphicon-th-list"></i> 评论详情</a></li>
+
+              </ul>
+            </li>
+
+                <!-- 未登录，或者未添加app时的展示-->
+            <li ng-show="!left_nav_show" ng-click="show_login_message()">
+              <a href="" data-toggle="modal" data-target="#login_message">
+              <i class="glyphicon glyphicon-cog"></i>
+              我的关键词方案
+              <i class="pull-right glyphicon glyphicon-exclamation-sign"></i>
+              </a>
+            </li>
+
+            <li ng-show="left_nav_show" id="menu_app_keyword_nav" class="user-app-left-nav-collapse">
+              <a href="#systemSetting" target="_self" class="nav-header collapsed" data-toggle="collapse" >
+                <i class="glyphicon glyphicon-cog"></i>
+                我的关键词方案
+                <i class="pull-right glyphicon glyphicon-chevron-down"></i>
+              </a>
+              <ul id="systemSetting" class="nav nav-list collapse secondmenu" aria-expanded="{{keyword_menu_expanded}}">
+                <li id="menu_user_app_keyword_manage">
+                  <a href="#/user_app_keyword_manage/{{app_id}}"><i class="glyphicon glyphicon-user"></i>关键词管理</a></li>
+                <li id="menu_user_app_keyword_expand">
+                  <a href="#/user_app_keyword_expand/{{app_id}}"><i class="glyphicon glyphicon-th-list"></i>关键词拓展</a></li>
+                <li id="menu_user_app_compete">
+                  <a href="#/user_app_compete/{{app_id}}"><i class="glyphicon glyphicon-asterisk"></i>竞品关键词</a></li>
+                <li id="menu_user_app_watch">
+                  <a href="#/user_app_watch/{{app_id}}"><i class="glyphicon glyphicon-edit"></i>关键词监控</a></li>
+                <li id="menu_user_app_keyword_analyze">
+                  <a href="#/user_app_keyword_analyze/{{app_id}}"><i class="glyphicon glyphicon-eye-open"></i>搜索排名分析</a></li>
+              </ul>
+            </li>
+            <!--<li id="same_company_app">-->
+              <!--<a href="#/same_company_app/{{app_id}}">-->
+                <!--<i class="glyphicon glyphicon-credit-card"></i>-->
+                <!--开发商其他应用-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--<li id="menu_vip_keyword">-->
+              <!--<a href="#/vip_keyword_pick/{{app_id}}">-->
+                <!--<i class="glyphicon glyphicon-credit-card"></i>-->
+                <!--人工选词-->
+              <!--</a>-->
+            <!--</li>-->
+
+          </ul>
+        </div>
+        <div class="col-md-9 col-sm-9 col-md-offset-3 col-sm-offset-3">
+
+          <div class="searchResultList appbk-mobile-sm-hide" style="border: 0; border-bottom: 1px solid #dddddd;">
+            <div class="app-info-container">
+              <div class="container-sub-appinfo clearfix">
+                <div class="app-info-body ">
+                  <h3 class="appinfo-title" ng-cloak  title="{{app_info.name}}"> {{app_info.name}} <span ng-if="app_info.download_level == -1" style="font-size: 14px;color: #666;margin-left: 8px;">[已下架]</span></h3>
+                  <div class="appinfo-info ">
+                    <div class="appinfo-auther">
+                      <p class="name">开发商</p>
+                      <p class="content" ng-cloak >{{app_info.company}}</p>
+                    </div>
+                    <div class="appinfo-category">
+                      <p class="name">分类</p>
+                      <p class="content" ng-cloak >{{app_info.ori_classes}}</p>
+                    </div>
+                    <div class="appinfo-auther">
+                      <p class="name">App ID</p>
+                      <p class="content"><a target="_bank" ng-cloak  href="{{app_info.download_url}}">{{app_info.app_id}}</a></p>
+                    </div>
+                    <div class="appinfo-auther">
+                      <p class="name">更新日期</p>
+                      <p class="content" ng-cloak>{{app_info.update_time_new}}</p>
+                    </div>
+                    <div class="appinfo-auther">
+                      <p class="name">BundleID</p>
+                      <p class="content" ng-cloak >{{app_info.bundleId}}</p>
+                    </div>
+                  </div>
+                  <div class="appinfo-myapp">
+                    <span ng-hide="left_nav_show" ng-click="add_user_app()" class="btn btn-default"> +添加到我的应用 </span>
+                    <span ng-hide="!left_nav_show" class="btn btn-default"  disabled="disabled"> 已加到我的应用 </span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--移动端定制-->
+        <div class="nav-mobil-appinfo appbk-mobile-show">
+
+          <!--基本信息-->
+          <div class="appname">
+            <img ng-src="{{app_info.icon}}" alt="{{app_info.name}}">
+            <!--ng-if="app_info.download_level == -1"-->
+            <p>{{app_info.name}}</p>
+            <div class="appinfo-info">
+              <div class="appinfo-auther">
+                <p class="content company-info">{{app_info.company}}</p>
+              </div>
+              <div class="appinfo-auther">
+                <p class="content">App ID: <a target="_bank" href="{{app_info.download_url}}">{{app_info.app_id}}</a></p>
+              </div>
+            </div>
+            <div class="appinfo-myapp" style="margin-top: -15px;margin-bottom: 10px;">
+              <span ng-hide="left_nav_show" ng-click="add_user_app()" class="btn btn-default"> +添加到我的应用 </span>
+              <span ng-hide="!left_nav_show" class="btn btn-default"  disabled="disabled"> 已加到我的应用 </span>
+            </div>
+          </div>
+
+          <!--菜单-->
+
+          <ul class="nav-list clearfix" id="nav-list">
+            <li id="app_info" >
+              <a href="#/user_app_info/{{app_id}}" class="nav-title">
+                <i class="glyphicon glyphicon-th-large"></i>
+                <p>应用信息</p>
+              </a>
+            </li>
+            <li id="content_trend" >
+              <a href="#/app_content/{{app_id}}" class="nav-title">
+                <i class="glyphicon glyphicon-credit-card"></i>
+                <p>榜单排名</p>
+              </a>
+            </li>
+            <li id="content_keyword" >
+              <a href="#/app_content_keyword/{{app_id}}" class="nav-title">
+                <i class="glyphicon glyphicon-globe"></i>
+                <p>
+                  关键词/ASO
+                </p>
+              </a>
+            </li>
+            <li id="content_compete" >
+              <a href="#/app_content_compete/{{app_id}}" class="nav-title">
+                <i class="glyphicon glyphicon-credit-card"></i>
+                <p>竞品对比</p>
+              </a>
+            </li>
+            <li id="content_comment" >
+              <a href="#/app_content_comment/{{app_id}}" class="nav-title">
+                <i class="glyphicon glyphicon-th-large"></i>
+                <p>评分统计</p>
+              </a>
+            </li>
+            <li id="content_comment_detail" >
+              <a href="#/app_content_comment_detail/{{app_id}}" class="nav-title">
+                <i class="glyphicon glyphicon-th-list"></i>
+                <p>评论详情</p>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+          <div style="margin-top: 30px" ng-view></div>
+
+
+      </div>
+        </div>
+  </div>
+    </div>
+</div>
+
+<!-- BEGIN: LAYOUT/FOOTERS/FOOTER-6 -->
+<footer class="c-layout-footer c-layout-footer-6">
+  <div class="c-postfooter c-bg-dark-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <p class="c-copyright c-font-grey">2016 &copy; APPBK
+            <span class="c-font-grey-3">版权所有. 　沪ICP备12031794号 </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- 提示登录浮层 -->
+<div class="modal fade" id="login_message"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+
+  <div class="modal-dialog modal-sm" style="padding-top: 100px">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h5 class="modal-title"><i class="fa fa-exclamation-circle"></i>操作提示</h5>
+      </div>
+      <div class="modal-body small">
+        <h7>登录，并将此App添加到 我的应用，就可使用此功能了 :)</h7>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-primary ok" data-dismiss="modal">确定</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script src="http://cdn.appbk.com/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular/angular.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="http://cdn.appbk.com/bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-route/angular-route.min.js"></script>
+
+<script src="http://cdn.appbk.com/bower_components/hightcharts/highcharts.js"></script>
+<script src="http://cdn.appbk.com/bower_components/hightcharts/modules/exporting.js"></script>
+
+<script src="http://cdn.appbk.com/bower_components/highcharts-ng/dist/highcharts-ng.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-ui-select/dist/select.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/ngStorage/ngStorage.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/ui-grid/ui-grid.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-strap/dist/angular-strap.min.js"></script>
+<script src="http://cdn.appbk.com/bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+
+
+<script src="scripts/user_app.js?v=2016062301"></script>
+<script src="scripts/services/services.js?v=2016062301"></script>
+<script src="scripts/directives/directives.js?v=2016062301"></script>
+<script src="scripts/controllers/user_app_controllers.js?v=2016062301"></script>
+<script src="scripts/directives/angular-locale_zh-ch.js"></script>
+
+<!-- BEGIN: THEME SCRIPTS -->
+<script src="http://cdn.appbk.com/bower_components/jango/js/components.js" type="text/javascript"></script>
+<script src="http://cdn.appbk.com/bower_components/jango/js/app.js" type="text/javascript"></script>
+
+<script src="http://cdn.appbk.com/bower_components/jango/plugins/cubeportfolio/js/jquery.cubeportfolio.min.js" type="text/javascript"></script>
+<script src="http://cdn.appbk.com/bower_components/jango/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
+<script src="http://cdn.appbk.com/bower_components/jango/plugins/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="http://cdn.appbk.com/bower_components/jango/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+
+<script src="http://cdn.appbk.com/bower_components/bootstrap-daterangepicker-master/moment.js"></script>
+<script src="http://cdn.appbk.com/bower_components/bootstrap-daterangepicker-master/daterangepicker.js"></script>
+
+<!--分享-->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"2","bdPos":"right","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<!--Google 统计-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-74973814-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>

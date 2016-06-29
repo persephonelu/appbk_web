@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="page-header">搜索词覆盖</h3>
+
+      <form class="" role="search" ng-submit="get_word_expand(keyword)" style="height: 50px">
+        <div class="input-group ">
+          <input type="text" ng-model="keyword"  class="form-control" placeholder=" 请输入您要查询的关键词" autocomplete="off">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          </span>
+        </div>
+      </form>
+
+      <div ng-if="search_result_show" class="col-md-10 col-md-offset-1">
+        <h3 style="text-align: center">热门搜索词</h3>
+        <div  id="word_cover_cloud" style="margin-top: 10px; height: 350px;"></div>
+      </div>
+      <div class="sk-circle" ng-show='word_cover_loading_show'>
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+      </div>
+      <!--搜索结果-->
+      <div ng-if="!search_result_show">
+        <h5 ng-if="total_items > 0" id="aso-keyword-info" style="margin-bottom: 20px" class="ng-binding ng-scope">
+          共覆盖了 <b class="ng-binding">{{total_items}}</b> 个搜索词</h5>
+
+        <div ng-if="total_items > 0" ui-grid="word_grid" ui-grid-auto-resize ui-grid-exporter>
+          <div class="sk-circle" ng-show='loading_show'>
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+          </div>
+        </div>
+        <p ng-if=" total_items <= 0 " style="text-align: center">暂未发现该关键词除自身之外覆盖的搜索词</p>
+        <br>
+        <button ng-show="turn_page && max_page_num > 1" class="btn btn-primary" ng-click="load_more(current_page)">加载更多...({{current_page}}/{{max_page_num}})</button>
+        <br>
+        <br>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!--<script src="../bower_components/wechat_sources/jqcloud.min.js"></script>-->
+<!--<script src="../bower_components/wechat_sources/angular-jqcloud.js"></script>-->

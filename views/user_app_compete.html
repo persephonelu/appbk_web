@@ -1,0 +1,291 @@
+
+<div class="c-body" style="padding: 0px">
+  <div class="c-content-tab-1 c-theme c-margin-t-30">
+    <div class="clearfix">
+      <ul class="nav nav-tabs c-font-uppercase  nav-justified c-font-bold">
+        <li  class="active">
+          <a href="#user_app_compete/{{app_id}}" data-toggle="tab" data-target="#">竞品管理</a>
+        </li>
+        <li>
+          <a href="#user_app_compete_keyword/{{app_id}}" data-toggle="tab" data-target="#">竞品关键词</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- app list panel -->
+<div class="panel panel-default">
+  <!--<div class="panel-heading">竞品列表</div>-->
+  <div>
+
+    <table class="table table-bg " style="margin-bottom: 0">
+      <!--<thead class="panel-heading">-->
+      <tr class="table-header-bg">
+        <th width="9%" class="table-middle-style">序号</th>
+        <th width="64%">app</th>
+        <th width="9%" class="table-middle-style">类别</th>
+        <th width="9%" class="table-middle-style">评论量</th>
+        <th width="9%" class="table-middle-style">删除</th>
+      </tr>
+      <!--</thead>-->
+      <tbody>
+      <tr ng-repeat="app in apps">
+        <th class="table_middle table-middle-style">{{$index+1}}</th>
+        <td class="table_middle"><span class=""> <img ng-src="{{app.icon}}" class="img-rounded mr app-icon-border" alt="">
+           <a href="#app_content/{{app.app_id}}" target="_blank"> {{app.name}}</a></span></td>
+        <td class="table_middle table-middle-style">{{app.ori_classes}}</td>
+        <td class="table_middle table-middle-style">{{app.user_comment_num}}</td>
+        <td class="table_middle table-middle-style">
+          <!--<a href="" ng-click="del_compete_app(app.app_id)">删除</a></td>-->
+          <a href="" ng-click="del_compete_app(app.app_id)  " class="btn btn-default">删除</a></td>
+      </tr>
+      </tbody>
+    </table>
+    <!--<img ng-show="user_app_show_wait" src="http://cdn.appbk.com/images/wait1.gif">-->
+    <div class="sk-circle" ng-show='user_app_show_wait'>
+      <div class="sk-circle1 sk-child"></div>
+      <div class="sk-circle2 sk-child"></div>
+      <div class="sk-circle3 sk-child"></div>
+      <div class="sk-circle4 sk-child"></div>
+      <div class="sk-circle5 sk-child"></div>
+      <div class="sk-circle6 sk-child"></div>
+      <div class="sk-circle7 sk-child"></div>
+      <div class="sk-circle8 sk-child"></div>
+      <div class="sk-circle9 sk-child"></div>
+      <div class="sk-circle10 sk-child"></div>
+      <div class="sk-circle11 sk-child"></div>
+      <div class="sk-circle12 sk-child"></div>
+    </div>
+    <user-message></user-message>
+  </div>
+</div>
+<!-- /.pannel -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">为app添加竞品</div>
+  <div class="panel-body">
+
+    <!-- tabs -->
+    <ul class="nav nav-tabs">
+      <li role="presentation" ng-class="{active:search_app_tab}"><a href="" ng-click="search_app_tab_click()">搜索添加</a></li>
+      <li role="presentation" ng-class="{active:sys_recommend_app_tab}" ><a href="" ng-click="sys_recommend_app_tab_click()">系统推测</a></li>
+      <li role="presentation" ng-class="{active:user_also_buy_app_tab}"><a href="" ng-click="user_also_buy_app_tab_click()">用户同时还下载</a></li>
+      <li role="presentation" ng-class="{active:app_refer_app_tab}"><a href="" ng-click="app_refer_app_tab_click()">下载来源页</a></li>
+    </ul>
+    <!-- /.tabs -->
+
+    <div class="tab-content">
+
+      <!-- 已提交市场的app -->
+      <div class="tab-pane" ng-class="{active:search_app_tab}" id="old_app"> <br/>
+        <!--<div class="row" id="form_area">-->
+          <!--<div class="col-lg-8">-->
+            <!--<form role="form" class="form-inline" ng-submit="search_app()">-->
+              <!--<div class="input-group">-->
+                <!--<input type="text" class="form-control" name="q" ng-model="query" placeholder="搜索app名称或者app id" >-->
+              <!--</div>-->
+              <!--<button type="submit" class="btn btn-primary">搜索</button>-->
+            <!--</form>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+      <li class="" style="float: left; margin-top: 14px"> 
+        <form role="form" method="post" class="navbar-form navbar-right" ng-submit="search_app()"> 
+          <div class="form-group">
+            <div class="input-group"> 
+              <input type="text" class="form-control" name="q" placeholder="搜索app名称或者app id" ng-model="query"> 
+
+                        <span class="input-group-btn">
+                             <button type="submit" class="btn btn-default add-custom-keyword-btn">搜索</button> 
+                            </span>
+            </div>
+          </div> 
+
+        </form>
+
+      </li>
+
+
+
+        <!-- /#from_area -->
+        </br>
+
+        <!-- 搜索结果 -->
+        <table class="table table-border-gray table-bg">
+          <!--<thead>-->
+          <tr class="table-header-bg">
+            <th width="9%" class="table-middle-style">序号</th>
+            <th>app</th>
+            <th class="table-middle-style">类别</th>
+            <th class="table-middle-style">评论量</th>
+            <th class="table-middle-style">添加</th>
+          </tr>
+          <!--</thead>-->
+          <tbody>
+          <tr ng-repeat="app in app_search_results">
+            <th class="table_middle table-middle-style">{{$index+1}}</th>
+            <td class="table_middle "><span class="c2"> <img ng-src="{{app.icon}}" class="img-rounded mr app-icon-border" alt="">
+               <a href="#app_content/{{app.app_id}}" target="_blank">{{app.name}}</a></span></td>
+            <td class="table_middle table-middle-style">{{app.ori_classes}}</td>
+            <td class="table_middle table-middle-style">{{app.user_comment_num}}</td>
+            <td class="table_middle table-middle-style">
+              <!--<a href="" ng-click="add_compete_app_by_search(app.app_id)">添加</a></td>-->
+              <a href="" ng-click="add_compete_app_by_search(app.app_id)" class="btn btn-default">添加</a></td>
+          </tr>
+          </tbody>
+        </table>
+        <!--<img ng-show="app_search_show_wait" src="http://cdn.appbk.com/images/wait1.gif">-->
+        <div class="sk-circle" ng-show='app_search_show_wait'>
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+        <multi-message user="app_search_user"></multi-message>
+      </div>
+      <!-- /#old_app -->
+
+      <!-- 系统推荐的竞品app -->
+      <div class="tab-pane" ng-class="{active:sys_recommend_app_tab}" id="sys_recommend_app"> <br/>
+
+        </br>
+        <!-- 推荐结果 -->
+        <table class="table table-border-gray table-bg">
+          <tr class="table-header-bg">
+            <th width="9%" class="table-middle-style"></th>
+            <th >app</th>
+            <th class="table-middle-style">类别</th>
+            <th class="table-middle-style">评论量</th>
+            <th class="table-middle-style"></th>
+          </tr>
+          <tbody>
+          <tr ng-repeat="app in sys_recommend_apps">
+            <th class="table_middle table-middle-style">{{$index+1}}</th>
+            <td class="table_middle"><span class="c2"> <img ng-src="{{app.icon}}" class="img-rounded mr app-icon-border" alt="">
+              <a href="#app_content/{{app.app_id}}" target="_blank">{{app.name}}</a></span></td>
+            <td class="table_middle table-middle-style">{{app.ori_classes}}</td>
+            <td class="table_middle table-middle-style">{{app.user_comment_num}}</td>
+            <td class="table_middle table-middle-style"><a href="" class="btn btn-default" ng-click="add_compete_app_by_sys_recommend(app.app_id)">添加</a></td>
+          </tr>
+          </tbody>
+        </table>
+        <!--<img ng-show="sys_recommend_app_show_wait" src="http://cdn.appbk.com/images/wait1.gif">-->
+        <div class="sk-circle" ng-show='sys_recommend_app_show_wait'>
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+        <multi-mes
+        <multi-message user="app_recommend_user"></multi-message>
+      </div>
+      <!-- /#sys_recommend_app -->
+
+      <!-- 用户同时下载的竞品app -->
+      <div class="tab-pane" ng-class="{active:user_also_buy_app_tab}" id="user_also_buy_app"> <br/>
+        <!-- 推荐结果 -->
+        <table class="table table-border-gray table-bg">
+          <tr class="table-header-bg">
+            <th width="9%" class="table-middle-style"></th>
+            <th>app</th>
+            <th  class="table-middle-style">类别</th>
+            <th class="table-middle-style">评论量</th>
+            <th class="table-middle-style"></th>
+          </tr>
+          <tbody>
+          <tr ng-repeat="app in user_also_buy_apps">
+            <th class="table_middle table-middle-style">{{$index+1}}</th>
+            <td class="table_middle "><span class="c2"> <img ng-src="{{app.icon}}" class="img-rounded mr app-icon-border" alt="">
+               <a href="#app_content/{{app.app_id}}" target="_blank">{{app.name}}</a></span></td>
+            <td class="table_middle table-middle-style">{{app.ori_classes}}</td>
+            <td class="table_middle table-middle-style">{{app.user_comment_num}}</td>
+            <td class="table_middle table-middle-style"><a href="" class="btn btn-default" ng-click="add_compete_app_by_user_also_buy(app.app_id)">添加</a></td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="sk-circle" ng-show='user_also_buy_app_show_wait'>
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+        <multi-message user="buy_app_user"></multi-message>
+      </div>
+      <!-- /#user_also_buy_app -->
+
+      <!-- 下载来源App -->
+      <div class="tab-pane" ng-class="{active:app_refer_app_tab}" id="app_refer"> <br/>
+        <!-- 推荐结果 -->
+        <table class="table table-border-gray table-bg">
+          <tr class="table-header-bg">
+            <th class="table-middle-style" width="9%"></th>
+            <th>app</th>
+            <th class="table-middle-style">类别</th>
+            <th class="table-middle-style">评论量</th>
+            <th class="table-middle-style"></th>
+          </tr>
+          <tbody>
+          <tr ng-repeat="app in app_refer_apps">
+            <th class="table_middle table-middle-style">{{$index+1}}</th>
+            <td class="table_middle"><span class="c2"> <img ng-src="{{app.icon}}" class="img-rounded mr app-icon-border" alt="">
+               <a href="#app_content/{{app.app_id}}" target="_blank">{{app.name}}</a></span></td>
+            <td class="table_middle table-middle-style">{{app.ori_classes}}</td>
+            <td class="table_middle table-middle-style">{{app.user_comment_num}}</td>
+            <td class="table_middle table-middle-stylee"><a href="" ng-click="add_compete_app_by_user_also_buy(app.app_id)" class="btn btn-default">添加</a></td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="sk-circle" ng-show='app_refer_app_show_wait'>
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+        <multi-message user="app_refer_user"></multi-message>
+      </div>
+      <!-- /#app_refer_app -->
+
+    </div>
+    <!-- /.tab-content -->
+
+  </div>
+  <!-- /.panel-body -->
+
+</div>
+<!-- /.panel -->
+

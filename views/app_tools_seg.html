@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+<div class="col-md-12">
+
+  <h3 class="page-header">分词工具</h3>
+  <form>
+    <div class="form-group">
+      <label>请输入一个关键词</label>
+      <textarea class="form-control" rows="3" ng-model="seed_keywords">{{seed_keywords}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="get_word_segments(seed_keywords)">分词</button>
+  </form>
+  <br/>
+  <alert  type="success" >{{word_segments}}</alert>
+
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+</div>

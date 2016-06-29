@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html xmlns="http://www.appbk.com">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>APPBK 2015 APP总结</title>
+  <meta name="description" content="" />
+  <meta name="keywords"  content="" />
+  <meta name="Resource-type" content="Document" />
+
+  <link href="bower_components/jango/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <!-- BEGIN THEME STYLES -->
+  <link href="bower_components/jango/css/plugins.css" rel="stylesheet" type="text/css"/>
+  <link href="bower_components/jango/css/themes/red1.css" rel="stylesheet" id="style_theme" type="text/css"/>
+  <link href="bower_components/jango/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+  <link href="styles/style.css?v=20151028" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" type="text/css" href="bower_components/wechat_sources/jquery.fullPage.css" />
+  <link rel="stylesheet" type="text/css" href="bower_components/wechat_sources/examples.css" />
+  <link rel="stylesheet" href="bower_components/wechat_sources/jqcloud.min.css">
+
+  <style>
+    /* Style for our header texts
+      * --------------------------------------- */
+    h1{
+      font-size: 5em;
+      font-family: arial,helvetica;
+      color: #fff;
+      margin:0;
+      padding:0;
+    }
+
+    h2{
+      font-size: 3em;
+      font-family: arial,helvetica;
+      color: #fff;
+      margin:0;
+      padding:0;
+    }
+
+    h3{
+      font-size: 4em;
+      font-family: arial,helvetica;
+      color: black;
+    }
+
+
+    .specailword{
+      font-size: 2em;
+      color: #ffda09;
+
+    }
+    .div_center {
+      width: auto;
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Centered texts in each section* --------------------------------------- */
+    .section{
+      text-align:center;
+    }
+
+
+    /* Backgrounds will cover all the section
+      * --------------------------------------- */
+    .section{
+      background-size: cover;
+    }
+    .slide{
+      background-size: cover;
+    }
+
+    /* Defining each section background and styles
+      * --------------------------------------- */
+    #section0{
+      background-image: url(images/imgs/bg8.jpg);
+      padding: 30% 0 0 0;
+    }
+    #section1{
+      background-image: url(images/imgs/bg8.jpg);
+      padding: 6% 0 0 0;
+    }
+    #section2{
+      background-image: url(images/imgs/bg8.jpg);
+      padding: 6% 0 0 0;
+    }
+    #section3{
+      background-image: url(images/imgs/bg8.jpg);
+      padding: 6% 0 0 0;
+    }
+    #section4{
+      background-image: url(images/imgs/bg8.jpg);
+      padding: 6% 0 0 0;
+    }
+    #section5{
+      background-image: url(images/imgs/bg8.jpg);
+      padding: 6% 0 0 0;
+    }
+    #section3 h1{
+      color: #000;
+    }
+
+    /* Bottom menu
+      * --------------------------------------- */
+    #infoMenu li a {
+      color: #fff;
+    }
+  </style>
+
+</head>
+<body ng-app="wechat_app" ng-controller="wechat_controller" style="background-color: #105cb6">
+
+<div id="fullpage">
+
+  <!--  第1页 -->
+  <div class="section " id="section0">
+    <img ng-src="{{app_info.icon}}" width="180" height="180" class="sImg" alt="img" style="border-radius: 2em">
+    <br><br><br>
+    <h1>{{app_info.name | limitTo:25}}</h1>
+
+    <h2 style="margin-top: 30%">2015 APP历程</h2>
+
+
+    <a  href="http://mp.weixin.qq.com/s?__biz=MzI0NDAyODM5Mg==&mid=401419752&idx=1&sn=e05eb2f21c5a3d3120d0b460cf168779&scene=1&srcid=0127kXteOzQmX5AleSMI9Iud&from=groupmessage&isappinstalled=0#wechat_redirect">
+      <img src="images/logo.png" style="width: 40%; position:absolute; bottom:40px; left: 30%; right: 30%">
+    </a>
+  </div>
+
+  <!--  第二页 -->
+  <div class="section" id="section1">
+    <img ng-src="{{app_info.icon}}" width="120" height="120" class="sImg" alt="img" style="border-radius: 1em">
+    <h2 style="margin-top: 20px">{{app_info.name | limitTo:25}}</h2>
+
+    <h2 id="page2_header" ng-show="get_app_best_rank_show" style="text-align:left; float:left; width: 80%; margin-left: 10%;margin-top: 20%;">
+
+      <br><span id="page2_text1" style="opacity: 0">2015 最高排名:</span><br>
+
+      <span id="page2_text2" style="margin-left: 20%; color: #ffda09; font-size: 2em; opacity: 0">NO. <span style="font-size: 2em;">{{rank}}</span></span>
+
+    </h2>
+
+
+    <h2 id="page2_header2" ng-show="get_app_best_rank_show" style="text-align:left; float:left; width: 80%; margin-left: 10%;margin-top: 10%; opacity: 0">
+      辉煌时刻：<br>
+      <span class="specailword">【{{fetch_date}}】</span>
+      <br>
+      所在分类：
+      <br><span class="specailword">【{{ori_classes}}】<br>【{{rank_type}}】</span>
+    </h2>
+  </div>
+
+
+  <!--  第3页 -->
+  <div class="section" id="section2">
+    <img ng-src="{{app_info.icon}}" width="120" height="120" class="sImg" alt="img" style="border-radius: 1em">
+    <h2 style="margin-top: 20px">{{app_info.name | limitTo:25}}</h2>
+
+    <h1 id="pag3_title" style="margin-top: 100px">热门搜索词</h1>
+    <jqcloud class="jqcloud" id="page3_jqcloud" words="page2_cloud_words" colors="{{colors}}" style="width: 90%; height: 600px;margin-left: 5%; margin-top: 100px; opacity: 0" auto-resize="true" steps="7" font-size="{from:0.11, to:0.03}"></jqcloud>
+  </div>
+
+
+  <!--  第4页 -->
+  <div class="section" id="section3" >
+    <img ng-src="{{app_info.icon}}" width="120" height="120" class="sImg" alt="img" style="border-radius: 1em">
+    <h2 style="margin-top: 20px">{{app_info.name | limitTo:25}}</h2>
+
+    <h1 id="page4_title" style="margin-top: 100px ;color: white">用户印象</h1>
+
+    <jqcloud class="jqcloud" id="page4_jqcloud" words="page3_cloud_words" colors="{{colors}}" style="width: 90%; height: 600px;margin-left: 5%; margin-top: 100px; opacity: 0" auto-resize="true" steps="7" font-size="{from:0.11, to:0.03}"></jqcloud>
+
+  </div>
+
+
+  <!--  第5页 -->
+  <div class="section" id="section4">
+    <img ng-src="{{app_info.icon}}" width="120" height="120" class="sImg" alt="img" style="border-radius: 1em">
+    <h2 style="margin-top: 20px">{{app_info.name | limitTo:25}}</h2>
+
+    <h2 ng-show="app_send_word_show" style="color: white; text-align:left; float:left; width: 80%; margin-left: 10%; margin-top: 100px">
+      在<span id="page5_text1" style="opacity: 0"><span style="font-size: 1.5em; color: #ffda09">【{{ori_classes}}】</span>
+      <br>
+      <br>领域干掉了：<br><br></span>
+      <span id="page5_text2" style="opacity: 0"><span style="font-size: 3em; color: #ffda09; margin-bottom: 30%;">{{(exceed_app_percent.toFixed(2) * 100)}}%</span>的竞争对手<br><br><span>
+      <span id="page5_text3" style="opacity: 0">希望你们在新的一年：<br><br></span>
+      <span id="page5_text4" class="specailword" style="font-size: 3em; opacity: 0">{{send_word}}</span></h2>
+  </div>
+
+  <!--  第6页 -->
+  <div class="section" id="section5">
+    <h1 style="margin-top: 30px">看看你的app</h1>
+
+    <form role="form" method="get" ng-submit="search_app()" style="margin-top:50px; width: 80%; margin-left: 10%; margin-right: 10%; ">
+
+      <input type="text" style=" font-size: 2em;width: 400px; height: 80px" name="q" placeholder="输入app名称"  value="{{name}}" ng-model="name">
+
+      <button type="submit" style="width: 120px; height: 80px; margin-left: 10%; color: #ffda09; font-size: 3em background-color: #455055">搜索</button>
+    </form>
+
+
+    <table class="table" style=" margin-left: 10%; margin-right: 10%; margin-top: 10%; width:80%">
+      <thead>
+
+      </thead>
+      <tbody>
+      <tr ng-repeat="app in app_search_results">
+        <td class="media-left">     <img ng-src="{{app.icon}} " style="border-radius: 1em; width: 100px; height: 100px">   </td>
+        <td class="table_middle" style="text-align:left">
+          <a href="http://test.appbk.com/wechat.html?app_id={{app.app_id}}&app_name={{app.name|limitTo:5}}" target="" style="font-size: 2em; color:#ffda09; margin-top: 50%; height: auto">{{app.name|limitTo:25}}
+          </a>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+
+    <a  href="http://mp.weixin.qq.com/s?__biz=MzI0NDAyODM5Mg==&mid=401419752&idx=1&sn=e05eb2f21c5a3d3120d0b460cf168779&scene=1&srcid=0127kXteOzQmX5AleSMI9Iud&from=groupmessage&isappinstalled=0#wechat_redirect">
+      <img src="images/logo.png" style="width: 40%; position:absolute; bottom:40px; left: 30%; right: 30%">
+    </a>
+
+  </div>
+
+</div>
+
+
+<script src="bower_components/wechat_sources/jquery.1.10.1.min.js"></script>
+<script src="bower_components/wechat_sources/jquery-ui-1.10.3.min.js"></script>
+<!--<script src="bower_components/wechat_sources/jqcloud.min.js"></script>-->
+
+<script type="text/javascript" src="bower_components/wechat_sources/jquery.fullPage.min.js"></script>
+<script type="text/javascript" src="bower_components/wechat_sources/examples.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+<script src="bower_components/wechat_sources/jqcloud.min.js"></script>
+<script src="bower_components/wechat_sources/angular-jqcloud.js"></script>
+
+
+<!-- BEGIN: app SCRIPTS -->
+<script src="scripts/wechat.js?v=20160121"></script>
+<script src="scripts/services/services.js?v=20160121"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+
+//weixin js
+<script>
+
+
+  var imgUrl = 'images/logo.png';  // 分享后展示的一张图片
+  var lineLink = ''; // 点击分享后跳转的页面地址
+  var descContent = "xx！";  // 分享后的描述信息
+  var shareTitle = 'xx';  // 分享后的标题
+  var appid = 'wxacf9d7e1862f8193';  // 应用id,如果有可以填，没有就留空
+
+
+  wx.config({
+    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: appid, // 必填，公众号的唯一标识
+    timestamp: Math.round(new Date().getTime()/1000), // 必填，生成签名的时间戳
+    nonceStr: 'appbksuijiqianming', // 必填，生成签名的随机串
+    signature: '',// 必填，签名，见附录1
+    jsApiList: ['onMenuShareAppMessage','onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+  });
+
+  wx.ready(function () {
+    // 在这里调用 API
+
+    wx.onMenuShareTimeline({
+      title: shareTitle, // 分享标题
+      link: lineLink, // 分享链接
+      imgUrl: imgUrl, // 分享图标
+      success: function () {
+        // 用户确认分享后执行的回调函数
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+      }
+    });
+
+    wx.onMenuShareAppMessage({
+      title: shareTitle, // 分享标题
+      desc: descContent, // 分享描述
+      link: lineLink, // 分享链接
+      imgUrl: imgUrl, // 分享图标
+      type: '', // 分享类型,music、video或link，不填默认为link
+      dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+      success: function () {
+        // 用户确认分享后执行的回调函数
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+      }
+    });
+
+
+    wx.onMenuShareQQ({
+      title: shareTitle, // 分享标题
+      desc: descContent, // 分享描述
+      link: lineLink, // 分享链接
+      imgUrl: imgUrl, // 分享图标
+      success: function () {
+        // 用户确认分享后执行的回调函数
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+      }
+    });
+
+    wx.onMenuShareQZone({
+      title: shareTitle, // 分享标题
+      desc: descContent, // 分享描述
+      link: lineLink, // 分享链接
+      imgUrl: imgUrl, // 分享图标
+      success: function () {
+        // 用户确认分享后执行的回调函数
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+      }
+    });
+
+
+  });
+
+
+
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#fullpage").hide();
+    $('#fullpage').fullpage({
+      verticalCentered: false,
+      afterRender:function() {
+
+        console.log("html afterRender fullpage show");
+
+        $("#fullpage").show();
+      },
+      afterLoad: function(anchorLink, index) {
+        if (index == 2){
+          $("#page2_text1").delay(0).animate({
+            opacity: "1",
+          }, 800);
+          $("#page2_text2").delay(800).animate({
+            opacity: "1",
+          }, 1400);
+
+          $("#page2_header2").delay(2200).animate({
+            opacity: "1",
+          }, 800);
+
+        }
+        if (index == 3) {
+
+          $("#page3_jqcloud").animate({
+            opacity: '1',
+          },800);
+        }
+        if (index == 4) {
+          console.log("index = 2");
+
+          $("#page4_jqcloud").animate({
+            opacity: '1',
+          },800);
+        }
+        if (index == 5){
+          $("#page5_text1").delay(0).animate({
+            opacity: '1',
+          },800);
+
+          $("#page5_text2").delay(800).animate({
+            opacity: '1',
+          },800);
+          $("#page5_text3").delay(800 * 2).animate({
+            opacity: '1',
+          },800);
+          $("#page5_text4").delay(800 * 3).animate({
+            opacity: '1',
+          },800);
+
+        }
+      },
+      onLeave: function(index, direction) {
+        console.log("html onLeave");
+      }
+
+    });
+  });
+</script>
+
+</body>
+</html>

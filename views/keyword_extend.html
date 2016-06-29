@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+<div class="col-md-12">
+    <h3 class="page-header">关键词扩展</h3>
+
+    <form class="" role="search" ng-submit="get_word_expand(keyword)" style="height: 50px">
+        <div class="input-group ">
+            <input type="text" ng-model="keyword"  class="form-control" placeholder=" 请输入您要查询的关键词" autocomplete="off">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </span>
+        </div>
+    </form>
+
+    <table class="table table-border-gray table-bg keyword_extend_table" ng-show="keyword_extend_table_show">
+        <tbody>
+        <tr class="table-header-bg">
+            <th class="word table_middle table-middle-style" width="15%">关键字</th>
+            <th class="hints table_middle table-middle-style" width="15%">搜索热度</th>
+            <th class="search-no table_middle table-middle-style" width="15%">相关度</th>
+            <th class="search-no table_middle table-middle-style appbk-mobile-hide" width="15%">搜索结果数</th>
+            <th class="word table_middle appbk-mobile-hide">排名第一APP</th>
+
+        </tr>
+        <tr ng-repeat="word in word_expand" ng-show="$index<30 || user_login_show">
+
+            <td class="table_middle table-middle-style" width="15%"><a class="hints" href="#app_search/{{word.word}}/cn" target="_blank">{{word.word}}</a></td>
+            <td class="table_middle table-middle-style" width="10%"><a class="hints" href="#word_rank_trend/{{word.word}}" target="_blank">{{word.rank}}</a></td>
+            <td class="table_middle table-middle-style" width="10%">{{word.score}}</td>
+
+            <td class="table_middle table-middle-style appbk-mobile-hide" width="10%">{{word.num}}</td>
+            <td class="table_middle appbk-mobile-hide"><a class="hints" href="user_main.html#/app_content/{{word.app_id}}" target="_blank">{{word.name}}</a></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <label style="width: 100%; text-align: center" ng-show="keyword_extend_table_show && !user_login_show"><a href="#index_login">登录</a>可查看全部关键词</label>
+
+    <div class="sk-circle" ng-show='loading_show'   >
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+    </div>
+
+</div>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+</div>

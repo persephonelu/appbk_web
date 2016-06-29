@@ -1,0 +1,64 @@
+
+<!--<h3 class="page-header">app关键词监控</h3>-->
+
+
+<h4 class="user-app-line-title">
+  <span></span>
+  关键词搜索结果排名分析
+</h4>
+
+<!-- 关键词监控 -->
+<div class="tab-pane" ng-class="{active:keyword_monitor_class}" id="keyword_monitor">
+  <br/>
+  <!-- 全部关键词曝光度 -->
+  <div id="trend" style="width:100%;height: 400px; margin: 0 auto">
+    <div class="sk-circle" ng-show='loading_show'>
+      <div class="sk-circle1 sk-child"></div>
+      <div class="sk-circle2 sk-child"></div>
+      <div class="sk-circle3 sk-child"></div>
+      <div class="sk-circle4 sk-child"></div>
+      <div class="sk-circle5 sk-child"></div>
+      <div class="sk-circle6 sk-child"></div>
+      <div class="sk-circle7 sk-child"></div>
+      <div class="sk-circle8 sk-child"></div>
+      <div class="sk-circle9 sk-child"></div>
+      <div class="sk-circle10 sk-child"></div>
+      <div class="sk-circle11 sk-child"></div>
+      <div class="sk-circle12 sk-child"></div>
+    </div>
+  </div>
+  <br/>
+  <table class="table table-border-gray table-bg" style="border-collapse: inherit; ">
+    <tr class="table-header-bg">
+      <th width="9%" class="table-middle-style">序号</th>
+      <th class="table-middle-style">搜索词</th>
+      <th class="table-middle-style">
+        当前搜索热度
+        <span data-container='body' data-toggle="popover" class="fa fa-question-circle fa-fw'" data-content="反映每天搜索的次数的相对值,是一个从0到11000的数值" data-original-title=""></span>
+      </th>
+      <th class="table-middle-style">我的app当前排名</th>
+      <th class="table-middle-style">搜索曝光度
+        <span data-container='body' data-toggle="popover" class="fa fa-question-circle fa-fw'" data-content="反映关键词的效果。如果关键词热度比较高，而且App的排名也比较高，这样通过搜索得到的“曝光度”就会比较高，就有可能带来更多的下载。这个值的范围为0到100。" data-original-title=""></span>
+
+
+      </th>
+      <th class="table-middle-style">趋势图</th>
+    </tr>
+
+    <tr ng-repeat="word in user_keywords_rank_and_pos">
+      <td class="table-middle-style">{{$index+1}}</td>
+      <td class="table-middle-style">{{word.word}}</td>
+      <td class="table-middle-style">{{word.rank}}</td>
+      <td class="table-middle-style">{{word.pos}}</td>
+      <td class="table-middle-style">{{word.expose}}</td>
+      <td class="table-middle-style hover-visited-blue"><a href="" ng-click="get_keyword_trend($index)">查看</a></td>
+    </tr>
+    <tr>
+      <th colspan="7" class="hover-visited-blue"><a href="" ng-click="watch_all_keywords()">查看整体趋势</a></th>
+    </tr>
+
+
+  </table>
+
+</div>
+<!-- /#keyword_monitor -->

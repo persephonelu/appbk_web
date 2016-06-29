@@ -1,0 +1,112 @@
+<div class="app_rank_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" >
+        <div class="row" >
+          <h3 class="page-header">上线应用监控 <span ng-if=" total_items > 0">（{{total_items}}个）</span> </h3>
+          <div class="row" id="form_area">
+            <div class="row">
+
+
+              <div class="appbk-ui-select btn-float-left" >
+                <ul class="nav navbar-nav btn-float-left ">
+                  <li class="dropdown btn-float-left left-firstbtn" >
+                    <span class="navbar-brand">类别选择</span>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="">{{category_selected}}</span> <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu btn-float-left category-select" role="menu" data-paramname="device">
+                      <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                      <li class="dropdown-submenu appbk-mobile-hide">
+                        <a tabindex="-1" href="javascript:;" ng-click="get_category_app_rank('游戏')">游戏</a> 
+                        <ul class="dropdown-menu cascade-menu" style="height: 478px;"> 
+                          <!--<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>-->
+                          <div style="margin-top: -22px">
+
+                            <li ng-repeat="game_category in game_categories" >
+                              <a href="" ng-click="get_category_app_rank(game_category.ori_classes)">
+                                {{game_category.ori_classes}}</a>
+                          </div>
+                        </ul> 
+                      </li>
+
+                      <li class="" ng-repeat="category in categories">
+                        <a href="" ng-if="category.ori_classes != '游戏'" ng-click="get_category_app_rank(category.ori_classes)">
+                          {{category.ori_classes}}</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown " style="float: left;margin-left: 20px;">
+                    <div class="date-select-title date-select-style-font">上架日期</div>
+                    <input type="text" id="config-cur-demo" class="form-control" style="margin-top: -1px;width: 88px;cursor: pointer;">
+                    <!--<i class="glyphicon glyphicon-calendar fa fa-calendar" style=" margin-left: 210px;padding-top: 10px;"></i>-->
+                  </li>
+                </ul>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="rank-list">
+            <div class="col-md-12">
+              <div class="row_margin">
+                <div ng-repeat="app in app_rank" >
+                  <div class="col-md-2">
+                    <div class="thumbnail ">
+                      <a href="user_main.html#/app_content/{{app.app_id}}" target="_blank">
+                        <!--<img ng-src="{{app.icon}}" alt={{app.name}}>-->
+
+                        <img ng-if="app.icon" ng-src="{{app.icon}}" alt={{app.name}} >
+                        <img ng-if="!app.icon" ng-src="../images/default-store-logo.png" alt={{app.name}} >
+
+                        <div class="caption">
+                          <h5>{{app.name}}</h5>
+
+                          <h6>{{app.ori_classes}}</h6>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sk-circle" style="margin-top: 280px" ng-show='app_rank_show_wait'>
+              <div class="sk-circle1 sk-child"></div>
+              <div class="sk-circle2 sk-child"></div>
+              <div class="sk-circle3 sk-child"></div>
+              <div class="sk-circle4 sk-child"></div>
+              <div class="sk-circle5 sk-child"></div>
+              <div class="sk-circle6 sk-child"></div>
+              <div class="sk-circle7 sk-child"></div>
+              <div class="sk-circle8 sk-child"></div>
+              <div class="sk-circle9 sk-child"></div>
+              <div class="sk-circle10 sk-child"></div>
+              <div class="sk-circle11 sk-child"></div>
+              <div class="sk-circle12 sk-child"></div>
+            </div>
+
+          </div>
+        </div>
+        <h3 ng-if=" total_items <= 0" style="text-align: center;color:#666">
+          今日暂无下架APP！
+        </h3>
+        <!-- 翻页 -->
+        <div class="row">
+          <div class="col-md-12 mobile-horizon-padding-zero">
+            <pagination total-items="total_items" items-per-page="items_per_page" ng-model="current_page"
+                        max-size="5" ng-change="page_changed()"
+                        class="pagination-sm " boundary-links="true" rotate="true"
+                        first-text="首页" last-text="尾页" previous-text="上一页" next-text="下一页">
+
+            </pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

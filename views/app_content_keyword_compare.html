@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <br/>
+
+      <div class="searchResultList" style="height: 140px">
+
+        <div style="text-align:center;float: left;width: 40%"> 
+          <br> 
+          <img ng-src="{{app_info.icon}}" width="72" height="72" class="sImg app_info_icon" alt="img">  
+          <div class="app_name_left app-info-left ng-binding" style="margin-top: 10px">
+            <a href="user_main.html#/app_content_trend/{{app_info.app_id}}">{{app_info.name}}</a>
+
+          </div>
+
+           </div>
+           <div class="app-keyword-compare-vs"> 
+
+        <div rowspan="2" style="padding: 9px">
+
+          <img src="images/vs.png" width="72" height="72" class="sImg " alt="img">
+        </div> 
+      </div>  
+
+        <div style="text-align:center;float: left;width: 40%"> 
+          <br> 
+          <img ng-src="{{compete_app_info.icon}}" width="72" height="72" class="sImg app_info_icon" alt="img">
+              <div class="app_name_left app-info-left ng-binding" style="margin-top: 10px">
+            <a href="user_main.html#/app_content_trend/{{compete_app_info.app_id}}">{{compete_app_info.name}}</a>
+          </div> 
+
+        </div> 
+
+
+
+
+      </div>
+
+      <h4 class="user-app-line-title">
+        <span></span>
+        共有关键词
+      </h4>
+
+      <div class="appbk-ui-select appbk-mobile-hide" > 
+        <ul class="nav navbar-nav" style="float: right"> 
+          <li > 
+            <span  class="btn btn-default" type="manage" ng-click="export_excel()">导出</span>
+            <span data-container='body' data-toggle="popover" id='export_button_tip' class="fa fa-question-circle fa-fw'" data-content="导出csv后，如果使用Excel打开该文件，请先另存为xls或xlsx等Excel格式；否则可能出现保存失败、格式错乱等问题。" data-original-title=""></span>
+
+          </li>
+        </ul>
+      </div>
+
+
+
+      <div class="tab-pane active" style="margin-top: 30px;margin-bottom: 20px">
+        <div  ui-grid="word_grid" ui-grid-auto-resize ui-grid-exporter ng-show='!loading_show'>
+
+        </div>
+
+      </div>
+
+      <div class="sk-circle" ng-show='loading_show' style="margin-top: 30px;">
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+      </div>
+      <!--</div>-->
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $("#export_button_tip").popover({trigger:'click| hover',placement:'top',html:true});
+
+</script>

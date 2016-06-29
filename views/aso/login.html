@@ -1,0 +1,34 @@
+<h3 class="page-header">用户登录</h3>
+
+<div class="container">
+
+    <div class="row">
+      <div class="col-md-8">
+        <br/>
+        <form role="form"  method="post" ng-submit="login()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">E-mail:</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" ng-model="email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">密码:</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="password">
+          </div>
+          <button type="submit" class="btn btn-primary">登录</button>
+        </form>
+        <br/>
+
+        <p><span style="color: red">本页面仅供VIP合作伙伴专用</span>,如需使用请联系管理员添加权限,管理员QQ：863155</p>
+
+        <p>如需注册,请到<a target="_blank" href="http://www.appbk.com/#/index_register">www.appbk.com</a>注册后再返回本页继续使用。</p>
+      <br>
+        <p>注：使用较低版本的IE(8.0及以下)可能会登录失败,建议使用Chrome或者IE9.0以上版本的浏览器</p>
+        <br/>
+        <user-message></user-message>
+        <br/>
+      </div>
+    </div>
+  </div>
+
+  <br/><br/><br/><br/><br/>
+

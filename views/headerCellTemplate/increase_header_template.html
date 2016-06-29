@@ -1,0 +1,15 @@
+
+<div>
+  <div class="ui-grid-cell-contents">
+    同比排名
+    <!--<a data-container='body' data-toggle='popover'-->
+       <!--data-content="该关键词下今天比昨天的排名变化，即当前排名减去昨日排名。" id='compete_header_template_tip'>-->
+      <!--<i class='fa fa-question-circle fa-lg fa-fw'></i></a>-->
+    <span data-container='body' data-toggle="popover" id='compete_header_template_tip' class="fa fa-question-circle fa-fw'" data-content="该关键词下今天比昨天的排名变化，即当前排名减去昨日排名。" data-original-title=""></span>
+
+  </div>
+</div>
+<script>
+  $("#compete_header_template_tip").popover({trigger:'click| hover',placement:'top',html:true});
+
+</script>

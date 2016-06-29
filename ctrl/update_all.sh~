@@ -1,0 +1,7 @@
+#!/bin/sh
+source "./conf.txt"
+
+for((i=0;i<${#ip[*]};i++))
+do
+    echo ${ip[$i]}
+done

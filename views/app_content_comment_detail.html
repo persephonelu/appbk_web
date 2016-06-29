@@ -1,0 +1,54 @@
+
+<div class="c-body" style="padding: 0px">
+
+  <div class="tab-content c-bordered c-padding-lg">
+    <div class="tab-pane active">
+       <h4 class="user-app-line-title">
+        <span></span>
+        评论详情
+      </h4>
+
+          <div class="appbk-ui-select appbk-mobile-hide" > 
+            <ul class="nav" style="float: right;"> 
+              <span class="btn btn-default " style="" type="manage" ng-click="export_excel()">导出评论</span>
+              <span data-container='body' data-toggle="popover" id='export_button_tip' class="fa fa-question-circle fa-fw'" data-content="导出csv后，如果使用Excel打开该文件，请先另存为xls或xlsx等Excel格式；否则可能出现保存失败、格式错乱等问题。" data-original-title=""></span>
+
+            </ul>
+          </div>
+
+
+
+      <div style="margin-top: 25px" ui-grid="word_grid" ui-grid-auto-resize ui-grid-exporter>
+      <div class="sk-circle" ng-show='word_grid_loading_show'>
+      <div class="sk-circle1 sk-child"></div>
+      <div class="sk-circle2 sk-child"></div>
+      <div class="sk-circle3 sk-child"></div>
+      <div class="sk-circle4 sk-child"></div>
+      <div class="sk-circle5 sk-child"></div>
+      <div class="sk-circle6 sk-child"></div>
+      <div class="sk-circle7 sk-child"></div>
+      <div class="sk-circle8 sk-child"></div>
+      <div class="sk-circle9 sk-child"></div>
+      <div class="sk-circle10 sk-child"></div>
+      <div class="sk-circle11 sk-child"></div>
+      <div class="sk-circle12 sk-child"></div>
+      </div>
+      </div>
+
+      <multi-message user="keywords_user"></multi-message>
+      <div >
+      <br/>
+
+      <button ng-show="max_page_num > 1" ng-disabled="!turn_page" class="btn btn-primary" ng-click="load_more(current_page)">加载更多...({{current_page}}/{{max_page_num}})</button>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $("#export_button_tip").popover({trigger:'click| hover',placement:'top',html:true});
+
+</script>

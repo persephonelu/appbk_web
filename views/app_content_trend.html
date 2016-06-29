@@ -1,0 +1,95 @@
+<div class="view-page">
+<!--<h3 class="page-header">应用详情</h3>-->
+<h4 class="user-app-line-title">
+  <span></span>
+  实时排名
+</h4>
+<table class="table rank table-border searchResultList" ng-show="best_rank_show">
+  <tbody>
+  <tr class="table-header-bg">
+    <th style="width: 20%" ></th>
+    <th class="total" style="text-align: center">{{best_rank[0].ori_classes}} <span ng-show="best_rank[0].rank_type">({{best_rank[0].rank_type}})</span></th>
+    <th class="class" style="text-align: center">{{best_rank[1].ori_classes}} <span ng-show="best_rank[1].rank_type">({{best_rank[1].rank_type}})</span></th>
+  </tr>
+  <tr>
+    <th class="best_rank">实时排名</th>
+    <td>
+      <div class="best_rank">{{best_rank[0].rank}}</div>
+      <div ng-if="best_rank[0].update_time" class="best_rank_time">{{best_rank[0].update_time}}更新</div>
+    </td>
+    <td>
+      <div class="best_rank">{{best_rank[1].rank}}</div>
+      <div ng-if="best_rank[1].update_time" class="best_rank_time">{{best_rank[1].update_time}}更新</div>
+
+    </td>
+
+  </tr>
+  </tbody></table>
+<h4 class="user-app-line-title">
+  <span></span>
+  排名趋势
+</h4>
+<div class="col-md-8 date-select-style">
+
+
+  <div class="appbk-ui-select">
+    <ul class="nav navbar-nav mobile-margin-zero">
+
+      <li class="dropdown" style="float: left;">
+        <span class="navbar-brand">榜单类型</span>
+        <a href="" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false">
+          <span class="name"> {{rank_type_name}}</span>
+          <!--{{rank_type_name}}-->
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu" data-paramname="device">
+          <span class="glyphicon glyphicon-triangle-top appbk-mobile-hide" aria-hidden="true"></span>
+          <li class=""><a href="" data-param="免费榜单" ng-click="update_app_rank_type('')">
+            全部榜单</a></li>
+          <li class=""><a href="" data-param="免费榜单" ng-click="update_app_rank_type('topfreeapplications')">
+            免费榜单</a></li>
+          <li class="">
+            <a href="" ng-click="update_app_rank_type('toppaidapplications')" data-param="付费榜单" >
+              付费榜单</a></li>
+          <li class="">
+            <a href="" ng-click="update_app_rank_type('topgrossingapplications')" data-param="畅销榜单">
+              畅销榜单</a></li>
+        </ul>
+      </li>
+      <div class="dropdown mobile-margin-zero" style="float: left;margin-left: 10px !important;">
+        <div class="date-select-title date-select-style-font">日期</div>
+        <input type="text" id="config-demo" class="form-control" style="margin-top: 0;cursor: pointer;width: 165px;">
+      </div>
+    </ul>
+  </div>
+
+</div>
+
+<div class="c-body" style="padding: 0px; margin-top: 140px;padding-bottom: 50px">
+
+    <div class="tab-content c-bordered c-padding-lg">
+      <div class="tab-pane active">
+
+        <div id="app_content_trend" style="width:100%;height: 400px; margin: 0 auto;">
+          <div class="sk-circle" ng-show='loading_show' style="margin-top: 50px">
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div

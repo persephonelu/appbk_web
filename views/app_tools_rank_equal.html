@@ -1,0 +1,140 @@
+<div class="container" style="min-height: 560px;">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="page-header">榜单排名对应</h3>
+
+      <div class="appbk-ui-select btn-float-left" >
+        <ul class="nav navbar-nav btn-float-left">
+          <li class="dropdown btn-float-left " >
+            <span class="navbar-brand">类别选择</span>
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="">{{category_selected}}</span> <span class="caret"></span></a>
+
+            <ul class="dropdown-menu btn-float-left category-select" role="menu" data-paramname="device">
+              <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+              <li class="dropdown-submenu appbk-mobile-hide">
+                <a tabindex="-1" href="javascript:;" ng-click="get_category_app_rank('游戏')">游戏</a> 
+                <ul class="dropdown-menu cascade-menu" style="height: 478px;"> 
+                  <div style="margin-top: -22px">
+                    <li ng-repeat="game_category in game_categories" >
+                      <a href="" ng-click="get_category_app_rank(game_category.ori_classes)">
+                        {{game_category.ori_classes}} </a></li> 
+                  </div>
+                </ul> 
+              </li>
+
+              <li class="" ng-repeat="category in categories">
+                <a href="" ng-if="category.ori_classes != '游戏'" ng-click="get_category_app_rank(category.ori_classes)">
+                  {{category.ori_classes}}</a>
+              </li>
+            </ul>
+          </li>
+
+
+          <div class="dropdown " style="float: right; margin-top: -2px;  margin-left: 8px;"> 
+            <form role="form" method="post" class="navbar-form navbar-right mobile-margin-zero" ng-submit="getRankEqual()" style="padding: 0; margin-top: 0"> 
+              <div class="form-group" style="margin-top: 1px;">
+                <div class="input-group"> 
+                  <input type="number" class="form-control" name="rank" placeholder="输入排名数字..."  value="{{rank}}" ng-model="rank"> 
+                        <span class="input-group-btn">
+                             <button type="submit" class="btn btn-default add-custom-keyword-btn">查询</button> 
+                            </span>
+                </div>
+              </div> 
+
+            </form>
+
+          </div>
+
+      </ul>
+
+      </div>
+
+
+      <table class="table rank table-border searchResultList rank-equal-table" ng-show="equal_category != null">
+        <tbody >
+        <tr class="table-header-bg" >
+          <th style="width: 10%">#</th>
+          <th style="width: 30%">总榜(免费)</th>
+          <th style="width: 30%">总榜(付费)</th>
+          <th style="width: 30%">总榜(畅销)</th>
+        </tr>
+        <tr>
+          <th class="total ng-binding">对应排名</th>
+          <td>
+            <div class="best_rank " ng-show="equal_category.topfreeapplications.rank">{{equal_category.topfreeapplications.rank}}</div>
+            <div class="best_rank " ng-show="!equal_category.topfreeapplications.rank">-</div>
+
+          </td>
+          <td>
+            <div class="best_rank ">{{equal_category.toppaidapplications.rank}}</div>
+            <div class="best_rank " ng-show="!equal_category.toppaidapplications.rank">-</div>
+
+          </td>
+          <td>
+            <div class="best_rank ">{{equal_category.topgrossingapplications.rank}}</div>
+            <div class="best_rank " ng-show="!equal_category.topgrossingapplications.rank">-</div>
+
+          </td>
+        </tr>
+        <tr>
+          <th class="total ng-binding" >当前APP</th>
+          <td>
+            <div class="thumbnail " style="width: 240px;margin: auto;margin-bottom: 3px;padding: 20px;" ng-show="equal_category.topfreeapplications != null">
+              <a href="user_main.html#/app_content/{{equal_category.topfreeapplications.app_id}}" target="_blank">
+                <img class="app_info_icon" ng-src="{{equal_category.topfreeapplications.icon}}" alt="{{equal_category.topfreeapplications.name}}">
+                <div class="caption">
+                  <h5 class="ng-binding">{{equal_category.topfreeapplications.name}}</h5>
+                </div>
+              </a>
+            </div>
+            <div class="best_rank " ng-show="!equal_category.topfreeapplications.rank">-</div>
+
+          </td>
+          <td>
+            <div class="thumbnail " style="width: 240px;margin: auto;margin-bottom: 3px;padding: 20px;" ng-show="equal_category.toppaidapplications != null">
+              <a href="user_main.html#/app_content/{{equal_category.toppaidapplications.app_id}}" target="_blank">
+                <img class="app_info_icon" ng-src="{{equal_category.toppaidapplications.icon}}" alt="{{equal_category.toppaidapplications.name}}">
+                <div class="caption">
+                  <h5 class="ng-binding">{{equal_category.toppaidapplications.name}}</h5>
+                </div>
+              </a>
+            </div>
+            <div class="best_rank " ng-show="!equal_category.toppaidapplications.rank">-</div>
+
+          </td>
+
+          <td>
+            <div class="thumbnail " style="width: 240px;margin: auto;margin-bottom: 3px;padding: 20px;" ng-show="equal_category.topgrossingapplications != null">
+              <a href="user_main.html#/app_content/{{equal_category.topgrossingapplications.app_id}}" target="_blank">
+                <img class="app_info_icon" ng-src="{{equal_category.topgrossingapplications.icon}}" alt="{{equal_category.topgrossingapplications.name}}">
+                <div class="caption">
+                  <h5 class="ng-binding">{{equal_category.topgrossingapplications.name}}</h5>
+
+                </div>
+              </a>
+            </div>
+            <div class="best_rank " ng-show="!equal_category.topgrossingapplications.rank">-</div>
+
+          </td>
+        </tr>
+        </tbody></table>
+
+      <div class="sk-circle" ng-show='loading_show' style="margin-top: 100px">
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+      </div>
+
+
+  </div>
+</div>
+</div>

@@ -1,0 +1,58 @@
+
+<!--<h3 class="page-header">关键词拓展</h3>-->
+
+<h4 class="user-app-line-title">
+  <span></span>
+  关键词拓展
+</h4>
+
+<div class="c-body" style="padding: 0px">
+  <div class="c-content-tab-1 c-theme c-margin-t-30">
+    <div class="clearfix">
+      <ul class="nav nav-tabs c-font-uppercase  nav-justified c-font-bold">
+        <li>
+          <a href="#user_app_keyword_expand/{{app_info.app_id}}" data-toggle="tab"  data-target="#">步骤1：填写种子词</a>
+        </li>
+        <li class="active">
+          <a href="#user_app_keyword_expand2/{{app_info.app_id}}" data-toggle="tab"  data-target="#">步骤2：关键词拓展</a>
+        </li>
+        <li>
+          <a href="#user_app_keyword_expand3/{{app_info.app_id}}" data-toggle="tab"  data-target="#">步骤3：整理输出</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<br/>
+<li><span class="glyphicon glyphicon-hand-right mr1"></span>该步骤根据种子词，通过不同的方法进行扩展。"推荐度     "是选词的最终指标，越高越好</li>
+  <li><span class="glyphicon glyphicon-hand-right mr1"></span>点击表格最左一栏，选择或取消关键词</li>
+<br/>
+
+<div class="form-group">
+  <tabset justified="false" type="pills">
+    <tab heading="种子词" ng-click="select_seed_keywords_tab()">
+      <br/>
+      <li><span class="glyphicon glyphicon-hand-right mr1"></span>种子词指标</li>
+      <alert  type="{{alert.type}}" >{{alert.msg}}</alert>
+    </tab>
+    <tab heading="类似app使用的词" ng-click="select_simliar_app_keywords_tab()">
+      <br/>
+      <li><span class="glyphicon glyphicon-hand-right mr1"></span>根据种子词推测竞品，然后看这些竞品的关键词：</li>
+      <alert  type="{{alert.type}}" >{{alert.msg}}</alert>
+    </tab>
+    <tab heading="语义扩展词" ng-click="select_relate_keywords_tab()">
+      <br/>
+      <li><span class="glyphicon glyphicon-hand-right mr1"></span>如根据关键词"帅哥"，扩展出"美女"：</li>
+      <alert  type="{{alert.type}}" >{{alert.msg}}</alert>
+    </tab>
+    <tab heading="词根扩展词" ng-click="select_root_expand_keywords_tab()">
+      <br/>
+      <li><span class="glyphicon glyphicon-hand-right mr1"></span>"微信"可能不能使用，但包含"微信"的 "微信登陆"基本就没问题：</li>
+      <alert  type="{{alert.type}}" >{{alert.msg}}</alert>
+    </tab>
+  </tabset>
+  <div  ui-grid="expand_word_grid" ui-grid-selection ui-grid-auto-resize></div>
+
+</div>

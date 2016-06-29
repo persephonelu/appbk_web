@@ -1,0 +1,144 @@
+<div class="c-content-box c-size-md c-bg-parallax" style="background-image: url(images/bg_appbk.png) ;padding-top:60px !important; padding-bottom: 0px">
+  <div class="container" id="appbase_main_page">
+    <div class="c-content-bar-4">
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div>
+            <br/>
+            <h4 class="c-font-40 c-font-white c-font-bold " style="font-weight:300 !important;">最专业的App Store搜索优化平台
+
+              <h4 class="c-font-20 c-font-white  " style="padding-top: 10px">全球首家人工智能中文组词系统</h4>
+            </h4>
+
+            <form ng-submit="app_search()" style="margin-top: 10px">
+              <div class="input-group input-lg">
+                <input type="text" ng-model="name" placeholder="应用名称或者APP ID..." class="form-control input-lg">
+                  <span class="input-group-btn" >
+                      <button class="btn btn-primary" type="submit" style="height: 46px">搜索</button>
+                  </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8 col-md-offset-2">
+        <p id="today_hotwords" class="pull-left" >
+          今日热搜:
+        <div class="today_hotwords_words">
+        <span ng-repeat="hotword in hotwords">
+          <a style="color: white" class="btn appbk-padding-right-0" href="#app_search/{{hotword.word}}/cn" >{{hotword.word}}
+          </a> 
+
+        </span>
+
+        </div>
+        </p>
+      </div>
+
+    </div>
+  </div>
+  <!-- END: CONTENT/BARS/BAR-5 -->
+  <!-- BEGIN: CONTENT/FEATURES/FEATURES-1 -->
+  <div class="c-content-box c-size-md c-bg-white" style="padding-top: 60px !important;">
+    <div class="container">
+      <div class="row" style="text-align: center;">
+        <div class="col-sm-4">
+          <div class="c-content-feature-1">
+            <div class="c-content-line-icon c-theme c-icon-screen-chart" ></div>
+            <h3 class="c-font-uppercase c-font-bold">关键词/ASO分析</h3>
+            <p class="c-font-thin">关键词覆盖、排名趋势查询。还有新词拓展、组词、ASO效果预估、效果监控等功能。ASO全面解决方案，ASOer首选工具。
+              <!--[<a href="#app_rank">立即体验</a>]-->
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="c-content-feature-1">
+            <div class="c-content-line-icon c-theme c-icon-support"  ></div>
+            <h3 class="c-font-uppercase c-font-bold">TOP1500 实时排名
+            </h3>
+            <p class="c-font-thin">Appstore Top1500榜单实时查询，评论监控分析，热搜词监控。为您的App运营提供一流的数据保障。</p>
+          </div>
+        </div>
+        <div class="col-sm-4 c-card">
+          <div class="c-content-feature-1">
+            <div class="c-content-line-icon c-theme c-icon-bulb"  ></div>
+            <h3 class="c-font-uppercase c-font-bold">选词、填词、估量</h3>
+            <p class="c-font-thin">一键ASO检测、一键拓词、分词等专业辅助工具，全部数据均可导出。所有服务都可通过网页、微信、App随时随地使用。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END: CONTENT/FEATURES/FEATURES-1 -->
+
+  <!-- BEGIN: LAYOUT/FOOTERS/FOOTER-6 -->
+  <footer class="c-layout-footer c-layout-footer-6 mainpage_footer_style">
+    <div class="container">
+      <div class="c-body">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="c-links c-theme-ul" style="width: 30%">
+              <li>
+                <a href="#index_about">关于我们</a>
+              </li>
+              <li>
+                <a href="http://blog.appbk.com/" target="_blank">团队博客</a>
+              </li>
+              <li>
+                <a href="#index_contact">联系我们</a>
+              </li>
+
+
+            </ul>
+            <ul class="c-links c-theme-ul" style="width: 70%">
+              <li>
+                <a href="http://jq.qq.com/?_wv=1027&k=KcLnh5" target="_blank">用户QQ群：39351116</a>
+              </li>
+              <li>
+
+                <a href="#">
+                  微信号:<span class="c-theme-color">appbkcom</span>
+                </a>
+              </li>
+              <li>
+
+                <a href="mailto:jinhuilv@youyue-inc.com" style="width: 100%">
+                  Email:<span class="c-theme-color">jinhuilv@youyue-inc.com</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3 col-sm-12 col-sm-offset-1" >
+            <div class="c-content-title-1 c-title-md" style="width: 80%">
+              <a class="">友情链接</a>
+              <br>
+
+              <a target="_blank"  href="http://www.testin.cn/">Testin云测</a>.
+              <a target="_blank"  href="http://www.anzhi.com/">安智</a>.
+              <a target="_blank"  href="http://bbs.zhiyoo.com">智友论坛</a>.
+              <a target="_blank"  href="http://www.55188.com/">理想论坛</a>.
+              <a target="_blank"  href="http://rank.aiyingli.com">应用排行</a>.
+              <a target="_blank"  href="http://www.miaozhuandaqian.com/index_commerce.html">秒赚大钱</a>
+            </div>
+
+          </div>
+
+          <div class="col-md-3  col-sm-offset-1">
+            <div class="c-content-title-1 c-title-md">
+              <a class=" ">APP下载</a>
+            </div>
+            <div class="c-icons" style="margin-top: 10px">
+
+              <a href="http://zhushou.360.cn/detail/index/soft_id/3006291" class="c-font-30 c-font-bule socicon-btn c-bg-grey-1-hover socicon-android tooltips" data-original-title="Android" data-container="body" target="_blank"></a>
+              <a href="https://itunes.apple.com/cn/app/app-yun-ying-zhu-shou-ji-yu/id1001621786?l=en&mt=8" class="c-font-30 c-font-bule socicon-btn c-bg-grey-1-hover socicon-apple tooltips" data-original-title="Apple" data-container="body" target="_blank"></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+</div>

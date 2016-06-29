@@ -1,0 +1,105 @@
+<br/>
+<div class="searchResultList">
+  <table width="100%" border="0">
+    <tr>
+      <td width="9%" rowspan="2" style="padding: 9px"><img ng-src="{{app_info.icon}}" width="72" height="72" class="sImg" alt="img"></td>
+      <td width="77%">
+        <span class="sRTitle c3"> <a href="/#/app_content/{{app_info.app_id}}" target="_blank"> {{app_info.name}}</a></span>
+        <span class="db sRBtn"> {{app_info.ori_classes}}
+         App ID:<a href="{{app_info.download_url}}" target="_blank">{{app_info.app_id}}</a></span>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h3 class="page-header">关键词优化</h3>
+
+<tabset justified="true">
+  <tab heading="步骤1：种子词">
+    <br/>
+    <form>
+      <div class="form-group">
+        <label>填写至少5个关键词，越多越好，关键词之间用中文或英文逗号分开</label>
+        <textarea class="form-control" rows="3" ng-model="seed_keywords">{{seed_keywords}}</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" ng-click="update_user_seed_keywords(seed_keywords)">提交更新</button>
+    </form>
+    <br/>
+    <alert  type="{{seed_keywords_alert.type}}" >{{seed_keywords_alert.msg}}</alert>
+    <br/>
+    <strong>小提示：</strong><br />
+    <ul>
+      <li><span class="glyphicon glyphicon-hand-right mr1"></span>关键词可以是描述app功能、特色、用户群的词汇；</li>
+      <li><span class="glyphicon glyphicon-hand-right mr1"></span>如果已提交appstore，把app关键词复制到这里即可；</li>
+      <li><span class="glyphicon glyphicon-hand-right mr1"></span>
+        你还可以参考<a href="/#/word_rank" target="_blank">热门关键词</a>，或者看看<a href="/#/app_rank" target="_blank">热门app</a> 的关键词
+      </li>
+     </ul>
+    <br/>
+  </tab>
+  <tab heading="步骤2：关键词拓展" ng-click="select_expand_keywords_tab()">
+    <br/>
+    <li><span class="glyphicon glyphicon-hand-right mr1"></span>该步骤根据种子词，通过不同的方法进行扩展。"推荐度     "是选词的最终指标，越高越好</li>
+    <li><span class="glyphicon glyphicon-hand-right mr1"></span>点击表格最左一栏，选择或取消关键词</li>
+    <br/>
+    <form>
+      <div class="form-group">
+        <label>已选择的关键词：总长度 {{select_keywords.length}}/100</label>
+        <textarea class="form-control" rows="3" ng-model="select_keywords" disabled>{{select_keywords}}</textarea>
+        <br/>
+        <tabset justified="false" type="pills">
+          <tab heading="种子词">
+            <br/>
+            <alert  type="{{alert.type}}" >{{alert.msg}}</alert>
+            <div  ui-grid="seed_word_grid" ui-grid-selection></div>
+          </tab>
+          <tab heading="类似app使用的词" ng-click="select_simliar_app_keywords_tab()">
+            <br/>
+            <li><span class="glyphicon glyphicon-hand-right mr1"></span>根据种子词推测竞品，然后看这些竞品的关键词：</li>
+            <alert  type="{{alert.type}}" >{{alert.msg}}</alert>
+            <div  ui-grid="similar_app_word_grid" ui-grid-selection></div>
+          </tab>
+          <tab heading="语义扩展词" ng-click="select_relate_keywords_tab()">
+            <br/>
+            <li><span class="glyphicon glyphicon-hand-right mr1"></span>如根据关键词"帅哥"，扩展出"美女"：</li>
+            <alert  type="{{alert.type}}" >{{alert.msg}}</alert>
+            <div  ui-grid="relate_word_grid" ui-grid-selection></div>
+          </tab>
+          <tab heading="词根扩展词" ng-click="select_root_expand_keywords_tab()">
+            <br/>
+            <li><span class="glyphicon glyphicon-hand-right mr1"></span>"微信"可能不能使用，但包含"微信"的 "微信登陆"基本就没问题：</li>
+            <alert  type="{{alert.type}}" >{{alert.msg}}</alert>
+            <div  ui-grid="root_expand_word_grid" ui-grid-selection ui-grid-auto-resize></div>
+          </tab>
+        </tabset>
+      </div>
+    </form>
+
+  </tab>
+  <tab heading="关键词管理" ng-click="select_final_keywords_tab()">
+    <br/>
+    <div ui-grid="final_word_grid"  ui-grid-auto-resize  ui-grid-exporter></div>
+    <multi-message user="keyword_manage_user"></multi-message>
+    <br/>
+
+    <div class="row" id="form_area">
+      <div class="col-lg-8">
+        <form role="form" class="form-inline" name="append_user_keyword" ng-submit="add(word)">
+          <div class="input-group col-sm-8">
+            <input type="text" class="form-control" placeholder="输入一个或多个关键词,用英文逗号分开..." ng-model="word" ng-minlength='2'>
+          </div>
+          <button type="submit" ng-disabled="!append_user_keyword.$valid" class="btn btn-primary">添加关键词</button>
+        </form>
+      </div>
+    </div>
+    <!-- /#from_area -->
+    <br/>
+    <br/>
+    <form>
+      <div class="form-group">
+        <label>提交app时，可复制下面的关键词，粘贴在Itunes对应位置。总长度 {{select_keywords.length}}/100</label>
+        <textarea class="form-control" rows="3" ng-model="select_keywords">{{select_keywords}}</textarea>
+      </div>
+    </form>
+  </tab>
+</tabset>

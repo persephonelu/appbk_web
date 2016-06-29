@@ -1,0 +1,321 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>APP运营助手_ASO优化_App Store应用市场优化</title>
+  <meta name="description" content="专业的应用市场大数据分析平台，提供应用市场搜索优化等多项服务，基础业务完全免费">
+  <meta name="keywords" content="应用市场优化，应用市场分析，aso，app搜索优化，应用市场搜索优化，app宝库">
+  <meta property="wb:webmaster" content="449348d7098e7a8d" />
+  <meta name="baidu-site-verification" content="wG7bFzLcnl" />
+
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="stylesheet" href="styles/style.css">
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css" />
+  <link rel="stylesheet" href="bower_components/sb-admin-2/css/sb-admin-2.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="bower_components/metronic/frontend/onepage2/css/layout.css" />
+
+
+</head>
+<body ng-app="rank" ng-controller="rank_controller">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div id="wrapper">
+
+  <!-- Navigation 头部导航-->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <a href="" class="db logo fl">logo</a>
+    </div>
+
+    <ul class="nav navbar-top-links navbar-left">
+      <li><a href="user_main.html">我的应用</a></li>
+      <li><a href="rank.html">排行统计</a></li>
+      <li><a href="app_tools.html">app工具</a></li>
+      <li><a href="http://blog.appbk.com/app%E8%BF%90%E8%90%A5%E5%8A%A9%E6%89%8B-%E4%B8%80%E9%A1%B5%E6%95%99%E7%A8%8B/" target="_blank">一页教程</a></li>
+      <li><a href="http://blog.appbk.com/faq" target="_blank">常见问题</a></li>
+    </ul>
+
+    <ul class="nav navbar-top-links navbar-right">
+
+      <li>
+        <a ng-show="user_not_login_show" href="login.html">登录</a>
+      </li>
+      <li>
+        <a ng-show="user_not_login_show" href="register.html">注册</a>
+      </li>
+
+      <li class="dropdown" ng-show="user_login_show">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">{{user_info.nickname}} <i
+          class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i></a>
+        <ul class="dropdown-menu dropdown-user">
+          <li><a href="" ng-click="logout()"> <i class="fa fa-sign-out fa-fw"></i>退出</a></li>
+        </ul>
+      </li>
+      <!-- /.dropdown -->
+      <li>
+        <a ng-show="user_not_login_show" href="">|</a>
+      </li>
+    </ul>
+
+  </nav>
+</div>
+<br/>
+<!-- /#wrapper -->
+<div class="page-content">
+  <div class="subscribe">
+    <div class="container">
+      <div class="subscribe-wrap">
+        <div class="subscribe-body subscribe-desc md-margin-bottom-30">
+          <h1>免费注册</h1>
+          <p>基于大数据的APP营销运营工具，您值得尝试</p>
+        </div>
+        <div class="subscribe-body">
+          <form action="{{register_or_login_url}}">
+            <div class="form-wrap-group">
+              <button type="submit" class="btn-danger btn-md btn-block">{{register_or_login}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="about">
+    <!-- Services BEGIN -->
+    <div class="container service-bg">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="services sm-margin-bottom-100">
+            <div class="services-wrap">
+              <div class="service-body">
+                <img src="images/icon1.png" alt="">
+              </div>
+            </div>
+            <h2><a href="rank.html">Appstore市场竞品监控</a></h2>
+            <p>APP排行榜，相关竞品对比 <br> 搜索排名对比一目了然</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="services sm-margin-bottom-100">
+            <div class="services-wrap">
+              <div class="service-body">
+                <img src="images/icon2.png" alt="">
+              </div>
+            </div>
+            <h2><a href="user_main.html">ASO市场搜索优化</a></h2>
+
+            <p>覆盖100万热词，选择竞品即可得到关键词推荐 <br> 关键词智能扩展</p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="services">
+            <div class="services-wrap">
+              <div class="service-body">
+                <img src="images/icon3.png" alt="">
+              </div>
+            </div>
+            <h2><a href="user_main.html">APP用户画像</a></h2>
+
+            <p>基于微博等社区数据挖掘 <br>为中小APP构建私有DMP提供数据支持</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Services END -->
+  </section>
+
+  <section id="features">
+    <!-- Features BEGIN -->
+    <div class="features-bg">
+      <div class="container">
+        <div class="heading">
+          <h2><strong>APP运营助手</strong>主要特色</h2>
+
+          <p>让APP运营更有依据</p>
+        </div>
+        <!-- //end heading -->
+
+        <!-- Features -->
+        <div class="row margin-bottom-70">
+          <div class="col-md-6 md-margin-bottom-70">
+            <div class="features">
+              <img src="images/screen1.png" alt="">
+
+              <div class="features-in">
+                <h3><a href="#">极致简单</a></h3>
+                <p>我们提供的是SAAS全自助式服务，页面为典型单页式管理界面，所有功能一目了然</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="features">
+              <img src="images/screen2.png" alt="">
+
+              <div class="features-in">
+                <h3><a href="#">永久免费</a></h3>
+                <p>ASO等基础服务永久免费，非接单模式，让机器解决问题，低成本让我们有条件任性</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //end row -->
+        <div class="row margin-bottom-80">
+          <div class="col-md-6 md-margin-bottom-70">
+            <div class="features">
+              <img src="images/screen3.png" alt="">
+
+              <div class="features-in">
+                <h3><a href="#">大数据</a></h3>
+                <p>强大的数据分析挖掘能力是我们服务的根基，我们的核心目标就是为运营提供有效的数据支持</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="features">
+              <img src="images/screen4.png" alt="">
+
+              <div class="features-in">
+                <h3><a href="#">开放平台</a></h3>
+
+                <p>我们的服务能力将通过API全开放，未来也将接入第三方APP运营相关服务</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //end row -->
+        <!-- End Features -->
+
+        <center><a href="rank.html" class="btn-brd-danger">WEB版(IE8及以上)</a>
+          <a href="http://wap.appbk.com/" class="btn-brd-danger">移动版</a>
+          <a href="http://zhushou.360.cn/detail/index/soft_id/3006291" class="btn-brd-danger" target="_blank">安卓版</a>
+          <a href="" class="btn-brd-danger">IOS版(敬请期待)</a></center>
+      </div>
+    </div>
+    <!-- Features END -->
+  </section>
+
+  <section id="clients">
+    <div class="clients">
+      <div class="clients-bg">
+        <div class="container">
+          <div class="heading-blue">
+            <h2>这些APP都在使用</h2>
+          </div><!-- //end heading -->
+
+          <div class="partners-block">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-2 col-sm-3 col-xs-6">
+                  <img src="images/client1.png" alt="ngreen">
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-6">
+                  <img src="images/client2.png" alt="cisco">
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-6">
+                  <img src="images/client3.png" alt="walmart">
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-6">
+                  <img src="images/client4_1.png" alt="gamescast">
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-6">
+                  <img src="images/client5_1.png" alt="spinwokrx">
+                </div>
+                <div class="col-md-2 col-sm-3 col-xs-6">
+                  <img src="images/client6.png" alt="ngreen">
+                </div>
+              </div>
+            </div>
+          </div>
+          <br/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br/>
+  <section id="partaner">
+    <div class="partners-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-sm-3 col-xs-6">
+            <img src="images/part0.png" alt="合作伙伴">
+          </div>
+          <div class="col-md-2 col-sm-3 col-xs-6">
+            <img src="images/part6.png" alt="cisco">
+          </div>
+          <div class="col-md-2 col-sm-3 col-xs-6">
+            <img src="images/part7.png" alt="walmart">
+          </div>
+          <div class="col-md-2 col-sm-3 col-xs-6">
+            <img src="images/part3_1.png" alt="gamescast">
+          </div>
+          <div class="col-md-2 col-sm-3 col-xs-6">
+            <img src="images/part4_1.png" alt="spinwokrx">
+          </div>
+          <div class="col-md-2 col-sm-3 col-xs-6">
+            <img src="images/part5_1.png" alt="ngreen">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<div class="footer ">
+  <div class="container">
+    <h5 class="copy_link"><a href="about.html" target="_blank">关于我们</a>
+      <a href="http://blog.appbk.com/" target="_blank">团队博客</a>
+      用户Q群:<a href="http://jq.qq.com/?_wv=1027&amp;k=KcLnh5" target="_blank">39351116</a>
+      <a href="address.html" target="_blank">联系我们</a>
+
+    </h5>
+    <h6>       Copyright © 2014-2015 应用宝库 版权所有　沪ICP备12031794号
+    </h6>
+  </div>
+</div>
+
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/ngStorage/ngStorage.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+
+
+<script src="scripts/app.js"></script>
+<script src="scripts/user_app.js"></script>
+<script src="scripts/services/services.js"></script>
+<script src="scripts/directives/directives.js"></script>
+<script src="scripts/controllers/rank_controllers.js"></script>
+<script src="scripts/controllers/user_app_controllers.js"></script>
+<script src="scripts/controllers/user_app_keyword_controllers.js"></script>
+<script src="scripts/controllers/user_controllers.js"></script>
+
+<!-- 百度统计 -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?a2e9c4b0a153cd0ef8cf9f65ca932e2f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+</body>
+</html>

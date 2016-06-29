@@ -1,0 +1,171 @@
+<div class="view-page">
+
+
+  <h4 class="user-app-line-title">
+    <span></span>
+    应用截图
+  </h4>
+  <div class="dashed-border-bottom">
+
+    <div class="panel-body">
+      <div class="screenshots screenshots-iPhone" data-attr-current="0" data-attr-max-count="3">
+        <div ng-click="screenshot_previous()" id="sliding-previous" class="sliding-previous sliding-button sliding-disabled fa fa-2x fa-arrow-circle-left"></div>
+        <div ng-repeat="image in app_info.app_pics" class="screenshot-block " ng-show="$index >= currentIndex && $index < currentIndex + 3">
+          <!--&& $index < currentIndex + 3-->
+            <img ng-src="{{image}}">
+        </div>
+
+        <div ng-click="screenshot_next()" id="sliding-next" class="sliding-next sliding-button fa fa-2x fa-arrow-circle-right"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+<h4 class="user-app-line-title">
+  <span></span>
+  应用描述</h4>
+<div class="dashed-border-bottom">
+  <div id="app_brief" class="panel-body">
+  <div ng-bind-html="app_brief">
+
+    <div class="sk-circle" ng-show='app_brief_loading_show'>
+      <div class="sk-circle1 sk-child"></div>
+      <div class="sk-circle2 sk-child"></div>
+      <div class="sk-circle3 sk-child"></div>
+      <div class="sk-circle4 sk-child"></div>
+      <div class="sk-circle5 sk-child"></div>
+      <div class="sk-circle6 sk-child"></div>
+      <div class="sk-circle7 sk-child"></div>
+      <div class="sk-circle8 sk-child"></div>
+      <div class="sk-circle9 sk-child"></div>
+      <div class="sk-circle10 sk-child"></div>
+      <div class="sk-circle11 sk-child"></div>
+      <div class="sk-circle12 sk-child"></div>
+    </div>
+  </div>
+  </div>
+  <div ng-click="show_all_app_brief()" ng-show="app_brief_show_all" style="float: right;cursor: pointer; margin-right: 30px; color: #105cb6;margin-top: -25px">显示全部</div>
+
+</div>
+
+
+<h4 class="user-app-line-title">
+  <span></span>
+  基本信息</h4>
+<div class="app-base-info">
+  <table class="base-info">
+    <tbody><tr>
+      <td class="name">开发商</td>
+      <td>{{app_info.company}}</td>
+    </tr>
+    <tr>
+      <td class="name">类别</td>
+      <td>{{app_info.ori_classes}}</td>
+    </tr>
+
+    <tr>
+      <td class="name">更新日期</td>
+      <td>{{app_info.update_time_new}}</td>
+    </tr>
+    <tr>
+      <td class="name">版本</td>
+      <td>{{app_info.version_now}}</td>
+    </tr>
+    <tr>
+      <td class="name">大小</td>
+      <td>{{app_info.size}} MB</td>
+    </tr>
+    <tr>
+      <td class="name">上线日期</td>
+      <td>{{app_info.update_time}}</td>
+    </tr>
+
+    <tr>
+      <td class="name">Bundle ID</td>
+      <td>{{app_info.bundleId}}</td>
+    </tr>
+    <!--<tr>-->
+      <!--<td class="name">语言</td>-->
+      <!--<td>{{app_info.language_code}}</td>-->
+    <!--</tr>-->
+
+    </tbody></table>
+</div>
+
+<div>
+
+
+<h4 class="user-app-line-title">
+  <span></span>
+顾客购买的还有
+</h4>
+<div class="dashed-border-bottom">
+  <ul class="app-list-simple clearfix" >
+    <li ng-repeat="buy_app in user_also_buy_apps | limitTo:8">
+    <a href="#/app_content/{{buy_app.app_id}}" target="_blank">
+      <img ng-src="{{buy_app.icon}}" alt="{{buy_app.name}}">
+      <p class="appname">{{buy_app.name}}</p>
+    </a>
+  </li>
+  </ul>
+  <multi-message user="buy_app_user"></multi-message>
+
+
+  <div class="sk-circle" ng-show='user_also_buy_apps_loading_show'>
+    <div class="sk-circle1 sk-child"></div>
+    <div class="sk-circle2 sk-child"></div>
+    <div class="sk-circle3 sk-child"></div>
+    <div class="sk-circle4 sk-child"></div>
+    <div class="sk-circle5 sk-child"></div>
+    <div class="sk-circle6 sk-child"></div>
+    <div class="sk-circle7 sk-child"></div>
+    <div class="sk-circle8 sk-child"></div>
+    <div class="sk-circle9 sk-child"></div>
+    <div class="sk-circle10 sk-child"></div>
+    <div class="sk-circle11 sk-child"></div>
+    <div class="sk-circle12 sk-child"></div>
+  </div>
+
+</div>
+
+
+</div>
+
+<h4 class="user-app-line-title">
+  <span></span>
+  所有关键词曝光趋势图
+  <a href="" title="搜索曝光度" data-container="body" data-toggle="popover"
+     data-content="<b class='text-primary'>搜索曝光度</b>用于监控关键词选择的效果。提交关键词后，热门词能够命中app，并且app的排名也比较高，通过搜索得到的“曝光度”就会非常不错。该指标主要根据搜索词的热度，以及app在搜索结果中的排名来计算。范围为0到100k。">
+    <i class="fa fa-question-circle fa-md fa-fw"></i></a>
+</h4>
+<div class="">
+  <div class="panel-heading">
+
+  </div>
+
+  <div class="panel-body">
+    <div id="expose_trend" style="width:100%;height: 400px; margin: 0 auto">
+      <div class="sk-circle" ng-show='expose_trend_loading_show'>
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

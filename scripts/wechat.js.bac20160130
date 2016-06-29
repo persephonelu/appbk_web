@@ -1,0 +1,178 @@
+
+
+
+
+angular
+  .module('wechat_app',
+  ['appbk_services',
+    'ngCookies',
+    'ngResource',
+    'angular-jqcloud',
+])
+  //user_app控制页
+  .controller('wechat_controller', function($scope,$location, app, word)
+  {
+
+    var app_id = $location.absUrl().split("=")[1];
+    var title = decodeURI($location.absUrl().split("=")[2]);
+
+    document.title =title+"APP 心路历程_AppBK.com";
+    console.log("title = "+title);
+
+    var limit = 5;//每一页结果个数
+
+    $scope.app_send_word_show = false;
+    $scope.get_app_best_rank_show = false;
+
+    $scope.page2_cloud_words = [
+      {text: "", weight: 13},
+
+    ];
+
+    $scope.page3_cloud_words = [
+      {text: "", weight: 13},
+    ];
+
+
+    $scope.colors = ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976"];
+
+    $scope.update = function() {
+      $scope.words.splice(-5);
+    };
+
+
+    //查找app
+    $scope.search_app = function()
+    {
+      var name = $scope.name;
+      get_all_app_search_results(name,1);
+
+      //获得关键词热度
+      word.get_word_hot_rank().get({"n":name},function(data)
+      {
+        $scope.word_rank = data.rank;
+      });
+    }
+
+    function get_all_app_search_results(name,page)
+    {
+      $scope.app_search_show_wait = true;
+      $scope.word_search_results  = {};
+
+      var start = 30 * (page - 1);
+      $scope.start = start;
+
+      //获得搜索结果，全部的搜索结果
+
+      app.get_all_app_search_results().get({"n":name,"start": start, "limit": limit}, function(data)
+      {
+        //results结果处理，部分app可能没有下载
+        for (var index in data.results)
+        {
+          if ( data.results[index].name == null) //如果json对应的字段为null
+          {
+            data.results[index].name = "appstore链接(详细信息后台下载中)"
+          }
+          data.results[index].download_url = "https://itunes.apple.com/cn/app/id" + data.results[index].app_id;
+        }
+
+        $scope.app_search_results = data.results;
+
+        if (start == 0) { //如果是首次调用
+          //翻页构造
+          $scope.total_items = data.num; //总数据数
+          $scope.items_per_page = limit; //每页的记录数
+          $scope.current_page = 1;//设置当前页
+        }
+
+
+        if ( data.results.length == 0 ) //如果没有搜索结果,用app名搜索
+        {
+          //get_app_search_results(name);
+          app_search(name);
+        }
+        $scope.app_search_show_wait = false;
+      });
+
+    }
+
+
+    //默认 app信息
+    get_app_info();
+
+    function get_app_info()
+    {
+
+      console.log("get_app_best_rank"+app_id);
+
+      //app.get_app_info().get()
+      app.get_app_info().get({"app_id":app_id},function(data){
+        $scope.app_info = data;
+      });
+
+
+      //App年度最好排名 第一页
+      app.get_app_best_rank().get({"app_id":app_id},function(data){
+
+        $scope.fetch_date = data.fetch_date;
+        $scope.type = data.type;
+        $scope.ori_classes = data.ori_classes;
+        $scope.rank_type = data.rank_type;
+        $scope.rank = data.rank;
+
+
+        $scope.get_app_best_rank_show = true;
+
+      });
+
+      //获得App的热门搜索词 第二页
+      app.wechat_get_app_top_word().query({"app_id":app_id},function(data){
+        $scope.app_top_words = data;
+
+        console.log("wechat_get_app_top_word"+app_id+data);
+
+        //重新拼接 word cloud 数组
+        for (var i=0;i<data.length;i++)
+        {
+          var item = {};
+          item["text"] = data[i]["query"];
+          item["weight"] = data[i]["pos"];
+          $scope.page2_cloud_words[i] = item;
+          //page2_cloud_words.push(item);
+        }
+      });
+
+
+      //获得App的热门用户标签 第三页
+      app.wechat_get_app_top_tag().query({"app_id":app_id},function(data)
+      {
+        console.log("get_app_top_tag"+data);
+        //$scope.top_tags = data;
+        for (var i=0;i<data.length;i++)
+        {
+          var item = {};
+          item["text"] = data[i]["topic"];
+          item["weight"] = data[i]["num"];
+          $scope.page3_cloud_words[i] = item;
+          //page2_cloud_words.push(item);
+        }
+      });
+      //获得App新年寄语 第四页
+      app.get_app_send_word().get({"app_id":app_id},function(data)
+      {
+        console.log("get_app_send_word ");
+        $scope.ori_classes = data.ori_classes;
+        $scope.exceed_app_percent = data.exceed_app_percent;
+        $scope.send_word = data.send_word;
+        $scope.app_send_word_show = true;
+
+        if ( data.length == 0 ) //如果没有搜索结果
+        {
+          $scope.message = "没有相关结果,可尝试直接搜索你的app id";
+        }
+      });
+
+
+
+    }
+  })

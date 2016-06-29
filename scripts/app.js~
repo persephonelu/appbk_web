@@ -1,0 +1,131 @@
+'use strict';
+
+/**
+ * @ngdoc overview
+ * @name appbkApp
+ * @description
+ * # appbkApp
+ *
+ * Main module of the application.
+ */
+//全局变量
+
+var test = true; //true,测试系统；false，测试系统，注意上线时调整
+if (test)
+{
+  var base_url = "http://git.appbk.com/"; //测试系统
+}
+else
+{
+  var base_url = "http://rest.appbk.com/"; //正式系统
+}
+
+angular
+  .module('rank', [
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngStorage',
+    'ui.bootstrap',
+    'appbk_services',
+    'appbk_directives',
+    'ui.grid',
+    'ui.grid.edit',
+    'ui.grid.selection',
+    'ui.grid.autoResize',
+    'ui.grid.exporter',
+    'ui.select',
+    'ngSanitize', //html改写模板，这个不能少,ui.select
+  ])
+  .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/index_main.html',
+        controller: 'index_main_controller'
+      })
+      .when('/index_login', {
+        templateUrl: 'views/index_login.html',
+        controller: 'index_login_controller'
+      })
+      .when('/index_register', {
+        templateUrl: 'views/index_register.html',
+        controller: 'index_register_controller'
+      })
+      .when('/index_about', {
+        templateUrl: 'views/index_about.html'
+      })
+      .when('/index_contact', {
+        templateUrl: 'views/index_contact.html'
+      })
+      .when('/tag_rank', {
+        templateUrl: 'views/tag_rank.html',
+        controller: 'tag_rank_controller'
+      })
+      .when('/word_rank', {
+        templateUrl: 'views/word_rank.html',
+        controller: 'word_rank_controller'
+      })
+      .when('/app_rank', {
+        templateUrl: 'views/app_rank.html',
+        controller: 'app_rank_controller'
+      })
+      .when('/app_search/:name', {
+        templateUrl: 'views/app_search.html',
+        controller: 'app_search_controller'
+      })
+      .when('/word_search/:name', {
+        templateUrl: 'views/word_search.html',
+        controller: 'word_search_controller'
+      })
+      .when('/word_rank_trend/:name', {//关键词热度趋势
+        templateUrl: 'views/word_rank_trend.html',
+        controller: 'word_rank_trend_controller'
+      })
+      .when('/app_content/:app_id', {
+        templateUrl: 'views/app_content_trend.html', //兼容，把原来的content导入到这里
+        controller: 'app_content_trend_controller'
+      })
+      .when('/app_content_keyword/:app_id', {
+        templateUrl: 'views/app_content_keyword.html',
+        controller: 'app_content_keyword_controller'
+      })
+      .when('/app_content_compete/:app_id', { //app内容页，竞品控制器
+        templateUrl: 'views/app_content_compete.html',
+        controller: 'app_content_compete_controller'
+      })
+      .when('/app_content_trend/:app_id', { //app内容页，排名趋势
+        templateUrl: 'views/app_content_trend.html',
+        controller: 'app_content_trend_controller'
+      })
+      .when('/app_content_comment/:app_id', { //app评论
+        templateUrl: 'views/app_content_comment.html',
+        controller: 'app_content_comment_controller'
+      })
+      .when('/app_tools_aso', {
+        templateUrl:'views/app_tools_aso.html',
+        controller:'app_tools_aso_controller'
+      })
+      .when('/app_tools_search', {
+        templateUrl:'views/app_tools_search.html',
+        controller:'app_tools_search_controller'
+      })
+      .when('/app_tools_seg', {
+        templateUrl:'views/app_tools_seg.html',
+        controller:'app_tools_seg_controller'
+      })
+      .when('/app_tools_test', {
+        templateUrl:'views/app_tools_test.html',
+        controller:'app_tools_test_controller'
+      })
+      .when('/app_tools_combine', { //组词
+        templateUrl:'views/app_tools_combine.html',
+        controller:'app_tools_combine_controller'
+      })
+      .when('/app_tools_combine/:n', { //组词,带参数
+        templateUrl:'views/app_tools_combine.html',
+        controller:'app_tools_combine_controller'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+  });

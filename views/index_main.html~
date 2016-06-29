@@ -1,0 +1,148 @@
+<!-- BEGIN: CONTENT/BARS/BAR-5 -->
+
+<div class="c-content-box c-size-md c-bg-parallax" style="background-image: url(images/bg_appbk.jpg)">
+  <div class="container" id="appbase_main_page">
+    <div class="c-content-bar-4">
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <div>
+            <br/><br/><br/>
+
+            <h2 class="c-font-40 c-font-white c-font-bold c-font-uppercase">专业ASO数据服务</h2>
+            <br/>
+            <form ng-submit="app_search()">
+              <div class="input-group">
+                <input type="text" ng-model="name" placeholder="输入app名称..." class="form-control">
+                  <span class="input-group-btn">
+                      <button class="btn btn-primary" type="submit">搜索</button>
+                  </span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <br/>
+        <div class="col-md-6 col-md-offset-3">
+          <p class="pull-left" style="color:white">热门查询：
+            <a href="#app_search/网易">网易</a>,
+            <a href="#app_search/搜狗">搜狗</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <br/>
+        <div class="col-md-6 col-md-offset-3">
+          <p class="pull-left" style="color: white">热门应用：<a href="#app_content/876336838">喜马拉雅fm</a>,<a href="#app_content/975971537">一点资讯</a></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- END: CONTENT/BARS/BAR-5 -->
+<!-- BEGIN: CONTENT/FEATURES/FEATURES-1 -->
+<div class="c-content-box c-size-md c-bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="c-content-feature-1">
+          <div class="c-content-line-icon c-theme c-icon-screen-chart"></div>
+          <h3 class="c-font-uppercase c-font-bold">大数据</h3>
+          <p class="c-font-thin">超过150万App，200万关键词，全球部署下载集群，千亿数据积累，小时级数据更新。
+            [<a href="#app_rank">立即体验</a>]
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="c-content-feature-1">
+          <div class="c-content-line-icon c-theme c-icon-support"></div>
+          <h3 class="c-font-uppercase c-font-bold">极致简单</h3>
+          <p class="c-font-thin">全球唯一App中文自动组词，自动拓词，关键词效果自动反馈。用户仅需输入几个种子词。[<a href="user_main.html">立即体验</a>]</p>
+        </div>
+      </div>
+      <div class="col-sm-4 c-card">
+        <div class="c-content-feature-1">
+          <div class="c-content-line-icon c-theme c-icon-bulb"></div>
+          <h3 class="c-font-uppercase c-font-bold">开放平台</h3>
+          <p class="c-font-thin">我们的服务能力将通过API全开放，用户可以接入自有系统中，未来也将开放可自行部署的代码。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END: CONTENT/FEATURES/FEATURES-1 -->
+
+<!-- BEGIN: LAYOUT/FOOTERS/FOOTER-6 -->
+<footer class="c-layout-footer c-layout-footer-6 c-bg-grey-1">
+  <div class="container">
+    <div class="c-prefooter c-bg-white">
+      <div class="c-body">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="c-links c-theme-ul">
+              <li>
+                <a href="#index_about">关于我们</a>
+              </li>
+              <li>
+                <a href="http://jq.qq.com/?_wv=1027&k=KcLnh5" target="_blank">用户QQ群：39351116</a>
+              </li>
+            </ul>
+            <ul class="c-links c-theme-ul">
+              <li>
+                <a href="http://blog.appbk.com/" target="_blank">团队博客</a>
+              </li>
+              <li>
+                <a href="#index_contact">联系我们</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-5 col-sm-6 col-xs-12">
+            <div class="c-content-title-1 c-title-md">
+              <h3 class="c-title c-font-uppercase c-font-bold">APP下载</h3>
+            </div>
+            <div class="c-icons">
+              <a href="http://zhushou.360.cn/detail/index/soft_id/3006291" class="c-font-30 c-font-green-1 socicon-btn c-bg-grey-1-hover socicon-android tooltips" data-original-title="Android" data-container="body" target="_blank"></a>
+              <a href="http://pre.im/631b" class="c-font-30 c-font-grey-3 socicon-btn c-bg-grey-1-hover socicon-apple tooltips" data-original-title="Apple" data-container="body" target="_blank"></a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-12">
+            <div class="c-content-title-1 c-title-md">
+              <h3 class="c-title c-font-uppercase c-font-bold">联系方式</h3>
+            </div>
+            <p class="c-address c-font-16">
+              Email:
+              <a href="mailto:ali@ruyiso.com">
+                <span class="c-theme-color">ali@ruyiso.com</span>
+              </a>
+              <br/> 微信号:
+              <a href="#">
+                <span class="c-theme-color">appbk</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="c-line"></div>
+
+      <div class="c-foot">
+        <div class="row">
+          <div class="col-md-7">
+            <p class="c-text c-font-16 c-font-regular">
+              友情链接:
+              <a target="_blank"  href="http://www.testin.cn/">testin</a>,
+              <a target="_blank"  href="http://www.anzhi.com/">安智</a>,
+              <a target="_blank"  href="http://bbs.zhiyoo.com">智友论坛</a>,
+              <a target="_blank"  href="http://www.55188.com/">理想论坛</a>,
+              <a target="_blank"  href="http://rank.aiyingli.com">应用排行</a>,
+              <a target="_blank"  href="http://www.niaogebiji.com/">鸟哥笔记</a>
+          </div>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+<!-- END: LAYOUT/FOOTERS/FOOTER-6 -->

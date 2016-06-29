@@ -1,0 +1,50 @@
+
+
+<!--<h3 class="page-header">关键词拓展</h3>-->
+
+<h4 class="user-app-line-title">
+    <span></span>
+    关键词拓展
+</h4>
+
+<div class="c-body" style="padding: 0px">
+    <div class="c-content-tab-1 c-theme c-margin-t-30">
+        <div class="clearfix">
+            <ul class="nav nav-tabs c-font-uppercase  nav-justified c-font-bold">
+                <li  class="active">
+                    <a href="#user_app_keyword_expand/{{app_info.app_id}}" data-toggle="tab" data-target="#">步骤1：填写种子词</a>
+                </li>
+                <li>
+                    <a href="#user_app_keyword_expand2/{{app_info.app_id}}" data-toggle="tab"  data-target="#">步骤2：关键词拓展</a>
+                </li>
+                <li>
+                    <a href="#user_app_keyword_expand3/{{app_info.app_id}}" data-toggle="tab"  data-target="#">步骤3：整理输出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<br/>
+<form>
+    <div class="form-group">
+        <label>填写至少5个关键词，越多越好，关键词之间用中文或英文逗号分开</label>
+        <textarea class="form-control" rows="3" ng-model="seed_keywords">{{seed_keywords}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="update_user_seed_keywords(seed_keywords)">提交更新</button>
+</form>
+<br/>
+<alert  type="{{seed_keywords_alert.type}}" >{{seed_keywords_alert.msg}}</alert>
+<br/>
+<strong>小提示：</strong><br />
+<ul>
+    <li><span class="glyphicon glyphicon-hand-right mr1"></span>关键词可以是描述app功能、特色、用户群的词汇；</li>
+    <li><span class="glyphicon glyphicon-hand-right mr1"></span>如果已提交appstore，把app关键词复制到这里即可；</li>
+    <li><span class="glyphicon glyphicon-hand-right mr1"></span>
+        你还可以参考<a href="/#/word_rank" target="_blank">热门关键词</a>，或者看看<a href="/#/app_rank" target="_blank">热门app</a> 的关键词
+    </li>
+</ul>
+<br/>
+
+

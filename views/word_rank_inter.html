@@ -1,0 +1,60 @@
+<!-- 国际版-->
+<div class="c-content-box c-size-md ">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <h3 class="page-header"><span class="text-primary">{{category_selected}} </span>类别排行榜 </h3>
+        <div class="row" id="form_area">
+
+          <div class="col-lg-2">
+            <div class="dropdown"> <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href=""> 类别选择 <span class="caret"></span> </a>
+              <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                <li class="dropdown-submenu"> <a tabindex="-1" href="javascript:;">游戏子类</a>
+                  <ul class="dropdown-menu">
+                    <li ng-repeat="game_category in game_categories"><a href="" ng-click="get_category_word_rank(game_category.ori_classes)"> {{game_category.ori_classes}} </a></li>
+                  </ul>
+                <li class="divider"></li>
+                <li ng-repeat="category in categories"><a href="" ng-click="get_category_word_rank(category.ori_classes)">{{category.ori_classes}}</a></li>
+              </ul>
+            </div>
+            <!-- /.dropdown -->
+          </div>
+
+          <div class="col-lg-6">
+
+            <ui-select ng-model="country_selected"  style="width: 200px;" ng-change="select_country($select.selected)">
+              <ui-select-match>{{$select.selected}}</ui-select-match>
+              <ui-select-choices repeat="country in countrys">
+                <span ng-bind-html="country"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="col-lg-4">
+            <form role="form" method="get" class="form-inline" ng-submit="word_search()">
+              <div class="input-group">
+                <input type="text" class="form-control" name="q" placeholder="搜索关键词..."  value="" ng-model="name">
+              </div>
+              <button type="submit" class="btn btn-primary">搜索</button>
+            </form>
+          </div>
+          <!-- /.col-lg-4 -->
+        </div>
+        <!-- /#form_area -->
+
+        </br>
+        </br>
+        <div  ui-grid="word_grid" ui-grid-auto-resize ui-grid-exporter></div>
+        <br/>
+
+        <button ng-show="turn_page" class="btn btn-primary" ng-click="load_more(current_page)">加载更多...({{current_page}}/{{max_page_num}})</button>
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

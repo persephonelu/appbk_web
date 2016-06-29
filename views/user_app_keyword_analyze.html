@@ -1,0 +1,76 @@
+
+<h4 class="user-app-line-title">
+  <span></span>
+  关键词搜索结果排名分析
+</h4>
+
+<div class="appbk-ui-select">
+  <ul class="nav navbar-nav appbk-width-auto" ng-show="word_selected_show">
+    <li class="dropdown ">
+      <span class="navbar-brand">选择词</span>
+      <a href="" class="dropdown-toggle device" data-toggle="dropdown" role="button" aria-expanded="false">
+        <span class="name"> {{selected_word}}</span>
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" data-paramname="device">
+        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+        <li class=""><a href="" data-param="免费榜单" ng-repeat="word in keywords" repeat="word in keywords" ng-click="select_word(word.word)">
+          {{word.word}}</a></li>
+      </ul>
+    </li>
+
+  </ul>
+
+   <span >
+        <form style="margin-top: 20px" role="form" method="get" class="navbar-nav form-inline pull-right date-select-style-font">
+          搜索:
+          <div class="input-group" >
+            <input style="border-radius: 4px; height: 30px; margin-top: 0" type="text" class="form-control" name="q" placeholder=""  value="" ng-model="search_word"  ng-change="select_word(search_word)">
+          </div>
+        </form>
+   </span>
+</div>
+
+
+
+<br><br><br>
+<user-message></user-message>
+<table  class="table table-border-gray table-bg">
+  <tr class="table-header-bg">
+    <th width="9%" class="table-middle-style">排名</th>
+    <th>APP</th>
+    <th class="table-middle-style">总评论数</th>
+    <th class="table-middle-style">日均下载量预估</th>
+  </tr>
+  <!-- 我的app -->
+  <tr class="bg-success">
+    <td class="table_middle table-middle-style table-with-app-icon-vertical-center">我的app:{{app_pos.pos}}</td>
+    <td class="table_middle"> <img ng-src="{{app_info.icon}}" class="img-rounded mr" alt=""><a href="{{app_info.download_url}}" target="_blank"> {{app_info.name|limitTo:26}}</a></td>
+    <td class="table_middle table-middle-style"> {{app_predict.user_comment_num}}</td>
+    <td class="table_middle table-middle-style"> {{app_predict.download_times}}</td>
+  </tr>
+
+  <tr ng-repeat="app in app_results">
+    <td class="table_middle table-middle-style table-with-app-icon-vertical-center">{{app.pos}}</td>
+    <td class="table_middle table_middle"> <img ng-src="{{app.icon}}" class="img-rounded mr" alt=""><a href="{{app.download_url}}" target="_blank"> {{app.name|limitTo:26}}</a></td>
+    <td class="table_middle table-middle-style"> {{app.user_comment_num	}}</td>
+    <td class="table_middle table-middle-style"> {{app.download_times}}</td>
+  </tr>
+
+  <div class="sk-circle" ng-show='loading_show'>
+    <div class="sk-circle1 sk-child"></div>
+    <div class="sk-circle2 sk-child"></div>
+    <div class="sk-circle3 sk-child"></div>
+    <div class="sk-circle4 sk-child"></div>
+    <div class="sk-circle5 sk-child"></div>
+    <div class="sk-circle6 sk-child"></div>
+    <div class="sk-circle7 sk-child"></div>
+    <div class="sk-circle8 sk-child"></div>
+    <div class="sk-circle9 sk-child"></div>
+    <div class="sk-circle10 sk-child"></div>
+    <div class="sk-circle11 sk-child"></div>
+    <div class="sk-circle12 sk-child"></div>
+  </div>
+</table>
+<!--</div>-->
+<!--</div>-->

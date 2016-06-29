@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+<div class="col-md-12 ">
+
+  <h3 class="page-header">ASO检测
+            <span class="h5 pull-right appbk-mobile-hide" >
+            在开始上传你的APP前，请在此检测并优化你的应用名称和关键词
+           </span>
+  </h3>
+
+  <form role="form" ng-submit="add_new_app()">
+    <div class="form-group">
+      <label>应用名(Name), 长度：<span style="color: #0070cc">{{namelength}}</span>/255
+      <span data-container='body' data-toggle="popover" id='appname_length' class="fa fa-question-circle fa-fw'" data-content="应用名称限制 255 字节以内， 汉字、全角符号为 3 个字节，字母、数字、半角符号为 1 个字节。" data-original-title=""></span>
+      </label>
+      <input ng-change="checkNameLength(name)" type="text" class="form-control" name="n" placeholder="" value="" ng-model="name">
+    </div>
+    <div class="form-group">
+      <label>关键词(Keywords,中文或英文逗号隔开) , 长度：<span style="color: #0070cc">{{words.length}}</span>/100
+      <span data-container='body' data-toggle="popover" id='appkeyword_length' class="fa fa-question-circle fa-fw'" data-content="关键词限制 100 字符以内，字母、数字、半角符号、全角符号均为 1 个字符。" data-original-title=""></span>
+      </label>
+      <textarea class="form-control" rows="3" name="d" ng-model="words">{{words}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="aso_check(name,words)">检测</button>
+  </form>
+
+  <br/>
+  <h4 ng-show="word_suggestion_show" class="user-app-line-title">
+    <span></span>
+    经检测，您的应用名称和关键词可能需要完善以下几点：
+  </h4>
+
+  <p ng-show="word_suggestion_show" style="font-size: 16px;  color: #666666;  line-height: 36px;" ng-repeat="suggestion in app_suggestion">
+    {{suggestion}}
+  </p>
+  <!--<li><span class="glyphicon glyphicon-hand-right mr1"></span>可能搜索命中的关键词统计：</li>-->
+  <br/>
+  <h4 ng-show="word_grid_show" class="user-app-line-title">
+    <span></span>
+    经分析，您的标题和关键词可能覆盖的关键词信息如下：
+  </h4>
+  <div ng-show="word_grid_show"  ui-grid="word_grid" ui-grid-auto-resize></div>
+  <br/>
+</div>
+<br><br><br><br><br><br>
+    <div class="appbk-mobile-hide">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $("#appname_length").popover({trigger:'click| hover',placement:'top',html:true});
+  $("#appkeyword_length").popover({trigger:'click| hover',placement:'top',html:true});
+
+</script>

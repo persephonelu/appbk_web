@@ -1,0 +1,59 @@
+
+<div class="col-md-10 col-md-offset-1">
+
+  <h3 class="page-header">关键词搜索 </h3>
+
+  <div class="appbk-ui-select">
+    <ul class="nav navbar-nav">
+      <li class="" style="margin-top: 13px"> 
+        <form role="form" method="post" class="navbar-form navbar-right" ng-submit="search_word()"> 
+          <div class="form-group">
+            <div class="input-group"> 
+              <input type="text" class="form-control" name="q" placeholder="搜索关键词..."  value="{{name}}" ng-model="name"> 
+
+                        <span class="input-group-btn">
+                             <button type="submit" class="btn btn-default add-custom-keyword-btn">搜索</button> 
+                            </span>
+            </div>
+          </div> 
+
+        </form>
+
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+  <table class="table table-border-gray table-bg">
+    <tr>
+      <th width="5%" class="table-middle-style">#</th>
+      <th>关键词</th>
+      <th title="搜索指数反映每天搜索的次数多少" class="table-middle-style">搜索热度 <span class="fa fa-question-circle fa-fw"></span></th>
+    </tr>
+    <tr ng-repeat="word in word_search_results">
+      <td class="table-middle-style">{{$index+1}}</td>
+      <td><span class="c2">{{word.word}}</span></td>
+      <td class="table-middle-style">{{word.rank}}</td>
+    </tr>
+
+  </table>
+  <div class="sk-circle" ng-show='app_search_show_wait'>
+    <div class="sk-circle1 sk-child"></div>
+    <div class="sk-circle2 sk-child"></div>
+    <div class="sk-circle3 sk-child"></div>
+    <div class="sk-circle4 sk-child"></div>
+    <div class="sk-circle5 sk-child"></div>
+    <div class="sk-circle6 sk-child"></div>
+    <div class="sk-circle7 sk-child"></div>
+    <div class="sk-circle8 sk-child"></div>
+    <div class="sk-circle9 sk-child"></div>
+    <div class="sk-circle10 sk-child"></div>
+    <div class="sk-circle11 sk-child"></div>
+    <div class="sk-circle12 sk-child"></div>
+  </div>
+
+</div>
+

@@ -1,0 +1,56 @@
+<div class="container user-setting-container">
+  <div class="row" >
+    <div class="col-md-2 setting-guid horizon-padding-zero appbk-mobile-hide ">
+      <ul class="nav nav-pills nav-stacked">
+        <li class=""><a href="#setting_account">账号设置</a></li>
+        <!--<li class=""><a href="#setting_wechat">微信订阅</a></li>-->
+
+        <!--<li class=""><a href="#setting_vip">VIP 特权</a></li>-->
+        <li class=""><a href="#setting_integral">积分兑换</a></li>
+        <li class=""><a href="#setting_order">订购记录</a></li>
+        <li class="active"><a href="#setting_passwd">修改密码</a></li>
+      </ul>
+    </div>
+
+    <div class="col-md-8 col-md-offset-1 setting-content" style="min-height: 500px">
+      <h4 class="user-app-line-title">
+        <span></span>
+        修改密码
+      </h4>
+      <alert ng-show="alert" type="{{alert.type}}" style="padding: 5px; text-align: center">{{alert.msg}}</alert>
+
+      <form class="form-horizontal">
+        <div class="sign-msg"></div>
+        <div class="form-group">
+          <label class="control-label">旧密码</label>
+          <div class="col-xs-9 input">
+            <input type="password" ng-model="oldPwd" class="form-control" placeholder="旧密码">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">新密码</label>
+          <div class="col-xs-9 input">
+            <input type="password" ng-model="password" class="form-control" placeholder="新密码">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">确认密码</label>
+          <div class="col-xs-9 input">
+            <input type="password" ng-model="repassword" class="form-control" placeholder="确认密码">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">&nbsp;</label>
+          <div class="col-xs-9 input">
+            <button id="submit" ng-click="update_user_paddword()"  class="btn btn-default">修改</button>
+          </div>
+        </div>
+      </form>
+
+
+
+    </div>
+
+
+  </div>
+</div>

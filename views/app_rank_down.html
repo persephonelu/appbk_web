@@ -1,0 +1,127 @@
+<div class="app_rank_container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" >
+        <div class="row" >
+          <!--<h3 class="page-header">中国 <span class="text-primary">{{category_selected}} {{rank_type_name}} </span>排行榜 </h3>-->
+
+          <h3 class="page-header">24小时内排名下降最快应用 </h3>
+
+          <div class="row" id="form_area">
+            <div class="row">
+
+
+              <div class="appbk-ui-select btn-float-left" >
+                <ul class="nav navbar-nav btn-float-left">
+                  <li class="dropdown btn-float-left left-firstbtn">
+                    <span class="navbar-brand">类别选择</span>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="">{{category_selected}}</span> <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu btn-float-left category-select" role="menu" data-paramname="device">
+                      <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                      <li class="dropdown-submenu appbk-mobile-hide">
+                        <a tabindex="-1" href="javascript:;" ng-click="get_category_app_rank('游戏')">游戏</a> 
+                        <ul class="dropdown-menu cascade-menu" style="height: 478px;"> 
+                          <!--<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>-->
+                          <div style="margin-top: -22px">
+
+                            <li ng-repeat="game_category in game_categories" >
+                              <a href="" ng-click="get_category_app_rank(game_category.ori_classes)">
+                                {{game_category.ori_classes}} </a></li> 
+                          </div>
+                        </ul> 
+                      </li>
+
+                      <li class="" ng-repeat="category in categories">
+                        <a href="" ng-if="category.ori_classes != '游戏'" ng-click="get_category_app_rank(category.ori_classes)">
+                          {{category.ori_classes}}</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="dropdown btn-float-left" style="margin-left: 20px">
+                    <span class="navbar-brand">榜单类型</span>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                      <span class="name"> {{rank_type_name}}</span>
+                      <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" data-paramname="device">
+                      <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                      <li class=""><a href="" data-param="免费榜单" ng-click="update_app_rank_type('topfreeapplications')">
+                        免费榜单</a></li>
+                      <li class="">
+                        <a href="" ng-click="update_app_rank_type('toppaidapplications')" data-param="付费榜单" >
+                          付费榜单</a></li>
+                      <li class="">
+                        <a href="" ng-click="update_app_rank_type('topgrossingapplications')" data-param="畅销榜单">
+                          畅销榜单</a></li>
+                    </ul>
+                  </li>
+
+
+
+                </ul>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+        <div class="row">
+          <div class="rank-list">
+            <div class="col-md-12">
+              <div class="row_margin">
+                <div ng-repeat="app in app_rank" >
+                  <div class="col-md-2">
+                    <div class="thumbnail ">
+                      <a href="user_main.html#/app_content/{{app.app_id}}" target="_blank">
+                        <img ng-src="{{app.icon}}" alt={{app.name}}>
+                        <div class="caption">
+                          <h5>{{$index+start+1}}.{{app.name}}</h5>
+
+                          <h6>当前<span ng-if="app.rank != '落榜/-'">{{app.rank}}</span><span ng-if="app.rank != '落榜/-'" style="color: #666666">名</span><span ng-if="app.rank == '落榜/-'">落榜</span> - 下降<span style="color:#F45451">{{app.down}}</span>名</h6>
+
+                          <!--<h6>{{category_selected}}<span>{{app.rank}}</span>名</h6>-->
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sk-circle" style="margin-top: 280px" ng-show='app_rank_show_wait'>
+              <div class="sk-circle1 sk-child"></div>
+              <div class="sk-circle2 sk-child"></div>
+              <div class="sk-circle3 sk-child"></div>
+              <div class="sk-circle4 sk-child"></div>
+              <div class="sk-circle5 sk-child"></div>
+              <div class="sk-circle6 sk-child"></div>
+              <div class="sk-circle7 sk-child"></div>
+              <div class="sk-circle8 sk-child"></div>
+              <div class="sk-circle9 sk-child"></div>
+              <div class="sk-circle10 sk-child"></div>
+              <div class="sk-circle11 sk-child"></div>
+              <div class="sk-circle12 sk-child"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 翻页 -->
+        <div class="row">
+          <div class="col-md-12 mobile-horizon-padding-zero">
+            <pagination total-items="total_items" items-per-page="items_per_page" ng-model="current_page"
+                        max-size="5" ng-change="page_changed()"
+                        class="pagination-sm " boundary-links="true" rotate="true"
+                        first-text="首页" last-text="尾页" previous-text="上一页" next-text="下一页">
+
+            </pagination>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

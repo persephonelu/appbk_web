@@ -1,0 +1,23 @@
+<!-- 关键词覆盖的最右边栏操作icon，MODEL_COL_FIELD就是query-->
+<div class='ui-grid-cell-contents'>
+  <a href=''  ng-click='grid.appScope.show_history_chart(MODEL_COL_FIELD)' data-container="body" data-toggle="popover" data-content="查看历史排名趋势">
+    <i class='fa fa-line-chart fa-fw' style="cursor: pointer"></i></a>
+
+    <span ng-show="row.entity.is_login ">
+  <a  ng-show="row.entity.watch!=0" href=''
+      ng-click='grid.appScope.del_user_watch_keyword(MODEL_COL_FIELD)'
+      data-container="body" data-toggle="popover" data-content="取消关注">
+    <i class='fa fa-times fa-fw'>
+    </i>
+  </a>
+  <a  ng-show="row.entity.watch==0 " href=''
+      ng-click='grid.appScope.add_user_watch_keyword(MODEL_COL_FIELD)'
+      data-container="body" data-toggle="popover" data-content="添加关注">
+    <i class='fa fa-plus fa-fw'></i>
+  </a>
+        </span>
+</div>
+
+<script>
+  $("[data-toggle='popover']").popover({trigger:'click| hover',placement:'top',html:true});
+</script>

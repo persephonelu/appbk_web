@@ -1,0 +1,95 @@
+<div class="c-content-box c-size-md ">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <h3 class="page-header">实时热度 </h3>
+
+        <div class="appbk-ui-select">
+          <ul class="nav navbar-nav mobile-margin-zero">
+            <li class="btn-float-left word-search-search-form" > 
+
+              <form role="form" method="post" class="navbar-form navbar-right mobile-margin-zero" style="padding: 0px; margin-top: 7px" ng-submit="search_word()"> 
+                <div class="form-group">
+                  <div class="input-group"> 
+                    <input type="text" class="form-control" name="q" placeholder="搜索关键词..."  value="{{name}}" ng-model="name"> 
+
+                        <span class="input-group-btn" style="padding: 0">
+                             <button type="submit" class="btn btn-default add-custom-keyword-btn">搜索</button> 
+                            </span>
+                  </div>
+                </div> 
+
+              </form>
+
+            </li>
+
+            <li class="dropdown btn-float-left" style="margin-left: 30px">
+              <span class="navbar-brand">地区</span>
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <span class="name"> {{country_selected.name}}</span>
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu" data-paramname="device">
+                <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+
+                <li class="" ng-repeat="country in countrys">
+                  <a href="" data-param="免费榜单" ng-click="select_country(country)">
+                    {{country.name}}</a>
+                </li>
+
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+
+        </br>
+        </br>
+
+        <table class="table table-border-gray table-bg">
+          <tr>
+            <th width="50px" class="table-middle-style">#</th>
+            <th width="160px">关键词</th>
+            <th width="160px" title="搜索热度" class="table-middle-style">搜索热度
+              <!--<span class="fa fa-question-circle fa-fw"></span>-->
+              <span data-container='body' data-toggle="popover" id='word_rank_tip' class="fa fa-question-circle fa-fw'" data-content="搜索指数反映每天搜索的次数多少" data-original-title=""></span>
+
+            </th>
+            <th ></th>
+          </tr>
+          <tr ng-repeat="word in word_search_results">
+            <td width="50px" class="table-middle-style">{{$index+1}}</td>
+            <td width="160px"><span >{{word.word}}</span></td>
+            <td width="160px" class="table-middle-style">{{word.rank}}</td>
+            <td ></td>
+
+          </tr>
+
+        </table>
+
+        <div class="sk-circle" ng-show='app_search_show_wait'>
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  $("#word_rank_tip").popover({trigger:'click| hover',placement:'top',html:true});
+
+</script>

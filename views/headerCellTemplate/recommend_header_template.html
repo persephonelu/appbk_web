@@ -1,0 +1,16 @@
+
+<div>
+  <div class="ui-grid-cell-contents">
+      推荐度
+    <!--<a data-container='body' data-toggle='popover'-->
+       <!--data-content="主要反映关键词可能带来曝光度，越高越好" id='recommend_header_template_tip'>-->
+      <!--<i class='fa fa-question-circle fa-lg fa-fw'></i></a>-->
+
+      <span data-container='body' data-toggle="popover" id='recommend_header_template_tip' class="fa fa-question-circle fa-fw'" data-content="主要反映关键词可能带来曝光度，越高越好" data-original-title=""></span>
+
+  </div>
+</div>
+<script>
+  $("#recommend_header_template_tip").popover({trigger:'click| hover',placement:'top',html:true});
+
+</script>

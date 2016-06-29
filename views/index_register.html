@@ -1,0 +1,41 @@
+
+
+<div class="c-content-box c-size-lg">
+  <!--<div class="container">-->
+      <div class="login">
+        <div class="login-top">
+          <h1>注册</h1>
+          <form role="form"  method="post" ng-submit="register_user()">
+
+            <input type="text" type="email" value="email" placeholder="邮箱" ng-model="email" onfocus="this.value = '';">
+            <input type="password" value="password" placeholder="密码" ng-model="password" onfocus="this.value = '';">
+            <input type="password" value="password_check" placeholder="确认密码" ng-model="password_check" onfocus="this.value = '';" >
+
+            <div class="forgot">
+              <input type="submit"  value="确认" >
+            </div>
+
+          </form>
+
+          <div class="agreement" style="float: right; font-size: 14px">
+            <!--<input id="checkbox" type="checkbox"  ng-click="get_check_stat(check)" ng-model="check" checked="checked">-->
+            <input id="checkbox" type="checkbox"  checked="checked" ng-click="get_check_stat()" >
+
+            <label style="font-size: 10px">我同意并已阅读
+              <a href="#index_user_agreement"
+                 target="_blank">
+                《APPBK网站服务协议》</a>
+            </label>
+          </div>
+        </div>
+        <div class="login-bottom">
+          <h3>已有帐号？现在 &nbsp;<a href="#index_login">登录</a></h3>
+        </div>
+        <user-message></user-message>
+      </div>
+
+
+    </div>
+  </div>
+  <br/><br/>
+</div>

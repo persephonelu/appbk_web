@@ -1,0 +1,159 @@
+
+<h4 class="user-app-line-title">
+    <span></span>
+    关键词/ASO
+</h4>
+<h5 id="aso-keyword-info" style="margin-bottom: 20px">
+  覆盖搜索词总数：<b>{{num}}</b>，相比 {{parameter_end}}
+  <span ng-if="num_increase >= 0" > 增加 <b style="color: #33ba95">{{num_increase}} </b>个</span>
+  <span ng-if="num_increase < 0" > 减少 <b style="color: #f33">{{-num_increase}} </b>个</span>
+  (表中有热度的关键词，搜索结果在Top 10的有
+  <b>{{top_num}}</b> 个，
+  Top 3的有 <b>{{top3_num}}</b> 个)</h5>
+
+<div class="">
+    <div class="row">
+        <div class="appbk-ui-select app_content_keyword-mobile-form-margin"> 
+            <ul class="nav navbar-nav mobile-margin-zero " style="width: 100%;"> 
+              <div class="dropdown appbk-mobile-hide" style="float: left;margin-left: 3px;">
+                <div class="date-select-title date-select-style-font">当前日期</div>
+                <input type="text" id="config-cur-demo" class="form-control" style="margin-top: 0;width: 88px;cursor: pointer;">
+                <!--<i class="glyphicon glyphicon-calendar fa fa-calendar" style=" margin-left: 210px;padding-top: 10px;"></i>-->
+              </div>
+              <div class="dropdown appbk-mobile-hide" style="float: left;margin-left: 10px;">
+                <div class="date-select-title date-select-style-font">对比日期</div>
+                <input type="text" id="config-pre-demo" class="form-control" ng-model="pre_date_text" style="margin-top: 0;width: 88px;cursor: pointer;">
+                <!--<i class="glyphicon glyphicon-calendar fa fa-calendar" style=" margin-left: 210px;padding-top: 10px;"></i>-->
+              </div>
+                <!--<li class="word-rank-mobile-from"> -->
+              <div class="dropdown mobile-margin-zero appbk-mobile-hide" style="float: left;margin-left: 7px;"> 
+                <form role="form" method="get" style="padding-left: 0" class=" app-content_keyword-form  navbar-form navbar-right" ng-submit="add_user_watch_keyword(watch_keyword)"> 
+                  <div class="form-group">
+                    <div class="input-group"> 
+                      <input type="text" class="form-control" name="q" placeholder="关注的词..."  value="" ng-model="watch_keyword"> 
+
+                        <span class="input-group-btn">
+                             <button type="submit" class="btn btn-default add-custom-keyword-btn">添加</button> 
+                            </span>
+                    </div>
+                  </div> 
+
+
+                </form>
+
+              </div>
+              <div class="dropdown mobile-margin-zero app_content_keyword-mobile-export-btn appbk-mobile-hide" style="float:left;margin-left: 0">
+                <span class="btn btn-default" type="manage" style="margin-left: 0" ng-click="export_excel()">导出数据</span>
+                <span data-container='body' data-toggle="popover" id='export_button_tip' class="fa fa-question-circle fa-fw'" data-content="导出csv后，如果使用Excel打开该文件，请先另存为xls或xlsx等Excel格式；否则可能出现保存失败、格式错乱等问题。" data-original-title=""></span>
+
+              </div>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div style="margin-bottom: 10px;margin-left: 2px;">
+<div class="btn-group" >
+  <button type="button" class="btn btn-default ng-untouched active" ng-click="filterGrid(2)">常用词</button>
+  <button type="button" class="btn btn-default" ng-click="filterGrid(1)">核心词</button>
+  <button type="button" class="btn btn-default" ng-click="filterGrid(0)">全部词</button>
+
+</div>
+
+<span data-container='body' style="margin-left: 10px" data-toggle="popover" id='filter_button_tip' class="fa fa-question-circle fa-fw'"
+      data-content="常用词：关键词热度大于100；<br>核心词：关键词热度大于5000，<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;且app排名在100名以内；<br>全部词：全部关键词"
+      data-original-title=""></span>
+
+  <li class="appbk-mobile-hide" style="float: right;margin-bottom: 10px">
+    <form role="form" method="get" class="form-inline pull-right date-select-style-font">
+      搜索:
+      <div class="input-group" >
+        <input style="  border-radius: 4px; height: 30px" type="text" class="form-control" name="q" placeholder=""  value="" ng-model="search_keyword"  ng-change="search_word()">
+      </div>
+    </form>
+  </li>
+</div>
+<!-- 表格部分 -->
+<div class="row">
+    <div class="">
+
+        <div class="sk-circle" ng-show='keyword_loading_show' style="margin-top: 30px">
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+        </div>
+
+        <div ng-hide='loading_show || app_info.download_level == -1' style="text-align: center" ui-grid="word_grid" ui-grid-auto-resize ui-grid-exporter ui-grid-pagination>
+       <!--<div ng-if='app_info.download_level == -1' >-->
+           <!--没有数据-->
+       <!--</div>-->
+
+        </div>
+        <multi-message user="keywords_user"></multi-message>
+        <div id="myAlert" class="alert alert-danger" ng-if='app_info.download_level == -1'>
+            <div style="text-align: center">
+                没有数据。
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<p ng-if="!user_login_show" style="text-align: center; margin-top: 20px; margin-bottom: 20px"><a href="/#/index_login">登录</a>后即可查看更多覆盖关键词</p>
+<div ng-if="user_login_show && app_info.download_level != -1">
+
+  <pagination total-items="total_items" items-per-page="items_per_page" ng-model="current_page"
+              max-size="5" ng-change="page_changed(current_page)"
+              class="pagination-sm" boundary-links="true" rotate="true"
+              first-text="首页" last-text="尾页" previous-text="前一页" next-text="后一页"></pagination>
+
+</div>
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 100px;overflow:hidden">
+    <div class="modal-dialog" style="overflow:hidden">
+        <div class="modal-content" style="overflow:hidden">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    关键词趋势图
+                </h4>
+            </div>
+          <div class="appbk-ui-select row">
+            <ul class="nav navbar-nav mobile-margin-zero">
+              <div class="dropdown mobile-margin-zero" style="float: left;margin-left: 10px !important;">
+                <div class="date-select-title date-select-style-font">日期</div>
+                <input type="text" id="config-demo" class="form-control" style="margin-top: 0;cursor: pointer;width: 165px;">
+
+              </div>
+            </ul>
+          </div>
+            <div class="modal-body row" style="overflow:hidden">
+                <!-- /.highcharts   -->
+                <div id="key_world_trend" style="width:568px;height: 400px; margin: 0 auto;max-width: 568px;overflow:hidden"></div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script>
+  $("#export_button_tip").popover({trigger:'click| hover',placement:'top',html:true});
+  $("#filter_button_tip").popover({trigger:'click| hover',placement:'top',html:true});
+  $("#search_header_template_tip").popover({trigger:'click| hover',placement:'top',html:true});
+
+</script>

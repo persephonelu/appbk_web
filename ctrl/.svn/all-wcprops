@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/1111641897067585/!svn/ver/96/12231/2/src/web/app_tongji/ctrl
+END
+update_machine.sh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/1111641897067585/!svn/ver/96/12231/2/src/web/app_tongji/ctrl/update_machine.sh
+END
+conf.txt
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/1111641897067585/!svn/ver/96/12231/2/src/web/app_tongji/ctrl/conf.txt
+END
+update_all.sh
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/1111641897067585/!svn/ver/96/12231/2/src/web/app_tongji/ctrl/update_all.sh
+END
+run_remote.sh
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/1111641897067585/!svn/ver/96/12231/2/src/web/app_tongji/ctrl/run_remote.sh
+END
+pcp.sh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/1111641897067585/!svn/ver/96/12231/2/src/web/app_tongji/ctrl/pcp.sh
+END

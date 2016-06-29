@@ -1,0 +1,114 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>appbk登录</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="bower_components/sb-admin-2/css/sb-admin-2.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/style.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="user_app" ng-controller="register_controller">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="wrapper">
+        <!-- Navigation 头部导航-->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+            <a href="index.html" class="db logo fl">logo</a>
+             </div>
+          </nav>
+            <!-- /.navbar-top-links 头部导航结束 -->
+
+    </div>
+    <!-- /#wrapper -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <br/>
+      <form role="form" method="post" ng-submit="register_user()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">E-mail:</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" ng-model="email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">密码:</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">确认密码:</label>
+          <input type="password" name="password_check" class="form-control" id="exampleInputPassword1" placeholder="Password" ng-model="password_check">
+        </div>
+        <button type="submit" class="btn btn-primary">注册</button>
+        <br/>
+        <br/>
+        <p><a href="login.html">已经注册过？登陆</a> </p>
+      </form>
+      <br/>
+      <br/>
+      <user-message></user-message>
+    </div>
+  </div>
+</div>
+<!-- footer 开始 -->
+<div class="footer footer_main">
+  <h5 class="copy_link"><a href="http://blog.appbk.com/about/" target="_blank">关于我们</a> <a href="http://blog.appbk.com/" target="_blank" >团队博客</a> 用户Q群:<a href="http://jq.qq.com/?_wv=1027&amp;k=KcLnh5" target="_blank">39351116</a></h5>
+  </h6>
+  Copyright © 2014-2015 应用宝库 版权所有　沪ICP备12031794号
+  </h6>
+</div>
+<!-- ./footer始 -->
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<script src="bower_components/hightcharts/highcharts.js"></script>
+<script src="bower_components/hightcharts/modules/exporting.js"></script>
+<script src="bower_components/highcharts-ng/dist/highcharts-ng.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+<script src="bower_components/ngStorage/ngStorage.min.js"></script>
+<script src="bower_components/ui-grid/ui-grid.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+
+<script src="scripts/app.js"></script>
+<script src="scripts/user_app.js"></script>
+<script src="scripts/services/services.js"></script>
+<script src="scripts/directives/directives.js"></script>
+<script src="scripts/controllers/rank_controllers.js"></script>
+<script src="scripts/controllers/user_app_controllers.js"></script>
+<script src="scripts/controllers/user_app_keyword_controllers.js"></script>
+<script src="scripts/controllers/user_controllers.js"></script>
+
+<!-- 百度统计 -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?a2e9c4b0a153cd0ef8cf9f65ca932e2f";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+</body>
+</html>
+

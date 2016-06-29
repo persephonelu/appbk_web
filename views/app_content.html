@@ -1,0 +1,120 @@
+       <br/>
+          <div class="searchResultList">
+        <table width="100%" border="0">
+          <tr>
+          <td width="9%" rowspan="2"><img ng-src="{{app_info.icon}}" width="72" height="72" class="sImg" alt="img"></td>
+          <td width="77%"><span class="sRTitle c3"> <a href="" target="_blank"> {{app_info.name}}</a></span> <span class="db sRBtn"> {{app_info.ori_classes}}</span></td>
+          </tr>
+          <tr> </tr>
+        </table>
+      </div>
+
+<h3 class="page-header">应用详情</h3>
+<div class="panel panel-default">
+  <div class="panel-heading">简介</div>
+  <div class="panel-body"> {{app_info.brief}} </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">当前版本</div>
+  <div class="panel-body"> <strong>版本：</strong><span>{{app_info.version}}</span><br/>
+    <strong>开发者：</strong><span>{{app_info.company}}</span><br/>
+    <strong>发布时间：</strong><span>{{app_info.update_time}}</span> </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">排名趋势</div>
+  <div class="panel-body">
+    <div id="trend" style="width:100%;height: 400px; margin: 0 auto"></div>
+  </div>
+</div>
+
+       <div class="panel panel-default">
+         <div class="panel-heading">数据挖掘信息</div>
+         <div class="panel-body">
+           <tabset>
+             <tab heading="搜索词覆盖">
+               <br/>
+               <h5>覆盖搜索词总数：<b>{{total_items}}</b></h5>
+               <br/>
+               <table class="table table-striped table-bordered">
+                 <tr>
+                   <th width="9%">序号</th>
+                   <th>关键词</th>
+                   <th> 搜索热度
+                     <a href="" title="搜索热度" data-container="body" data-toggle="popover"
+                        data-content="<b class='text-primary'>搜索热度</b>主要反映用户每天搜索该词的频率">
+                       <i class="fa fa-question-circle fa-lg fa-fw"></i></a>
+                   </th>
+                   <th>app排名</th>
+                   <th>搜索结果数</th>
+                   <th>第1名APP</th>
+                 </tr>
+                 <tr ng-repeat="word in app_keywords">
+                   <th>{{start+$index+1}}</th>
+                   <td><span class="c2">{{word.query}}</span></td>
+                   <td>{{word.rank}}</td>
+                   <td>{{word.pos}}</td>
+                   <td>{{word.num}}</td>
+                   <td><span class="c2">{{word.name}}</span></td>
+                 </tr>
+               </table>
+               <multi-message user="keywords_user"></multi-message>
+               <div >
+                 <pagination total-items="total_items" items-per-page="items_per_page" ng-model="current_page"
+                             max-size="5" ng-change="page_changed(current_page)"
+                             class="pagination-sm" boundary-links="true" rotate="true"
+                             first-text="首页" last-text="尾页" previous-text="前一页" next-text="后一页"></pagination>
+               </div>
+             </tab>
+             <tab heading="相关APP预测" ng-click="select_relate_app_tab()">
+               <!-- 推荐结果 -->
+               <table class="table table-striped table-bordered">
+                 <thead>
+                 <tr>
+                   <th width="9%">序号</th>
+                   <th>app</th>
+                   <th>类别</th>
+                   <th>下载量</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <tr ng-repeat="app in sys_recommend_apps">
+                   <th class="table_middle">{{$index+1}}</th>
+                   <td class="table_middle"><span class="c2"> <img ng-src="{{app.icon}}" class="img-rounded mr" alt="">
+              <a href="rank.html#/app_content/{{app.app_id}}" target="_blank">{{app.name}}</a></span></td>
+                   <td class="table_middle">{{app.ori_classes}}</td>
+                   <td class="table_middle">{{app.download_times}}</td>
+                 </tr>
+                 </tbody>
+               </table>
+               <multi-message user="app_recommend_user"></multi-message>
+             </tab>
+             <tab heading="用户同时下载的APP" ng-click="select_user_also_buy_app_tab()">
+               <table class="table table-striped table-bordered">
+                 <thead>
+                 <tr>
+                   <th width="9%">序号</th>
+                   <th>app</th>
+                   <th>类别</th>
+                   <th>下载量</th>
+                   <th>添加</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <tr ng-repeat="app in user_also_buy_apps">
+                   <th class="table_middle">{{$index+1}}</th>
+                   <td class="table_middle"><span class="c2"> <img ng-src="{{app.icon}}" class="img-rounded mr" alt="">
+               <a href="rank.html#/app_content/{{app.app_id}}" target="_blank">{{app.name}}</a></span></td>
+                   <td class="table_middle">{{app.ori_classes}}</td>
+                   <td class="table_middle">{{app.download_times}}</td>
+                   <td class="table_middle"><a href="" ng-click="add_compete_app_by_user_also_buy(app.app_id)">添加</a></td>
+                 </tr>
+                 </tbody>
+               </table>
+               <img ng-show="user_also_buy_app_show_wait" src="http://cdn.appbk.com/images/wait1.gif">
+               <multi-message user="buy_app_user"></multi-message>
+             </tab>
+           </tabset>
+         </div>
+       </div>

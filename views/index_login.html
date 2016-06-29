@@ -1,0 +1,42 @@
+
+
+<div class="c-content-box c-size-lg ">
+<div class="login">
+  <alert ng-show="alert" type="{{alert.type}}" style="padding: 5px; text-align: center; ">{{alert.msg}}</alert>
+
+  <div class="login-top">
+    <h1>登录</h1>
+    <form role="form"  method="post" ng-submit="login()">
+
+      <input type="text" type="email" value="email" placeholder="邮箱" ng-model="email" onfocus="this.value = '';" >
+
+      <input type="password" value="password" placeholder="密码" ng-model="password" onfocus="this.value = '';" >
+
+    <div class="forgot">
+      <a href="#password_find" style="text-decoration: none;">忘记密码？</a>
+
+      <input type="submit" value="确认" >
+    </div>
+    </form>
+
+    <div class="agreement" style="float: right; font-size: 14px">
+      <input type="checkbox"  checked="checked">
+      <label style="font-size: 10px">我同意并已阅读
+        <a href="#index_user_agreement"
+           target="_blank">
+          《APPBK网站服务协议》</a>
+      </label>
+    </div>
+
+  </div>
+  <div class="login-bottom">
+    <h3>没有帐号？现在 &nbsp;<a href="#index_register">注册</a></h3>
+    <!--<h3>忘记密码？现在 &nbsp;<a href="#index_register">重置</a></h3>-->
+
+    <br>
+    <h4>注：使用较低版本的IE(8.0及以下)可能会登录失败，建议使用Chrome或者IE9.0以上版本的浏览器</h4>
+
+  </div>
+  <user-message></user-message>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<h4 class="user-app-line-title">
+  <span></span>
+  竞品对比
+</h4>
+<div class="tab-content c-bordered c-padding-lg">
+  <div class="tab-pane active">
+
+    <!-- 推荐结果 -->
+    <table class="table table-border-gray table-bg">
+      <tr ng-repeat="app in sys_recommend_apps">
+        <th width="10%" class="table_middle table-middle-style "><img ng-src="{{app.icon}}" class="img-rounded mr app_info_icon" alt=""></th>
+        <td width="80%" class="table_middle ">
+          <span class=" hover-visited-blue">
+              <a href="#app_content/{{app.app_id}}" target="_blank">{{$index+1}}、{{app.name}}</a></span>
+        <p>  {{app.ori_classes}}</p>
+        </td>
+        <!--<td class="table_middle table-middle-style">{{app.ori_classes}}</td>-->
+        <td width="10%" class="table_middle table-middle-style ">
+          <a class="btn btn-default appbk-mobile-hide" href="/#/app_content_keyword_compare/{{app_id}}/{{app.app_id}}" target="_blank">关键词对比</a>
+          <a class="btn btn-default appbk-mobile-show" href="/#/app_content_keyword_compare/{{app_id}}/{{app.app_id}}" target="_blank">对比</a>
+
+        </td>
+      </tr>
+      <!--</tbody>-->
+    </table>
+    <multi-message user="app_recommend_user"></multi-message>
+
+
+  </div>
+</div>

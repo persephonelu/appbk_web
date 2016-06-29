@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>appbk 排行榜</title>
+    <meta name="description" content="appbk app排行榜，关键词排行榜，用标签排行榜">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="bower_components/sb-admin-2/css/sb-admin-2.css" />
+    <link rel="stylesheet" href="styles/style.css">
+
+  </head>
+  <body ng-app="rank" ng-controller="rank_controller">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div id="wrapper">
+      <!-- Navigation 头部导航-->
+      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+          <a href="index.html" class="db logo fl">logo</a>
+        </div>
+
+        <ul class="nav navbar-top-links navbar-left">
+          <li><a href="user_main.html">我的应用</a></li>
+          <li class="selected"><a href="#/">排行统计</a></li>
+          <li><a href="app_tools.html">app工具</a></li>
+        </ul>
+
+        <ul class="nav navbar-top-links navbar-right">
+
+          <li>
+          <a ng-show="user_not_login_show" href="login.html">登录</a>
+          </li>
+          <li>
+            <a ng-show="user_not_login_show" href="register.html">注册</a>
+          </li>
+
+          <li class="dropdown" ng-show="user_login_show">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="">{{user_info.nickname}} <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu dropdown-user">
+              <li><a href="" ng-click="logout()"> <i class="fa fa-sign-out fa-fw"></i>退出</a></li>
+            </ul>
+          </li>
+          <!-- /.dropdown -->
+          <li>
+            <a ng-show="user_not_login_show" href="">|</a>
+          </li>
+        </ul>
+
+        <!--   左侧导航栏 -->
+        <div class="navbar-default sidebar" role="navigation">
+          <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+              <li id="app"> <a href="#app_rank"><i class="fa fa-th-list fa-fw"></i>app排行榜</a> </li>
+              <li id="word"> <a href="#word_rank"><i class="fa fa-th-large fa-fw"></i>关键词排行榜</a> </li>
+              <li id="tag"> <a href="#tag_rank"><i class="fa fa-users fa-fw"></i>用户标签排行榜</a> </li>
+            </ul>
+          </div>
+          <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+
+      </nav>
+
+
+      <!-- Page Content -->
+      <div id="page-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <!-- 具体内容区域 -->
+              <div ng-view></div>
+
+            </div>
+            <!-- /.col-lg-12 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+
+    <div class="footer">
+      <div class="container">
+        <h5 class="copy_link"><a href="http://blog.appbk.com/about/" target="_blank">关于我们</a> <a href="http://blog.appbk.com/" target="_blank" >团队博客</a> 用户Q群:<a href="http://jq.qq.com/?_wv=1027&amp;k=KcLnh5" target="_blank">39351116</a></h5>
+        <h6>       Copyright © 2014-2015 应用宝库 版权所有　沪ICP备12031794号</h6>
+      </div>
+    </div>
+
+
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/ngStorage/ngStorage.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/hightcharts/highcharts.js"></script>
+
+
+
+
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/user_app.js"></script>
+    <script src="scripts/services/services.js"></script>
+    <script src="scripts/directives/directives.js"></script>
+    <script src="scripts/controllers/rank_controllers.js"></script>
+    <script src="scripts/controllers/user_app_controllers.js"></script>
+    <script src="scripts/controllers/user_app_keyword_controllers.js"></script>
+    <script src="scripts/controllers/user_controllers.js"></script>
+
+    <!-- 百度统计 -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?a2e9c4b0a153cd0ef8cf9f65ca932e2f";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+
+</body>
+</html>

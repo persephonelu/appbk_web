@@ -1,0 +1,193 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+
+        <h3 class="page-header">「{{name}}」搜索结果
+          <span class="h5 pull-right appbk-mobile-hide" >
+            当前搜索结果同步于苹果 App Store 数据。更新时间：{{update_time}}
+           </span>
+        </h3>
+
+        <div class="appbk-ui-select app_search-location">
+          <ul class="nav navbar-nav mobile-margin-zero">
+            <li class="dropdown btn-float-left">
+              <span class="navbar-brand">地区</span>
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <span class="name"> {{country_selected.name}}</span>
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu" data-paramname="device">
+                <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+
+                <li class="" ng-repeat="country in countrys">
+                  <a href="" data-param="地区" ng-click="select_country(country)">
+                    {{country.name}}</a>
+                </li>
+
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- 搜索热度和相关搜索词 -->
+        <table class="table table-bordered table-border-gray table-bg " >
+          <tbody>
+          <tr class="table-header-bg">
+            <th class="word table_middle table-middle-style">关键字</th>
+            <th class="hints table_middle table-middle-style">搜索热度
+              <span data-toggle="popover" title=""
+                    class="fa fa-question-circle fa-fw'"
+                    data-content="搜索热度：主要反映用户每天搜索该词的频率，苹果官方API数据，值在0到12000之间">
+
+              </span>
+            </th>
+            <th class="search-no table_middle table-middle-style">搜索结果数 <span data-toggle="popover" title="" class="fa fa-question-circle fa-fw'" data-content="搜索结果数：关键词在Appstore搜索时，得到的搜索结果的总数。"></span></th>
+            <th class="table_middle table-middle-style tips appbk-mobile-hide">搜索联想词 <span data-toggle="popover" title="" class="fa fa-question-circle fa-fw" data-content="搜索联想词：关键词在AppStore搜索时，搜索框的下拉推荐词"></span></th>
+          </tr>
+
+          <tr class="">
+            <td class="table_middle table-middle-style search-result-word-font">{{name}}</td>
+            <td class="table_middle table-middle-style search-result-word-font">
+              <!--disabled="{{country_selected.code == 'cn'}}"-->
+              <a class="hints" ng-show="country_selected.code == 'cn'" href="#word_rank_trend/{{name}}" target="_blank">{{word_rank}}</a>
+              <p ng-show="country_selected.code != 'cn'">{{word_rank}}</p>
+
+            </td>
+            <td class="table_middle table-middle-style search-result-word-font">{{total_items}}</td>
+            <td class="tips appbk-mobile-hide">
+
+              <a ng-show="word_suggestion[0]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[0].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[0].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[0].word}}</button></a>
+              <a ng-show="word_suggestion[1]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[1].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[1].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[1].word}}</button></a>
+              <a ng-show="word_suggestion[2]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[2].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[2].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[2].word}}</button></a>
+              <a ng-show="word_suggestion[3]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[3].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[3].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[3].word}}</button></a>
+              <a ng-show="word_suggestion[4]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[4].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[4].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[4].word}}</button></a>
+              <a ng-show="word_suggestion[5]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[5].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[5].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[5].word}}</button></a>
+              <a ng-show="word_suggestion[6]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[6].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[6].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[6].word}}</button></a>
+              <a ng-show="word_suggestion[7]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[7].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[7].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[7].word}}</button></a>
+              <a ng-show="word_suggestion[8]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[8].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[8].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[8].word}}</button></a>
+              <a ng-show="word_suggestion[9]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[9].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[9].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[9].word}}</button></a>
+              <a ng-show="word_suggestion[10]" data-toggle="popover" title=""
+                 href="#app_search/{{word_suggestion[10].word}}/{{country_selected.code}}"
+                 data-content="搜索热度:{{word_suggestion[10].rank}}">
+                <button class="btn btn-border-blue">{{word_suggestion[10].word}}</button></a>
+
+
+
+
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+
+        <br/>
+
+        <table class="table table-border-gray table-bg" ng-hide="app_select_country_show_wait">
+          <tbody>
+          <tr ng-repeat="app in app_search_results">
+            <!--<th class="table_middle table-middle-style">{{$index+1}}</th>-->
+            <td class="media-left media-middle table-middle-style" style="width:120px">
+              <a href="user_main.html#/app_content/{{app.app_id}}">
+              <img ng-src="{{app.icon}}" class="img-rounded mr app-icon-border app_info_icon" >
+              </a>
+            </td>
+            <td class="table_middle">
+
+              <h4 class="media-heading app_search_result">
+                {{$index+start+1}}、
+                <a ng-show="country_selected.code == 'cn'"  href="user_main.html#/app_content/{{app.app_id}}" target="_blank">{{app.name}}</a>
+                <span ng-show="country_selected.code != 'cn'" style="font-size: 16px;" target="_blank">{{app.name}}</span>
+
+              </h4>
+              <div style="color: #7d8691; font-size: 12px"><p>{{app.ori_classes}} &nbsp&nbsp&nbsp{{app.company}}</p></div>
+
+            </td>
+            <td class="table_middle table-middle-style appbk-mobile-hide">
+              <span ng-hide="app.my_app || country_selected.code != 'cn'" ng-click="add_user_app(app.app_id)" class="btn btn-default ng-hide"> +添加到我的应用 </span>
+              <span ng-hide="!app.my_app || country_selected.code != 'cn'" class="btn btn-default" disabled="disabled"> 已加到我的应用 </span>
+            </td>
+
+          </tr>
+          </tbody>
+        </table>
+
+        <h3 ng-if="app_search_results.length <= 0" style="text-align: center">该关键词下暂无APP</h3>
+
+        <label style="width: 100%; margin-bottom: 30px;text-align: center" ng-show="!app_search_show_wait && country_selected.code != 'cn'" >非中国区最多只显示8个结果</label>
+        <div class="sk-circle" ng-show='app_search_show_wait'>
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+        <api-search>
+          <div class="sk-circle" ng-show='api_search_wait'>
+            <div class="sk-circle1 sk-child"></div>
+            <div class="sk-circle2 sk-child"></div>
+            <div class="sk-circle3 sk-child"></div>
+            <div class="sk-circle4 sk-child"></div>
+            <div class="sk-circle5 sk-child"></div>
+            <div class="sk-circle6 sk-child"></div>
+            <div class="sk-circle7 sk-child"></div>
+            <div class="sk-circle8 sk-child"></div>
+            <div class="sk-circle9 sk-child"></div>
+            <div class="sk-circle10 sk-child"></div>
+            <div class="sk-circle11 sk-child"></div>
+            <div class="sk-circle12 sk-child"></div>
+          </div>
+        </api-search>
+
+        <div ng-show="total_items > limit && country_selected.code == 'cn'">
+          <!---->
+          <pagination total-items="total_items" items-per-page="items_per_page" ng-model="current_page"
+                      max-size="5" ng-change="page_changed()"
+                      class="pagination-sm" boundary-links="true" rotate="true"
+                      first-text="首页" last-text="尾页" previous-text="上一页" next-text="下一页"></pagination>
+        </div>
+
+      </div>
+  </div>
+</div>
+
+
+<script>
+  $("[data-toggle='popover']").popover({trigger:'click| hover',placement:'top',html:true});
+</script>

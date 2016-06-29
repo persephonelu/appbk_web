@@ -1,0 +1,49 @@
+
+<!--<h3 class="page-header">关键词拓展</h3>-->
+<div style="margin-right: 10px">
+<h4 class="user-app-line-title">
+    <span></span>
+    关键词拓展
+</h4>
+
+<div class="c-body" style="padding: 0px">
+    <div class="c-content-tab-1 c-theme c-margin-t-30">
+        <div class="clearfix">
+            <ul class="nav nav-tabs c-font-uppercase  nav-justified c-font-bold">
+                <li>
+                    <a href="#user_app_keyword_expand/{{app_info.app_id}}" data-toggle="tab"  data-target="#">步骤1：填写种子词</a>
+                </li>
+                <li>
+                    <a href="#user_app_keyword_expand2/{{app_info.app_id}}" data-toggle="tab"  data-target="#">步骤2：关键词拓展</a>
+                </li>
+                <li  class="active">
+                    <a href="#user_app_keyword_expand3/{{app_info.app_id}}" data-toggle="tab"  data-target="#">步骤3：整理输出</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<br/>
+<strong>小提示：</strong><br />
+<ul>
+    <li><span class="glyphicon glyphicon-hand-right mr1"></span>挑选整理拓展词后，可点击表格下的 "合并到现有关键词列表"按钮，与当前的app关键词合并;</li>
+    <!--<li><span class="glyphicon glyphicon-hand-right mr1"></span>可点击表格右上角，导出数据文件</li>-->
+</ul>
+
+<div class="appbk-ui-select appbk-mobile-hide" > 
+    <ul class="nav navbar-nav" style="float: right; margin-top: 15px;"> 
+        <span class="btn btn-default" style="" type="manage" ng-click="export_excel()">导出</span>
+    </ul>
+</div>
+
+<div style="margin-top: 40px;" ui-grid="final_word_grid"  ui-grid-auto-resize  ui-grid-exporter></div>
+<multi-message user="keyword_manage_user"></multi-message>
+<br/>
+<button class="btn btn-primary" ng-click="merge_expand_keywords()">合并到现有关键词列表</button>
+
+
+
+</div>

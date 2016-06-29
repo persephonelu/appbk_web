@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+<div class="col-md-12">
+
+  <h3 class="page-header">组词工具</h3>
+
+  <form role="form">
+    <div class="form-group">
+      <label>关键词(Keywords,中文或英文逗号隔开) , 长度：{{words.length}}</label>
+      <textarea class="form-control" rows="3" name="d" ng-model="words">{{words}}</textarea>
+    </div>
+    <button type="submit" class="btn  btn-default" ng-click="aso_get_combine_words(words)">组词</button>
+  </form>
+
+  <br/>
+  <li><span class="glyphicon glyphicon-hand-right mr1"></span>
+    组词就是如"腾讯新闻","百度新闻"，合并成"腾讯百度新闻",节省两个位置。</li>
+  <li><span class="glyphicon glyphicon-hand-right mr1"></span>
+    根据苹果规则，组词长度不宜过长，故我们最多组合5个词。 组词建议如下：</li>
+  <br/>
+  <div  ui-grid="word_grid"  ui-grid-auto-resize></div>
+
+  <br/>
+
+  <li><span class="glyphicon glyphicon-hand-right mr1"></span>建议组词结果(长度：{{combine_words.length}}/100)：</li>
+  <div class="form-group">
+    <textarea class="form-control" rows="3" name="d" ng-model="combine_words">{{combine_words}}</textarea>
+  </div>
+
+  <br/>
+
+  <li><span class="glyphicon glyphicon-hand-right mr1"></span>最大限度组词结果(尽量减少重复词)(长度：{{max_combine_words.length}}/100)：</li>
+  <div class="form-group">
+    <textarea class="form-control" rows="3" name="d" ng-model="max_combine_words">{{max_combine_words}}</textarea>
+  </div>
+
+
+</div>
+
+  </div>
+</div>

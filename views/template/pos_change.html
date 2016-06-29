@@ -1,0 +1,7 @@
+<!--展示排名变化的ui-grid的template，根据不同值，用ng-show展示不同的标记-->
+<div class='ui-grid-cell-contents'>
+  <span>{{row.entity.pos}}</span>
+  <span ng-show="row.entity.increase<0"><font color="#0cd0ad"><i class='fa fa-caret-down fa-fw'></i>{{row.entity.increase}}</font></span>
+  <span ng-show="row.entity.increase>0"><font color="#ff3333"><i class='fa fa-caret-up fa-fw'></i>{{row.entity.increase}}</font></span>
+  <span ng-show="row.entity.increase==0"><font color="#cccccc"><i class='fa fa-caret-right fa-fw'></i>{{row.entity.increase}}</font></span>
+</div>

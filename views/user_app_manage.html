@@ -1,0 +1,180 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" >
+      <h3 class="page-header">我的app管理 </h3>
+
+      <div style="margin-bottom: 20px">
+        <button class="btn btn-default" data-toggle="modal" data-target="#myModal">
+          添加App
+        </button>
+      </div>
+
+      <!-- app list panel -->
+      <div class="panel panel-default">
+        <table class="table table-bg " style="margin-bottom:0">
+
+          <tr ng-repeat="app in apps">
+            <td class="media-left media-middle table-middle-style" style="">
+              <img ng-src="{{app.icon}}" style="cursor: pointer" class="img-rounded mr app_info_icon" ng-click="go_app_info(app)">
+            </td>
+            <td class="table_middle">
+              <h4 class="media-heading app_search_result">
+                {{$index+1}}、
+                <a ng-click="go_app_info(app)" style="cursor: pointer">{{app.name}}</a>
+              </h4>
+              <div style="color: #7d8691; font-size: 12px"><p>{{app.ori_classes}} &nbsp&nbsp&nbsp{{app.company}}</p></div>
+
+            </td>
+
+            <td class="table_middle table-middle-style"><a href="" ng-click="del_user_app(app.app_id)" class="btn btn-default">删除</a></td>
+          </tr>
+        </table>
+
+        <div class="sk-circle" ng-show='user_app_show_wait'>
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog user-app-add-popup" >
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                  &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                  添加应用
+                </h4>
+              </div>
+              <div class="modal-body">
+
+                <ul class="nav nav-tabs">
+                  <li role="presentation" ng-class="{active:old_app_tab}" ><a href="" ng-click="old_app_tab_click()">已提交市场APP</a></li>
+                  <li role="presentation" ng-class="{active:new_app_tab}"><a href="" ng-click="new_app_tab_click()">未提交市场APP</a></li>
+                </ul>
+
+                <div class="tab-content">
+
+                  <!-- 已提交市场的app -->
+                  <div class="tab-pane" ng-class="{active:old_app_tab}" id="old_app"> <br/>
+                    <div class="row" id="form_area_1">
+                      <div class="col-lg-8">
+                        <form role="form" class="form-inline" ng-submit="search_app()">
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="q" ng-model="query" placeholder="搜索app名称或者app id" >
+                          </div>
+                          <button type="submit" class="btn btn-primary">搜索</button>
+                        </form>
+                      </div>
+                    </div>
+
+                    <!-- /#from_area -->
+                    </br>
+
+                    <!-- 搜索结果 -->
+                    <user-message></user-message>
+                    <table class="table table-border-gray table-bg">
+                      <!--<thead>-->
+                      <tr class="table-header-bg">
+                        <th width="9%" class="table-middle-style"></th>
+                        <th>app</th>
+                        <th class="table-middle-style">类别</th>
+                        <th class="table-middle-style">评论量</th>
+                        <th class="table-middle-style">添加</th>
+                      </tr>
+                      <!--</thead>-->
+                      <tbody>
+                      <tr ng-repeat="app in app_search_results">
+                        <th class="table_middle table-middle-style">{{$index+1}}</th>
+                        <td class="table_middle">
+                  <span class="c2">
+                    <img ng-src="{{app.icon}}" class="img-rounded mr" alt="">
+                  <a href="">{{app.name}}</a>
+                  </span>
+                        </td>
+                        <td class="table_middle table-middle-style">{{app.ori_classes}}</td>
+                        <td class="table_middle table-middle-style">{{app.user_comment_num}}</td>
+                        <td class="table_middle table-middle-style">
+                          <a ng-show="!app.is_my_app" href="" ng-click="add_user_app(app.app_id)">添加</a>
+                          <p ng-show="app.is_my_app" href="" aria-disabled="true">已添加</p>
+
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <api-search>
+                      <div class="sk-circle" ng-show='api_search_wait'>
+                        <div class="sk-circle1 sk-child"></div>
+                        <div class="sk-circle2 sk-child"></div>
+                        <div class="sk-circle3 sk-child"></div>
+                        <div class="sk-circle4 sk-child"></div>
+                        <div class="sk-circle5 sk-child"></div>
+                        <div class="sk-circle6 sk-child"></div>
+                        <div class="sk-circle7 sk-child"></div>
+                        <div class="sk-circle8 sk-child"></div>
+                        <div class="sk-circle9 sk-child"></div>
+                        <div class="sk-circle10 sk-child"></div>
+                        <div class="sk-circle11 sk-child"></div>
+                        <div class="sk-circle12 sk-child"></div>
+                      </div>
+                    </api-search>
+
+                  </div>
+                  <!-- /#old_app -->
+
+                  <!-- 未提交市场的app -->
+                  <div class="tab-pane" ng-class="{active:new_app_tab}" id="new_app"> <br/>
+                    <div class="row" id="form_area_2">
+                      <div class="col-lg-8">
+                        <form role="form" ng-submit="add_new_app()">
+                          <div class="form-group">
+                            <label for="name">应用名(name)</label>
+                            <input type="text" class="form-control" name="n" placeholder="" value="" ng-model="new_app_name">
+                          </div>
+                          <div class="form-group">
+                            <label for="description">描述(Description)</label>
+                            <textarea class="form-control" rows="10" name="d" ng-model="new_app_description"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="category">类别(Catetory)</label>
+                            <select class="form-control" name="c" ng-model="new_app_category">
+                              <option ng-repeat="category in categories">{{category.ori_classes}}</option>
+                            </select>
+                          </div>
+                          <button type="submit" class="btn btn-primary">添加</button>
+                        </form>
+                      </div>
+                    </div>
+                    <!-- /#from_area -->
+                  </div>
+                  <!-- /#new_app -->
+
+                </div>
+                <!-- /.tab-content -->
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default"
+                          data-dismiss="modal">关闭
+                  </button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

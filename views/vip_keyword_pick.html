@@ -1,0 +1,71 @@
+<div>
+    请登录
+</div>
+
+<div>
+    请添加到我的APP
+</div>
+
+<div>
+    该功能仅供VIP客户使用
+</div>
+
+<div>
+    该月VIP选词服务已使用
+</div>
+
+<div>
+    正在人工选词操作中，请耐心等待。
+</div>
+
+<div ng-show="keywork_pick_able">
+<container>
+    <div>
+        <h4 class="user-app-line-title">
+            <span></span>
+            当前版本关键词
+        </h4>
+
+
+
+        <form role="form" ng-submit="update_keyword()">
+            <div class="form-group">
+                <label>关键词(Keywords,中文或英文逗号隔开) , 长度：<span style="color: #0070cc">{{words.length}}</span>/100
+                    <span data-container='body' data-toggle="popover" id='appkeyword_length' class="fa fa-question-circle fa-fw'" data-content="关键词限制 100 字符以内，字母、数字、半角符号、全角符号均为 1 个字符。" data-original-title=""></span>
+                </label>
+                <textarea class="form-control" rows="3" name="d" ng-model="words">{{words}}</textarea>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="aso_check(name,words)">检测</button>
+        </form>
+
+
+    </div>
+
+    <div>
+        <h4 class="user-app-line-title">
+            <span></span>
+            竞品列表
+        </h4>
+
+    </div>
+
+    <div>
+        <h4 class="user-app-line-title">
+            <span></span>
+            希望删除的关键词
+        </h4>
+
+    </div>
+
+
+    <div>
+        <h4 class="user-app-line-title">
+            <span></span>
+            希望新增的关键词
+        </h4>
+
+    </div>
+
+
+</container>
+</div>

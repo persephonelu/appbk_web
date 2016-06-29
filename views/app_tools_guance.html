@@ -1,0 +1,416 @@
+
+<div class="container" >
+
+  <div class="row" >
+    <h3 class="" style="font-size: 32px; text-align: center; margin-top: 50px">App优化检测</h3>
+
+    <form class="col-md-10 col-md-offset-1" ng-submit="guance_app_search()" style="margin-top: 10px">
+      <div class="input-group input-lg" style="padding-bottom: 0px">
+        <input id="app-tools-check-input" type="text" ng-model="appname" placeholder="请输入要检测的APPID或者名称" ng-change="update()" class="form-control input-lg {{loadingStyle}} ">
+
+                  <span class="input-group-btn" >
+                      <button class="btn btn-primary" type="submit" style="height: 46px">开始检测</button>
+                  </span>
+
+      </div>
+      <!--<img ng-src="../images/ring.gif" style="background: red" class="sImg" alt="img">  -->
+
+      <ul class="" id="search-app" ng-hide="loading_suggest_apps || app_search_results.length <= 0">
+          <li ng-repeat="app in app_search_results" ng-click="guance_select_app(app.app_id,app.name)" style="cursor: pointer;  height: 37px;  padding: 3px; border-bottom: 1px solid #D5D5D5">
+          <span class="icon" style="margin: 5px;">
+          <img ng-src="{{app.icon}}" alt={{app.name}} style="width: 30px; height: 30px;float: left;border: 1px solid #D5D5D5; border-radius: 4px">
+            </span>
+            <span style="display: block;float: left;margin-left: 10px;margin-top: 4px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;width: 80% ;">{{app.name}}
+            </span>
+          </li>
+      </ul>
+
+    </form>
+  </div>
+
+
+  <div class="sk-circle" ng-show='get_app_guance_data_loading_show'>
+    <div class="sk-circle1 sk-child"></div>
+    <div class="sk-circle2 sk-child"></div>
+    <div class="sk-circle3 sk-child"></div>
+    <div class="sk-circle4 sk-child"></div>
+    <div class="sk-circle5 sk-child"></div>
+    <div class="sk-circle6 sk-child"></div>
+    <div class="sk-circle7 sk-child"></div>
+    <div class="sk-circle8 sk-child"></div>
+    <div class="sk-circle9 sk-child"></div>
+    <div class="sk-circle10 sk-child"></div>
+    <div class="sk-circle11 sk-child"></div>
+    <div class="sk-circle12 sk-child"></div>
+  </div>
+  <div class="row guance-circle" ng-show="app_guance_data != typeof(undefined)">
+    <!--<div class="row" style="margin-left: auto; margin-right: auto;text-align: center;">-->
+      <div id="circle" class="circle-position">
+        <div class="circle-text">
+          <strong ></strong>
+          <p>综合评分</p>
+        </div>
+      <!--</div>-->
+    </div>
+
+
+
+    <div class="col-md-12 guance-list-pc appbk-mobile-hide" style="padding: 30px">
+
+      <div >
+        <h4 class="result-title-small">ASO检测</h4>
+        <ul class="result-list">
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <!--ng-class="{true: 'color-green', false: 'color-red'}[word_num_good]-->
+              <span class="info-right-comment"  data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[word_num_color_tag]" >
+                  {{app_guance_data.aso.word_num}}</span>
+                比同类App关键词
+                <span class="color-blue">{{app_guance_data.aso.avg_word_num}}</span>
+                <span ng-if="word_num_color_tag">多 <span class="color-green">{{app_guance_data.aso.cmp_word_num}}</span></span>
+                <span ng-if="!word_num_color_tag">少 <span class="color-red">{{app_guance_data.aso.cmp_word_num}}</span></span>
+
+              </span>
+              <span class="info-left-comment">关键词覆盖数</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment"  data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[word_core_num_color_tag]" >
+                  {{app_guance_data.aso.word_core_num}}</span>
+                比同类App核心关键词
+                <span class="color-blue">{{app_guance_data.aso.avg_word_core_num}} </span>
+
+                <span ng-if="word_core_num_color_tag">多 <span class="color-green">{{app_guance_data.aso.cmp_word_core_num}}</span></span>
+                <span ng-if="!word_core_num_color_tag">少 <span class="color-red">{{app_guance_data.aso.cmp_word_core_num}}</span></span>
+
+              </span>
+              <span class="info-left-comment">核心关键词覆盖数</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment"  data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[word_top10_num_color_tag]" >
+                  {{app_guance_data.aso.word_top10_num}}</span>
+                比同类App TOP10关键词覆盖数 <span class="color-blue">
+                {{app_guance_data.aso.avg_word_top10_num}}</span>
+
+                <span ng-if="word_top10_num_color_tag">多 <span class="color-green">{{app_guance_data.aso.cmp_word_top10_num}}</span></span>
+                <span ng-if="!word_top10_num_color_tag">少 <span class="color-red">{{app_guance_data.aso.cmp_word_top10_num}}</span></span>
+
+              </span>
+              <span class="info-left-comment">TOP10关键词覆盖数</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment"  data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[word_top3_num_color_tag]" >
+                  {{app_guance_data.aso.word_top3_num}}</span>
+                比同类App TOP3关键词覆盖数<span class="color-blue"> {{app_guance_data.aso.avg_word_top3_num}}</span>
+
+                <span ng-if="word_top3_num_color_tag">多 <span class="color-green">{{app_guance_data.aso.cmp_word_top3_num}}</span></span>
+                <span ng-if="!word_top3_num_color_tag">少 <span class="color-red">{{app_guance_data.aso.cmp_word_top3_num}}</span></span>
+
+
+              </span>
+              <span class="info-left-comment">TOP3关键词覆盖数</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+
+
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment"  data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[title_length_color_tag]" >
+                  {{app_guance_data.aso.title_length}}</span>
+                比同类App标题长度<span class="color-blue"> {{app_guance_data.aso.avg_title_length}}</span>
+
+                <span ng-if="title_length_color_tag">长 <span class="color-green">{{app_guance_data.aso.cmp_title_length}}</span></span>
+                <span ng-if="!title_length_color_tag">短 <span class="color-red">{{app_guance_data.aso.cmp_title_length}}</span></span>
+
+
+              </span>
+              <span class="info-left-comment">标题长度</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment"  data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[expose_score_color_tag]" >
+                  {{app_guance_data.aso.expose_score}}</span>
+                比同类App别搜索曝光度<span class="color-blue"> {{app_guance_data.aso.avg_expose_score}}</span>
+
+                <span ng-if="expose_score_color_tag">高 <span class="color-green">{{app_guance_data.aso.cmp_expose_score}}</span></span>
+                <span ng-if="!expose_score_color_tag">低 <span class="color-red">{{app_guance_data.aso.cmp_expose_score}}</span></span>
+
+              </span>
+              <span class="info-left-comment">搜索曝光度</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+        <h4 class="result-title-small">APP评论</h4>
+        <ul class="result-list">
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment"  data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[recommend_num_color_tag]" >
+                  {{app_guance_data.recommend.recommend_num}}</span>
+                比同类App评论<span class="color-blue">{{app_guance_data.recommend.avg_recommend_num}}</span>份
+
+                <span ng-if="recommend_num_color_tag">多 <span class="color-green">{{app_guance_data.recommend.cmp_recommend_num}}</span></span>
+                <span ng-if="!recommend_num_color_tag">少 <span class="color-red">{{app_guance_data.recommend.cmp_recommend_num}}</span></span>
+
+              </span>
+              <span class="info-left-comment">最新版本评论数</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment"  data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[recommend_score_color_tag]" >
+                  {{app_guance_data.recommend.recommend_score}}</span>
+                比同类App评论得分<span class="color-blue">{{app_guance_data.recommend.avg_recommend_score}}</span>
+
+                <span ng-if="recommend_score_color_tag">高 <span class="color-green">{{app_guance_data.recommend.cmp_recommend_score}}</span></span>
+                <span ng-if="!recommend_score_color_tag">低 <span class="color-red">{{app_guance_data.recommend.cmp_recommend_score}}</span></span>
+
+              </span>
+              <span class="info-left-comment">最新版本评论得分</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="result-title-small">APP排名</h4>
+        <ul class="result-list">
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment"  data-type="cheat" >
+                {{app_guance_data.rank.sub_rank_category}}({{app_guance_data.rank.sub_rank_type}})榜：第<span class="color-blue">{{app_guance_data.rank.sub_rank}}</span>名 </span>
+              <span class="info-left-comment">榜单排名</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+
+        </ul>
+      </div>
+
+
+
+      <div>
+        <h4 class="result-title-small">APP基本信息</h4>
+        <ul class="result-list">
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment" data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[size_color_tag]" >
+                  {{app_guance_data.base_info.size}}</span>M
+                比同类App包<span class="color-blue">{{app_guance_data.base_info.avg_size}}</span>M
+
+                <span ng-if="size_color_tag">大<span class="color-green">{{app_guance_data.base_info.cmp_avg_size}}</span></span>
+                <span ng-if="!size_color_tag">小<span class="color-red">{{app_guance_data.base_info.cmp_avg_size}}</span></span>
+
+              </span>
+              <span class="info-left-comment">包大小</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment" data-type="cheat" >
+                <span ng-class="{true: 'color-green', false: 'color-red'}[update_freq_color_tag]" >
+                  {{app_guance_data.base_info.update_freq}}</span>天
+                比同类App更新频率<span class="color-blue">{{app_guance_data.base_info.avg_update_freq}}</span>天
+
+                <span ng-if="update_freq_color_tag">快 <span class="color-green">{{app_guance_data.base_info.cmp_update_freq}}</span></span>
+                <span ng-if="!update_freq_color_tag">慢 <span class="color-red">{{app_guance_data.base_info.cmp_update_freq}}</span></span>
+
+              </span>
+              <span class="info-left-comment">版本更新频率</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+          <li class="check-info-item">
+            <div class="info-line-upper">
+              <span class="info-right-comment" data-type="cheat" ><span class="color-blue">{{app_guance_data.base_info.update_time}}</span>天</span>
+              <span class="info-left-comment">最新版本距今时间</span>
+            </div>
+            <div class="info-line"></div>
+          </li>
+
+
+        </ul>
+      </div>
+
+    </div>
+
+    <!--移动端-->
+    <div class="col-md-12 guance-list-pc appbk-mobile-show" style="padding-left: 10px; padding-right: 10px">
+      <div class="app-base-info">
+
+        <h4 class="user-app-line-title">
+          <span></span>
+          ASO检测</h4>
+        <table class="base-info">
+          <tbody>
+          <tr>
+            <td class="name">检测项</td>
+            <td class="ng-binding">检测结果</td>
+            <td class="ng-binding">同类对比</td>
+
+          </tr>
+          <tr>
+            <td class="name">关键词覆盖数</td>
+            <td class="ng-binding">{{app_guance_data.aso.word_num}}</td>
+            <td class="ng-binding">{{app_guance_data.aso.avg_word_num}}</td>
+          </tr>
+          <tr>
+            <td class="name">核心关键词覆盖数</td>
+            <td class="ng-binding">{{app_guance_data.aso.word_core_num}}</td>
+            <td class="ng-binding">{{app_guance_data.aso.avg_word_core_num}}</td>
+
+          </tr>
+          <tr>
+            <td class="name">TOP10关键词覆盖数</td>
+            <td class="ng-binding">{{app_guance_data.aso.word_top10_num}}</td>
+            <td class="ng-binding">{{app_guance_data.aso.avg_word_top10_num}}</td>
+
+          </tr>
+
+          <tr>
+            <td class="name">TOP3关键词覆盖数</td>
+            <td class="ng-binding">{{app_guance_data.aso.word_top3_num}}</td>
+            <td class="ng-binding">{{app_guance_data.aso.avg_word_top3_num}}</td>
+
+          </tr>
+          <tr>
+            <td class="name">标题长度</td>
+            <td class="ng-binding">{{app_guance_data.aso.title_length}}</td>
+            <td class="ng-binding">{{app_guance_data.aso.avg_title_length}}</td>
+
+          </tr>
+          <tr>
+            <td class="name">搜索曝光度</td>
+            <td class="ng-binding">{{app_guance_data.aso.expose_score}}</td>
+            <td class="ng-binding">{{app_guance_data.aso.avg_expose_score}}</td>
+
+          </tr>
+          </tbody>
+        </table>
+
+        <h4 class="user-app-line-title">
+          <span></span>
+          APP评论</h4>
+        <table class="base-info">
+          <tbody>
+          <tr>
+            <td class="name">最新版本评论数</td>
+            <td class="ng-binding">{{app_guance_data.recommend.recommend_num}}</td>
+            <td class="ng-binding">{{app_guance_data.recommend.avg_recommend_num}}</td>
+          </tr>
+          <tr>
+            <td class="name">最新版本评论得分</td>
+            <td class="ng-binding">{{app_guance_data.recommend.recommend_score}}</td>
+            <td class="ng-binding">{{app_guance_data.recommend.avg_recommend_score}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <h4 class="user-app-line-title">
+          <span></span>
+          APP排名</h4>
+        <table class="base-info">
+          <tbody>
+          <tr>
+            <td class="name">榜单排名</td>
+            <td class="ng-binding">{{app_guance_data.rank.sub_rank_category}}({{app_guance_data.rank.sub_rank_type}})榜：第<span class="color-green">{{app_guance_data.rank.sub_rank}}</span>名 </span> </td>
+            <td class="ng-binding">-</td>
+          </tr>
+          </tbody>
+        </table>
+
+
+        <h4 class="user-app-line-title">
+          <span></span>
+          APP基本信息</h4>
+        <table class="base-info">
+          <tbody>
+          <tr>
+            <td class="name">包大小</td>
+            <td class="ng-binding">{{app_guance_data.base_info.size}}M</td>
+            <td class="ng-binding">{{app_guance_data.base_info.avg_size}}M</td>
+          </tr>
+          <tr>
+            <td class="name">版本更新频率</td>
+            <td class="ng-binding">{{app_guance_data.base_info.update_freq}}天</td>
+            <td class="ng-binding">{{app_guance_data.base_info.avg_update_freq}}天</td>
+          </tr>
+          <tr>
+            <td class="name">最新版本距今时间</td>
+            <td class="ng-binding"><span class="color-green">{{app_guance_data.base_info.update_time}}</span>天</td>
+            <td class="ng-binding">-</td>
+          </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="c-content-box c-size-md c-bg-white" style="padding-top: 60px !important;">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="c-content-feature-1">
+            <!--<div class="c-content-line-icon c-theme c-icon-screen-chart"></div>-->
+            <h3 class="c-font-uppercase c-font-bold">ASO优化</h3>
+            <p class="c-font-thin">AppBK提供国内及海外首屈一指的ASO标题及关键词选词、排名优化服务，让您的App排名持续提升，甚至一步登天；</p>
+            <!--[<a href="#app_rank">了解详情</a>]-->
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="c-content-feature-1">
+            <h3 class="c-font-uppercase c-font-bold">市场传播
+            </h3>
+            <p class="c-font-thin">AppBK组建的智囊团包括知名众创空间孵化器负责人、资深媒体人、大V，让市场传播更加专业、高效、瞬间引爆各大媒体和朋友圈</p>
+            <!--[<a href="#app_rank">了解详情</a>]-->
+
+          </div>
+        </div>
+        <div class="col-sm-4 c-card">
+          <div class="c-content-feature-1">
+            <h3 class="c-font-uppercase c-font-bold">视频制作</h3>
+            <p class="c-font-thin">腾讯开放平台、腾讯众创空间、腾讯广点通大客户视频提供商，提供产品宣传片、企业形象片、发布会视频的制作</p>
+            <!--[<a href="#app_rank">了解详情</a>]-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

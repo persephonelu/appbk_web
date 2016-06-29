@@ -1,0 +1,169 @@
+
+<div class="c-body" style="padding: 0px">
+
+  <div class="tab-content c-bordered c-padding-lg">
+    <div class="tab-pane active">
+
+
+<div class="row">
+      <div class="col-md-8 date-select-style" style="padding: 0">
+
+
+        <div class="appbk-ui-select">
+          <ul class="nav navbar-nav mobile-margin-zero">
+            <div class="dropdown mobile-margin-zero" style="float: left;">
+              <div class="date-select-title date-select-style-font">日期</div>
+              <input type="text" id="config-demo" class="form-control" style="margin-top: 0;cursor: pointer;width: 162px">
+              <!--<span class="caret"></span>-->
+
+              <!--<i class="caret" style=" margin-left: 180px;padding-top: 10px;"></i>-->
+            </div>
+          </ul>
+        </div>
+
+      </div>
+</div>
+
+
+
+      <h4 class="row user-app-line-title" style="margin-top: 5px">
+        <span></span>
+        评分统计
+      </h4>
+
+
+      <div class="sk-circle" ng-show='comment_state_loading_show'>
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+      </div>
+
+
+      <div class="row comment-info-box" ng-if='!comment_state_loading_show'>
+        <div class="col-md-6">
+          <div class="head">当前版本评分</div>
+          <div class="rating-box">
+            <ul class="rating-info">
+              <li>
+                <span class="name">总分</span>
+                <div class="reting">
+                  <p class="star" style="height: 12px;">
+                <span class="shadow" style="width:{{current_score_width}}%">
+                </span><i></i><i></i><i></i><i></i><i></i>
+                  </p>
+                </div>
+
+                <span>{{comment_stat.cur_version.avg.num}}份</span>
+              </li>
+
+              <li>
+                <span class="name">5星</span>
+                <span class="progress"><span class="shadow shadow-5" style="width:{{comment_stat.cur_version[5].percent}}"></span></span>
+                <span>{{comment_stat.cur_version[5].num}}份</span>
+              </li>
+              <li>
+                <span class="name">4星</span>
+                <span class="progress"><span class="shadow shadow-4" style="width:{{comment_stat.cur_version[4].percent}}"></span></span>
+                <span>{{comment_stat.cur_version[4].num}}份</span>
+              </li>
+              <li>
+                <span class="name">3星</span>
+                <span class="progress"><span class="shadow shadow-3" style="width:{{comment_stat.cur_version[3].percent}}"></span></span>
+                <span>{{comment_stat.cur_version[3].num}}</span>
+              </li>
+              <li>
+                <span class="name">2星</span>
+                <span class="progress"><span class="shadow shadow-2" style="width:{{comment_stat.cur_version[2].percent}}"></span></span>
+                <span>{{comment_stat.cur_version[2].num}}份</span>
+              </li>
+              <li>
+                <span class="name">1星</span>
+                <span class="progress"><span class="shadow shadow-1" style="width:{{comment_stat.cur_version[1].percent}}"></span></span>
+                <span>{{comment_stat.cur_version[1].num}}份</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="head">所有版本评分</div>
+          <div class="rating-box">
+            <ul class="rating-info">
+              <li>
+                <span class="name">总分</span>
+                <div class="reting">
+                  <p class="star" style="height: 12px;">
+                <span class="shadow" style="width:{{all_score_width}}%">
+                </span><i></i><i></i><i></i><i></i><i></i>
+                  </p>
+                </div>
+
+                <span>{{comment_stat.all_version.avg.num}}份</span>
+              </li>
+
+
+              <li>
+                <span class="name">5星</span>
+                <span class="progress"><span class="shadow shadow-5" style="width:{{comment_stat.all_version[5].percent}}"></span></span>
+                <span>{{comment_stat.all_version[5].num}}份</span>
+              </li>
+              <li>
+                <span class="name">4星</span>
+                <span class="progress"><span class="shadow shadow-4" style="width:{{comment_stat.all_version[4].percent}}"></span></span>
+                <span>{{comment_stat.all_version[4].num}}份</span>
+              </li>
+              <li>
+                <span class="name">3星</span>
+                <span class="progress"><span class="shadow shadow-3" style="width:{{comment_stat.all_version[3].percent}}"></span></span>
+                <span>{{comment_stat.all_version[3].num}}份</span>
+              </li>
+              <li>
+                <span class="name">2星</span>
+                <span class="progress"><span class="shadow shadow-2" style="width:{{comment_stat.all_version[2].percent}}"></span></span>
+                <span>{{comment_stat.all_version[2].num}}份</span>
+              </li>
+              <li>
+                <span class="name">1星</span>
+                <span class="progress"><span class="shadow shadow-1" style="width:{{comment_stat.all_version[1].percent}}"></span></span>
+                <span>{{comment_stat.all_version[1].num}}份</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <h4 class="user-app-line-title">
+        <span></span>
+        每日统计
+      </h4>
+      <!--<h5>评论数(最近版本)：<b>{{total_items}}</b></h5>-->
+      <!--<br/>-->
+      <div id="comment_trend" style="width:100%;height: 400px; margin: 0 auto">
+        <div class="sk-circle" ng-show='trend_loading_show'>
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+      </div>
+      <br/>
+    </div>
+  </div>
+</div>

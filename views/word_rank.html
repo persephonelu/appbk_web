@@ -1,0 +1,107 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <h3 class="page-header">App Store关键词热度排行榜 </h3>
+        <div class="row" id="form_area">
+
+          <div class="">
+
+            <div class="appbk-ui-select ">
+              <ul class="nav navbar-nav mobile-margin-zero">
+
+                <li class="dropdown btn-float-left">
+                  <span class="navbar-brand">类别选择</span>
+                  <a href="" class="dropdown-toggle device" data-toggle="dropdown" role="button" aria-expanded="false"><span class="">{{category_selected}}</span> <span class="caret"></span></a>
+
+                  <ul class="dropdown-menu category-select" role="menu" data-paramname="device">
+                    <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                    <li class="dropdown-submenu appbk-mobile-hide">
+                      <a tabindex="-1" href="javascript:;" ng-click="get_category_word_rank('游戏')">游戏</a> 
+                      <ul class="dropdown-menu cascade-menu" style="height: 478px;"> 
+                        <!--<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>-->
+                        <div style="margin-top: -22px">
+
+                        <li ng-repeat="game_category in game_categories">
+                          <a href="" ng-click="get_category_word_rank(game_category.ori_classes)">
+                            {{game_category.ori_classes}} </a></li> 
+                          </div>
+                      </ul> 
+                    </li>
+
+                    <li class="" ng-repeat="category in categories" >
+                      <a href="" ng-if="category.ori_classes != '游戏'" ng-click="get_category_word_rank(category.ori_classes)">
+                        {{category.ori_classes}}</a>
+
+                    </li>
+                  </ul>
+
+
+                </li>
+
+                <li class="btn-float-left word-rank-mobile-from" style="float: right;  width: 220px;  margin-left: 0;"> 
+                  <!--<span class="navbar-brand"></span>-->
+                  <form role="form" method="post" class="navbar-form navbar-right mobile-margin-zero" ng-submit="search_word()" style=" margin-top: 0"> 
+                    <div class="form-group">
+                      <div class="input-group"> 
+                        <input type="text" class="form-control" name="q" placeholder="搜索关键词..."  value="{{name}}" ng-model="name"> 
+
+                        <span class="input-group-btn">
+                             <button type="submit" class="btn btn-default add-custom-keyword-btn">搜索</button> 
+                            </span>
+                      </div>
+                    </div> 
+
+                  </form>
+
+                </li>
+
+
+
+
+
+              </ul>
+              <li class="" style="float: right ;padding-top: 2px;"> 
+                <span class="navbar-brand appbk-mobile-hide"> </span>
+                <a class="btn btn-default appbk-mobile-hide" type="manage" ng-click="export_excel()">导出排行榜</a>
+              </li>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <div ui-grid="word_grid" ui-grid-auto-resize ui-grid-exporter>
+        <div class="sk-circle" ng-show='loading_show'>
+          <div class="sk-circle1 sk-child"></div>
+          <div class="sk-circle2 sk-child"></div>
+          <div class="sk-circle3 sk-child"></div>
+          <div class="sk-circle4 sk-child"></div>
+          <div class="sk-circle5 sk-child"></div>
+          <div class="sk-circle6 sk-child"></div>
+          <div class="sk-circle7 sk-child"></div>
+          <div class="sk-circle8 sk-child"></div>
+          <div class="sk-circle9 sk-child"></div>
+          <div class="sk-circle10 sk-child"></div>
+          <div class="sk-circle11 sk-child"></div>
+          <div class="sk-circle12 sk-child"></div>
+        </div>
+        </div>
+        <br/>
+
+        <button ng-show="turn_page && max_page_num > 1" class="btn btn-primary" ng-click="load_more(current_page)">加载更多...({{current_page}}/{{max_page_num}})</button>
+
+        </br>
+        </br>
+
+      </div>
+    </div>
+</div>
+</div>
+
+
+<script>
+  $("#export_button_tip").popover({trigger:'click| hover',placement:'top',html:true});
+</script>
