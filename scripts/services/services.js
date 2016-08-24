@@ -8,12 +8,12 @@
 var test = false; //true,测试系统；false，正式系统，注意上线时调整
 if (test)
 {
-  var base_url = "http://git.appbk.com/"; //测试系统
+  var base_url = "http://git.aso7.com/"; //测试系统
   //var base_url = "http://appbk.aliapp.com/";
 }
 else
 {
-  var base_url = "http://rest.appbk.com/"; //正式系统
+  var base_url = "http://rest.aso7.com/"; //正式系统
   //var base_url = "http://appbk.aliapp.com/";
 }
 

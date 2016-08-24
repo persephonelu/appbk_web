@@ -1,4 +1,4 @@
-﻿/* 
+/* 
  Reorderable row plugin
 */
 

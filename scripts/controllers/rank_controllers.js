@@ -226,7 +226,7 @@ angular.module('rank')
         if ($scope.name == typeof("undefined")){
           return;
         }
-        $location.path("app_search/" + name + "/cn");
+        $location.path("app_search/" + name + "/us");
       }
 
       app_tools.get_appstore_hotwords_new().query(function(data) {
@@ -865,7 +865,7 @@ angular.module('rank')
   //app_rank的控制器 下架监控
   .controller('app_rank_offline_controller', function($scope, $http, $location,$routeParams,app)
   {
-    document.title = "App Store中国下架应用监控_AppBK.com";
+    document.title = "App Store美国下架应用监控_AppBK.com";
     $scope.limit = 100;
 
     //获得一级类别信息
@@ -947,7 +947,7 @@ angular.module('rank')
   //app_rank的控制器 上线监控
   .controller('app_rank_release_controller', function($scope, $http, $location,$routeParams,app)
   {
-    document.title = "App Store中国上线应用监控_AppBK.com";
+    document.title = "App Store美国上线应用监控_AppBK.com";
 
     $scope.rank_type_name = "免费榜单";
     $scope.rank_type = 'topfreeapplications';

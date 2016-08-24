@@ -13,9 +13,9 @@
 
             <form ng-submit="app_search()" style="margin-top: 10px">
               <div class="input-group input-lg">
-                <input type="text" ng-model="name" placeholder="应用名称或者APP ID..." class="form-control input-lg">
+                <input type="text" ng-model="name" placeholder="APP Name or APP ID..." class="form-control input-lg">
                   <span class="input-group-btn" >
-                      <button class="btn btn-primary" type="submit" style="height: 46px">搜索</button>
+                      <button class="btn btn-primary" type="submit" style="height: 46px">Search</button>
                   </span>
               </div>
             </form>
@@ -25,10 +25,10 @@
 
       <div class="col-md-8 col-md-offset-2">
         <p id="today_hotwords" class="pull-left" >
-          今日热搜:
+          Today Trending:
         <div class="today_hotwords_words">
         <span ng-repeat="hotword in hotwords">
-          <a style="color: white" class="btn appbk-padding-right-0" href="#app_search/{{hotword.word}}/cn" >{{hotword.word}}
+          <a style="color: white" class="btn appbk-padding-right-0" href="#app_search/{{hotword.word}}/us" >{{hotword.word}}
           </a> 
 
         </span>
@@ -48,14 +48,14 @@
           <div class="c-content-feature-1">
             <div class="c-content-line-icon c-theme c-icon-screen-chart" ></div>
             <h3 class="c-font-uppercase c-font-bold">关键词/ASO分析</h3>
-            <p class="c-font-thin">关键词覆盖、排名趋势查询。还有新词拓展、组词、ASO效果预估、效果监控等功能。ASO全面解决方案，ASOer首选工具。
+            <p class="c-font-thin">keywords coverage、ranking trends。还有新词拓展、组词、ASO效果预估、效果监控等功能。ASO全面解决方案，ASOer首选工具。
               <!--[<a href="#app_rank">立即体验</a>]-->
           </div>
         </div>
         <div class="col-sm-4">
           <div class="c-content-feature-1">
             <div class="c-content-line-icon c-theme c-icon-support"  ></div>
-            <h3 class="c-font-uppercase c-font-bold">TOP1500 实时排名
+            <h3 class="c-font-uppercase c-font-bold">TOP1500 real-time ranking
             </h3>
             <p class="c-font-thin">Appstore Top1500榜单实时查询，评论监控分析，热搜词监控。为您的App运营提供一流的数据保障。</p>
           </div>

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12" >
         <div class="row" >
-          <h3 class="page-header">App Store 中国{{category_selected}}{{rank_type_name}} Top1500  </h3>
+          <h3 class="page-header">App Store 美国{{category_selected}}{{rank_type_name}} Top1500  </h3>
           <div class="row" id="form_area">
             <div class="row">
 
@@ -17,7 +17,7 @@
                     <ul class="dropdown-menu btn-float-left category-select" role="menu" data-paramname="device">
                       <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                       <li class="dropdown-submenu appbk-mobile-hide">
-                        <a tabindex="-1" href="javascript:;" ng-click="get_category_app_rank('游戏')">游戏</a> 
+                        <a tabindex="-1" href="javascript:;" ng-click="get_category_app_rank('games')">游戏</a> 
                         <ul class="dropdown-menu cascade-menu" style="height: 478px;"> 
                           <!--<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>-->
                           <div style="margin-top: -22px">
@@ -30,7 +30,7 @@
                       </li>
 
                       <li class="" ng-repeat="category in categories">
-                        <a href="" ng-if="category.ori_classes != '游戏'" ng-click="get_category_app_rank(category.ori_classes)">
+                        <a href="" ng-if="category.ori_classes != 'games'" ng-click="get_category_app_rank(category.ori_classes)">
                           {{category.ori_classes}}</a>
                       </li>
                     </ul>
